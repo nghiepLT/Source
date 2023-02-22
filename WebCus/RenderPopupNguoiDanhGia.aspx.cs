@@ -17,7 +17,7 @@ namespace WebCus
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
         UserMng_DAC nDAC = new UserMng_DAC();
-        static UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null)
@@ -68,6 +68,7 @@ namespace WebCus
         }
         protected void btnSaveBanner_Click(object sender, EventArgs e)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             //Cập nhật status
             UngVien uv = blc_user.GetUngVienByID(this.IDNTD);
            
@@ -159,6 +160,7 @@ namespace WebCus
         [System.Web.Services.WebMethod]
         public static string changeemail(string email, Guid id,int type)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             string htmlContent = "";
             NhanVien nv = blc_user2.GetNhanVienByEmail(email);
             string path = "";

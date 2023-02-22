@@ -15,7 +15,7 @@ namespace WebCus
     public partial class Chedo_phucloi : System.Web.UI.Page
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
-        static UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+        
         UserMng_DAC nDAC = new UserMng_DAC();
         public int UserMemberID
         {
@@ -159,7 +159,8 @@ namespace WebCus
         }
         [WebMethod]
         public static string UDChedobaohiem(string name,int status)
-        { 
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name == "true")
             {
                 blc_user2.CapnhatStatusPhucloi(UserMemberIDStatic,status, 1);

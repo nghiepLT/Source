@@ -14,7 +14,7 @@ namespace WebCus
     public partial class Tomtatquytrinh : System.Web.UI.Page
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
-        static UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+        
         UserMng_DAC nDAC = new UserMng_DAC();
         public int UserMemberID
         {
@@ -204,7 +204,8 @@ namespace WebCus
         } 
         [WebMethod]
         public static string UDGiolamviec(string name)
-        { 
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name== "true")
             {
                 blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,1, 1);
@@ -218,6 +219,7 @@ namespace WebCus
         [WebMethod]
         public static string UDChamCong(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -232,6 +234,7 @@ namespace WebCus
         [WebMethod]
         public static string UDLamphep(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -247,6 +250,7 @@ namespace WebCus
         [WebMethod]
         public static string UDDirangoai(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -261,6 +265,7 @@ namespace WebCus
         [WebMethod]
         public static string UDTrangphuc(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -275,6 +280,7 @@ namespace WebCus
         [WebMethod]
         public static string UDSinhhoat(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -289,6 +295,7 @@ namespace WebCus
         [WebMethod]
         public static string UDTraodoi(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Alert.Show(UserMemberIDStatic.ToString());
             if (name == "true")
             {
@@ -303,6 +310,7 @@ namespace WebCus
         [WebMethod]
         public static string UDThoigian(string name)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name == "true")
             {
                 blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,8, 1);

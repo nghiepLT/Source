@@ -24,7 +24,7 @@ namespace WebCus
     public partial class TableYeyCauTuyenDung : System.Web.UI.Page
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
-       static  UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -535,6 +535,7 @@ namespace WebCus
         [System.Web.Services.WebMethod]
         public static int GetStatus(int IdYeuCau)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             var getStatus = blc_user2.GetYeuCauTD_ByID(IdYeuCau);
             blc_user2.Dispose();
             return getStatus.IsDone.HasValue? getStatus.IsDone.Value:0;

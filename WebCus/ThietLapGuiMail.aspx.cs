@@ -24,7 +24,7 @@ namespace WebCus
     public partial class ThietLapGuiMail : System.Web.UI.Page
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
-        public static UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -56,7 +56,7 @@ namespace WebCus
         }
         protected void chkview_CheckedChanged(object sender, EventArgs e)
         {
-
+             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             CheckBox cb = (CheckBox)sender;
             bool chk= cb.Checked;
             var id = int.Parse(cb.Attributes["CommandName"]);
@@ -70,8 +70,8 @@ namespace WebCus
         [System.Web.Services.WebMethod]
         public static string Autugetname(string key)
         {
-            
-           
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+
             string html = "";
             var listUser = blc_user2.GetListUser();
             foreach (var item in listUser)

@@ -23,7 +23,7 @@ namespace WebCus
     public partial class ThongTinUngVien : System.Web.UI.Page
     {
         UserMngOther_BLC blc_user = new UserMngOther_BLC();
-        static UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+        
         UserMng_DAC nDAC = new UserMng_DAC();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -964,7 +964,7 @@ namespace WebCus
             //string newPath =
             Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
             string newPath = HttpContext.Current.Server.MapPath("/Uploads/UngVien/" + path);
-
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             Microsoft.Office.Interop.Word.Document doc = app.Documents.Open(newPath);
             object missing = System.Reflection.Missing.Value;
             var aa = doc.Content.Text;
@@ -1796,6 +1796,7 @@ namespace WebCus
         [WebMethod]
         public static void NextPV(Guid id)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             blc_user2.CapNhatNextPV(id);
         }
 
@@ -1848,6 +1849,7 @@ namespace WebCus
         [System.Web.Services.WebMethod]
         public static bool UploadFileTMNV(string path, Guid id)
         {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             return blc_user2.ImportFileLog(id, path);
         }
     }
