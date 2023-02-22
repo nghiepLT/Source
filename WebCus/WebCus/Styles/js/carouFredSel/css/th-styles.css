@@ -1,0 +1,172 @@
+﻿.image_carousel
+{
+	position: relative
+}
+
+.logo_item
+{
+	width: 135px;
+	height: 80px;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	margin-right: 10px;
+	display: table;
+	overflow: hidden
+}
+
+.logo_item img
+{
+	display: block;
+	max-width: 135px;
+	max-height: 80px
+}
+
+.logo_item a
+{
+	display: table-cell;
+	vertical-align: middle
+}
+
+/*a.prev, a.next
+{
+	background: url('/Styles/vplsthanhbang/carouFredSel/images/miscellaneous_sprite.png') no-repeat transparent;
+	width: 45px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 85px;
+}*/
+
+.prev{
+   background: url("../images/controls_large.png") no-repeat 0 -32px;
+  height: 33px;
+   width: 33px;
+   display: block;
+   text-indent: -9999px;
+   position: absolute;
+   /*top: 180px;*/
+   top: 35px;
+}
+.next {
+   background: url("../images/controls_large.png") no-repeat -43px -32px;
+   height: 33px;
+   width: 33px;
+   display: block;
+   text-indent: -9999px;
+   position: absolute;
+   /*top: 180px;*/
+   top: 35px;
+}
+
+.prev { 
+   background-position: 0px 1px;
+   left: 10px;
+ }
+
+
+.next { 
+   background-position: -43px 2px;
+   right: 10px;
+}
+
+.next:hover {
+   background-position: -43px -32px;
+}
+
+.prev:hover {
+   background-position: 0px -32px;
+} 
+
+
+/*a.prev
+{
+	background: url('../images/icon_leftSlider.png') no-repeat transparent;
+	width: 12px;
+	height: 19px;
+	display: block;
+	position: absolute;
+	top: 43px;
+	left: 0;
+}*/
+a.prev:hover
+{
+	/*background: url('../images/arr_left_hv.png') no-repeat transparent;*/
+}
+a.prev.disabled
+{
+	/*background: url('../images/arr_left.png') no-repeat transparent;*/
+}
+/*a.next
+{
+	background: url('../images/icon_rightSlider.png') no-repeat transparent;
+	width: 12px;
+	height: 19px;
+	display: block;
+	position: absolute;
+	top: 43px;
+	right: 0;
+	/*right: -22px;
+	background-position: -50px 0;
+}*/
+a.next:hover
+{
+	/*background: url('../images/arr_right_hv.png') no-repeat transparent;*/
+}
+a.next.disabled
+{
+	/*background: url('../images/arr_right.png') no-repeat transparent;*/
+}
+
+a.prev.disabled, a.next.disabled
+{
+	cursor: default;
+}
+
+a.prev span, a.next span
+{
+	display: none;
+}
+.pagination
+{
+	text-align: center;
+}
+.pagination a
+{
+	background: url('/Styles/vplsthanhbang/carouFredSel/images/miscellaneous_sprite.png') 0 -300px no-repeat transparent;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px 0 0;
+	display: inline-block;
+}
+.pagination a.selected
+{
+	background-position: -25px -300px;
+	cursor: default;
+}
+.pagination a span
+{
+	display: none;
+}
+.clearfix{float:none;clear:both;}
+ul.clearfixul
+{
+    list-style:none;
+	
+}
+ul.clearfixul li
+{
+    width:300px !important;
+   
+}
+
+.caroufredsel_wrapper
+{
+	/*width: 272px !important;
+    height: 65px !important;
+    margin: 0 15px !important*/
+}
+@media (min-width:991px) 
+{
+    
+    }

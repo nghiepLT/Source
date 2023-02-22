@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="justintime_18_10_16" Class="MenuDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-JN7DHVP;Initial Catalog=justintime_18_10_16;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="justintime_18_10_16ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TMenu" Member="TMenus">
+    <Type Name="TMenu">
+      <Column Name="Menu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Map_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Require_Login" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Sort_Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Parent_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Alias_Url" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Reg_User" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Modify_User" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_5" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option_6" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Name_2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Name_3" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

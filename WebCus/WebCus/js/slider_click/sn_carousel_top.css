@@ -1,0 +1,54 @@
+﻿/*#sn_slidercroll
+{
+    width:850px;
+    height:72px;
+    overflow:hidden;
+}*/
+#sn_carousel_left
+{
+    height:490px;
+    overflow:hidden;
+    position:relative;
+}
+
+
+#sn_carousel_Top
+{
+    height:1000px;
+    position:relative;
+    margin: 0px;
+    padding: 0px;
+    text-align:center;
+}
+#sn_carousel_Top img
+{
+    width: 188px;
+    /**/
+    height:161px;
+    
+    overflow:hidden;
+}
+/**/
+#sn_carousel_right
+{
+    height:490px;
+    overflow:hidden;
+    position:relative;
+}
+
+#sn_carousel_Top_right
+{
+    height:1000px;
+    position:relative;
+    margin: 0px;
+    padding: 0px;
+    text-align:center;
+}
+#sn_carousel_Top_right img
+{
+    width: 188px;
+    /**/
+    height:161px;
+    
+    overflow:hidden;
+}

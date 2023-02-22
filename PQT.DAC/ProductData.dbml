@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="wifisaigon_19_7_16" Class="ProductDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-5BBOINK;Initial Catalog=wifisaigon_19_7_16;Persist Security Info=True;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="wifisaigon_19_7_16ConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TProductToDownload" Member="TProductToDownloads">
+    <Type Name="TProductToDownload">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DownloadID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TProduct_TProductToDownload" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductCategory" Member="TProductCategories">
+    <Type Name="TProductCategory">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="TProductCategory_TProductToCategory" Member="TProductToCategories" ThisKey="CategoryID" OtherKey="CategoryID" Type="TProductToCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductDiscount" Member="TProductDiscounts">
+    <Type Name="TProductDiscount">
+      <Column Name="ProductDiscountID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Association Name="TProduct_TProductDiscount" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductOption" Member="TProductOptions">
+    <Type Name="TProductOption">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TProductOption_TProductOptionValue" Member="TProductOptionValues" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOptionValue" />
+      <Association Name="TProductOption_TProductOptionDescription" Member="TProductOptionDescriptions" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOptionDescription" />
+      <Association Name="TProductOption_TProductOptionDescription2" Member="TProductOptionDescription2s" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOptionDescription2" />
+      <Association Name="TProduct_TProductOption" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductOptionValue" Member="TProductOptionValues">
+    <Type Name="TProductOptionValue">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Prefix" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TProductOption_TProductOptionValue" Member="TProductOption" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOption" IsForeignKey="true" />
+      <Association Name="TProduct_TProductOptionValue" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductRelated" Member="TProductRelateds">
+    <Type Name="TProductRelated">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RelatedID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TProduct_TProductRelated" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductSpecial" Member="TProductSpecials">
+    <Type Name="TProductSpecial">
+      <Column Name="ProductSpecialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="TProduct_TProductSpecial" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductToCategory" Member="TProductToCategories">
+    <Type Name="TProductToCategory">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TProductCategory_TProductToCategory" Member="TProductCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="TProductCategory" IsForeignKey="true" />
+      <Association Name="TProduct_TProductToCategory" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductOptionDescription" Member="TProductOptionDescriptions">
+    <Type Name="TProductOptionDescription">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="TProductOption_TProductOptionDescription" Member="TProductOption" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOption" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductOptionDescription" Member="TProductOptionDescription1s">
+    <Type Name="TProductOptionDescription1">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductOptionDescription" Member="TProductOptionDescription2s">
+    <Type Name="TProductOptionDescription2">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tmp4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="TProductOption_TProductOptionDescription2" Member="TProductOption" ThisKey="ProductOptionID" OtherKey="ProductOptionID" Type="TProductOption" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductDescription" Member="TProductDescriptions">
+    <Type Name="TProductDescription">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TProduct_TProductDescription" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProduct" Member="TProducts">
+    <Type Name="TProduct">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price_Text" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Price_Text_Bef" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="str1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str5" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str6" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str7" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="str8" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ProNew" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProSale" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TProduct_TProductToDownload" Member="TProductToDownloads" ThisKey="ProductID" OtherKey="ProductID" Type="TProductToDownload" />
+      <Association Name="TProduct_TProductDiscount" Member="TProductDiscounts" ThisKey="ProductID" OtherKey="ProductID" Type="TProductDiscount" />
+      <Association Name="TProduct_TProductOption" Member="TProductOptions" ThisKey="ProductID" OtherKey="ProductID" Type="TProductOption" />
+      <Association Name="TProduct_TProductOptionValue" Member="TProductOptionValues" ThisKey="ProductID" OtherKey="ProductID" Type="TProductOptionValue" />
+      <Association Name="TProduct_TProductRelated" Member="TProductRelateds" ThisKey="ProductID" OtherKey="ProductID" Type="TProductRelated" />
+      <Association Name="TProduct_TProductSpecial" Member="TProductSpecials" ThisKey="ProductID" OtherKey="ProductID" Type="TProductSpecial" />
+      <Association Name="TProduct_TProductToCategory" Member="TProductToCategories" ThisKey="ProductID" OtherKey="ProductID" Type="TProductToCategory" />
+      <Association Name="TProduct_TProductDescription" Member="TProductDescriptions" ThisKey="ProductID" OtherKey="ProductID" Type="TProductDescription" />
+      <Association Name="TProduct_TProductImage" Member="TProductImages" ThisKey="ProductID" OtherKey="ProductID" Type="TProductImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TOrderProduct" Member="TOrderProducts">
+    <Type Name="TOrderProduct">
+      <Column Name="OrderProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TOrder" Member="TOrders">
+    <Type Name="TOrder">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(96) NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentMethod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CouponID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductSize" Member="TProductSizes">
+    <Type Name="TProductSize">
+      <Column Name="SizeID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductSizeDescription" Member="TProductSizeDescriptions">
+    <Type Name="TProductSizeDescription">
+      <Column Name="SizeDesID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SizeID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SubContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TProductImage" Member="TProductImages">
+    <Type Name="TProductImage">
+      <Column Name="ProductImageID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TempID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameIMG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LinkIMG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TProduct_TProductImage" Member="TProduct" ThisKey="ProductID" OtherKey="ProductID" Type="TProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.p_TProduct_Count" Method="p_TProduct_Count">
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="p_TProduct_CountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToDownloadByProductID_Rows" Method="p_TProductToDownloadByProductID_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToDownloadByProductID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DownloadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProduct_Create" Method="p_TProduct_Create">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="strModel" Type="System.String" DbType="NVarChar(24)" />
+    <Parameter Name="strKeyword" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="intQuantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="longImage" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="intManufacturerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intShipping" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="intTaxClassID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateDateAvailable" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="decWeight" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="intWeightClassID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCurrencyID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCountView" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProduct_Delete" Method="p_TProduct_Delete">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProduct_Row" Method="p_TProduct_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProduct_RowResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProduct_Rows" Method="p_TProduct_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="p_TProduct_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SymbolRight" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProduct_Update" Method="p_TProduct_Update">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strModel" Type="System.String" DbType="NVarChar(24)" />
+    <Parameter Name="strKeyword" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="intQuantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="longImage" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="intManufacturerID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intShipping" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="intTaxClassID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateDateAvailable" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="decWeight" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="intWeightClassID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCurrencyID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCountView" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductByManufacturerID_Rows" Method="p_TProductByManufacturerID_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intManID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductByManufacturerID_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductByPosition_Rows" Method="p_TProductByPosition_Rows">
+    <Parameter Name="intStartIndex" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProCategoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductByPosition_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductByStockStatusIDCount" Method="p_TProductByStockStatusIDCount">
+    <Parameter Name="intStockID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductByStockStatusIDCountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductByTaxClassIDCount" Method="p_TProductByTaxClassIDCount">
+    <Parameter Name="intTaxClassID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductByTaxClassIDCountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductByWeightClassIDCount" Method="p_TProductByWeightClassIDCount">
+    <Parameter Name="intWeightClassID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductByWeightClassIDCountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategory_Create" Method="p_TProductCategory_Create">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="strKeyword" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="longImage" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="intParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategory_Delete" Method="p_TProductCategory_Delete">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategory_Row" Method="p_TProductCategory_Row">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategory_RowResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategory_Update" Method="p_TProductCategory_Update">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strKeyword" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="longImage" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="intParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategoryByKeyWord_Row" Method="p_TProductCategoryByKeyWord_Row">
+    <Parameter Name="strKeyWord" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategoryByKeyWord_RowResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategoryByParentID_Rows" Method="p_TProductCategoryByParentID_Rows">
+    <Parameter Name="intParentID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategoryByParentID_RowsResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescription_Create" Method="p_TProductCategoryDescription_Create">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="strMetaDescription" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="strDescription" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescription_Delete" Method="p_TProductCategoryDescription_Delete">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescription_Row" Method="p_TProductCategoryDescription_Row">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategoryDescription_RowResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescription_Rows" Method="p_TProductCategoryDescription_Rows">
+    <ElementType Name="p_TProductCategoryDescription_RowsResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescription_Update" Method="p_TProductCategoryDescription_Update">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="strMetaDescription" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="strDescription" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescriptionByCategoryID_Rows" Method="p_TProductCategoryDescriptionByCategoryID_Rows">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategoryDescriptionByCategoryID_RowsResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductCategoryDescriptionByLanguageID_Rows" Method="p_TProductCategoryDescriptionByLanguageID_Rows">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductCategoryDescriptionByLanguageID_RowsResult">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDescription_Create" Method="p_TProductDescription_Create">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="strMetaDescription" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="strDescription" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductDescription_Delete" Method="p_TProductDescription_Delete">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductDescription_Row" Method="p_TProductDescription_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductDescription_RowResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDescription_Rows" Method="p_TProductDescription_Rows">
+    <ElementType Name="p_TProductDescription_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDescription_Update" Method="p_TProductDescription_Update">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="strMetaDescription" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="strDescription" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductDescriptionByLanguageID_Rows" Method="p_TProductDescriptionByLanguageID_Rows">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductDescriptionByLanguageID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDescriptionByProductID_Rows" Method="p_TProductDescriptionByProductID_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductDescriptionByProductID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MetaDescription" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDiscount_Create" Method="p_TProductDiscount_Create">
+    <Parameter Name="intProductDiscountID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intQuantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decDiscount" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductDiscount_Delete" Method="p_TProductDiscount_Delete">
+    <Parameter Name="intProductDiscountID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductDiscount_Row" Method="p_TProductDiscount_Row">
+    <Parameter Name="intProductDiscountID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductDiscount_RowResult">
+      <Column Name="ProductDiscountID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDiscount_Rows" Method="p_TProductDiscount_Rows">
+    <ElementType Name="p_TProductDiscount_RowsResult">
+      <Column Name="ProductDiscountID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductDiscount_Update" Method="p_TProductDiscount_Update">
+    <Parameter Name="intProductDiscountID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intQuantity" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decDiscount" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductImage_Create" Method="p_TProductImage_Create">
+    <Parameter Name="longProductImageID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductImage_Delete" Method="p_TProductImage_Delete">
+    <Parameter Name="longProductImageID" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductImage_Row" Method="p_TProductImage_Row">
+    <Parameter Name="longProductImageID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="p_TProductImage_RowResult">
+      <Column Name="ProductImageID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductImage_Rows" Method="p_TProductImage_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductImage_RowsResult">
+      <Column Name="ProductImageID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOption_Create" Method="p_TProductOption_Create">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOption_Delete" Method="p_TProductOption_Delete">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOption_Row" Method="p_TProductOption_Row">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOption_RowResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOption_Rows" Method="p_TProductOption_Rows">
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="itnProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOption_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOption_Update" Method="p_TProductOption_Update">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionByProductID_Row" Method="p_TProductOptionByProductID_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionByProductID_RowResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescription_Create" Method="p_TProductOptionDescription_Create">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescription_Delete" Method="p_TProductOptionDescription_Delete">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescription_Row" Method="p_TProductOptionDescription_Row">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionDescription_RowResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescription_Rows" Method="p_TProductOptionDescription_Rows">
+    <ElementType Name="p_TProductOptionDescription_RowsResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescription_Update" Method="p_TProductOptionDescription_Update">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescriptionByLanguageID_Rows" Method="p_TProductOptionDescriptionByLanguageID_Rows">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionDescriptionByLanguageID_RowsResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescriptionByProductID_Rows" Method="p_TProductOptionDescriptionByProductID_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionDescriptionByProductID_RowsResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescriptionByProductOptionID_Row" Method="p_TProductOptionDescriptionByProductOptionID_Row">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionDescriptionByProductOptionID_RowResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionDescriptionByProductOptionID_Rows" Method="p_TProductOptionDescriptionByProductOptionID_Rows">
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionDescriptionByProductOptionID_RowsResult">
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValue_Create" Method="p_TProductOptionValue_Create">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="strPrefix" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValue_Delete" Method="p_TProductOptionValue_Delete">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValue_Row" Method="p_TProductOptionValue_Row">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionValue_RowResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Prefix" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValue_Rows" Method="p_TProductOptionValue_Rows">
+    <ElementType Name="p_TProductOptionValue_RowsResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductOptionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Prefix" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValue_Update" Method="p_TProductOptionValue_Update">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductOptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="strPrefix" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="intSortOrder" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescription_Create" Method="p_TProductOptionValueDescription_Create">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescription_Delete" Method="p_TProductOptionValueDescription_Delete">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescription_Row" Method="p_TProductOptionValueDescription_Row">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionValueDescription_RowResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescription_Rows" Method="p_TProductOptionValueDescription_Rows">
+    <ElementType Name="p_TProductOptionValueDescription_RowsResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescription_Update" Method="p_TProductOptionValueDescription_Update">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(255)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescriptionByLanguageID_Rows" Method="p_TProductOptionValueDescriptionByLanguageID_Rows">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionValueDescriptionByLanguageID_RowsResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductOptionValueDescriptionByProductOptionValueID_Rows" Method="p_TProductOptionValueDescriptionByProductOptionValueID_Rows">
+    <Parameter Name="intProductOptionValueID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductOptionValueDescriptionByProductOptionValueID_RowsResult">
+      <Column Name="ProductOptionValueID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductRelated_Create" Method="p_TProductRelated_Create">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRelatedID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductRelated_Delete" Method="p_TProductRelated_Delete">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRelatedID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductRelated_Row" Method="p_TProductRelated_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intRelatedID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductRelated_RowResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductRelated_Rows" Method="p_TProductRelated_Rows">
+    <ElementType Name="p_TProductRelated_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductRelatedByProductID_Rows" Method="p_TProductRelatedByProductID_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductRelatedByProductID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductRelatedByRelatedID_Rows" Method="p_TProductRelatedByRelatedID_Rows">
+    <Parameter Name="intRelatedID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductRelatedByRelatedID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RelatedID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductSpecial_Create" Method="p_TProductSpecial_Create">
+    <Parameter Name="intProductSpecialID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="dateStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateEndDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductSpecial_Delete" Method="p_TProductSpecial_Delete">
+    <Parameter Name="intProductSpecialID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductSpecial_Row" Method="p_TProductSpecial_Row">
+    <Parameter Name="intProductSpecialID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductSpecial_RowResult">
+      <Column Name="ProductSpecialID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductSpecial_Rows" Method="p_TProductSpecial_Rows">
+    <ElementType Name="p_TProductSpecial_RowsResult">
+      <Column Name="ProductSpecialID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductSpecial_Update" Method="p_TProductSpecial_Update">
+    <Parameter Name="intProductSpecialID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="decPrice" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="dateStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateEndDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductStatistic_Rows" Method="p_TProductStatistic_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="intCategory" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductStatistic_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shipping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAvailable" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WeightClassID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToCategory_Create" Method="p_TProductToCategory_Create">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductToCategory_Delete" Method="p_TProductToCategory_Delete">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductToCategory_Row" Method="p_TProductToCategory_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToCategory_RowResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToCategory_Rows" Method="p_TProductToCategory_Rows">
+    <ElementType Name="p_TProductToCategory_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToCategoryByCategoryID_Count" Method="p_TProductToCategoryByCategoryID_Count">
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToCategoryByCategoryID_CountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToCategoryByCategoryID_Rows" Method="p_TProductToCategoryByCategoryID_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intCategoryID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToCategoryByCategoryID_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(15,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Model" Type="System.String" DbType="NVarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToCategoryByProductID_Rows" Method="p_TProductToCategoryByProductID_Rows">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToCategoryByProductID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToDownload_Create" Method="p_TProductToDownload_Create">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDownloadID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductToDownload_Delete" Method="p_TProductToDownload_Delete">
+    <Parameter Name="intDownloadID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TProductToDownload_Row" Method="p_TProductToDownload_Row">
+    <Parameter Name="intProductID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intDownloadID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToDownload_RowResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DownloadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToDownload_Rows" Method="p_TProductToDownload_Rows">
+    <ElementType Name="p_TProductToDownload_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DownloadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TProductToDownloadByDownloadID_Rows" Method="p_TProductToDownloadByDownloadID_Rows">
+    <Parameter Name="intDownloadID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TProductToDownloadByDownloadID_RowsResult">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DownloadID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TStockStatusByStockStatusID_Rows" Method="p_TStockStatusByStockStatusID_Rows">
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TStockStatusByStockStatusID_RowsResult">
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TStockStatus_Create" Method="p_TStockStatus_Create">
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TStockStatus_Delete" Method="p_TStockStatus_Delete">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TStockStatus_Row" Method="p_TStockStatus_Row">
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TStockStatus_RowResult">
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="LangName" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TStockStatus_Rows" Method="p_TStockStatus_Rows">
+    <ElementType Name="p_TStockStatus_RowsResult">
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="LangName" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TStockStatus_Update" Method="p_TStockStatus_Update">
+    <Parameter Name="intStockStatusID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strName" Type="System.String" DbType="NVarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.p_TStockStatusByLanguageID_Rows" Method="p_TStockStatusByLanguageID_Rows">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TStockStatusByLanguageID_RowsResult">
+      <Column Name="StockStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

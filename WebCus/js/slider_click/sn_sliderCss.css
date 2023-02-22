@@ -1,0 +1,239 @@
+﻿.sn_sliderbox
+{   
+    width:970px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    height:100px;
+}
+#sn_carousel_inner {
+/*width:250px;*/
+overflow: hidden;
+position:relative;
+/*height:174px;*/
+}
+
+#sn_carousel_ul {
+position:relative;
+left:0px; 
+list-style-type: none; 
+margin: 0px;
+padding: 0px;
+height:99999px;
+}
+/*2*/
+#sn_carousel_inner02 {
+overflow: hidden;
+position:relative;
+height:530px;
+}
+
+#sn_carousel_ul02 {
+position:relative;
+left:0px; 
+margin: 0px;
+padding: 0px;
+height:99999px;
+}
+/*3*/
+#sn_carousel_inner3 {
+/*width:250px;*/
+overflow: hidden;
+position:relative;
+/*height:174px;*/
+}
+
+#sn_carousel_ul3 {
+position:relative;
+left:0px; 
+list-style-type: none; 
+margin: 0px;
+padding: 0px;
+height:99999px;
+}
+/**/
+#sn_carousel_ul li{
+    float: left; 
+    padding:0px;
+    width: 175px;
+    overflow:hidden;
+    margin:10px;
+    text-align:center;
+}
+#sn_carousel_ul li img
+{
+    width:175px !important;
+    height:100px !important;
+}
+#sn_carousel_ul li .linkbottom
+{
+    text-align:left;
+}
+#sn_carousel_ul li .linkbottom a
+{
+    color:#393939;
+}
+#sn_carousel_ul li .sn_carouselImg
+{
+    width:40px;height:40px;
+    text-align:center;
+}
+
+#sn_left_scroll, #sn_right_scroll
+{
+    top:27%;
+    width:20px;
+    height:41px;
+    text-align:center;
+    z-index:2000;
+    position:absolute;
+}
+/*#sn_carousel_inner:hover #sn_left_scroll, #sn_carousel_inner:hover #sn_right_scroll
+{
+    display:block;
+}*/
+#sn_left_scroll
+{
+    /*left: -10px;
+    background: url('../../Styles/Images/all_icon.png') no-repeat -5px -28px;*/
+    cursor: pointer;
+    background: url('left_clickSlider.png') no-repeat left center;
+    left:0;
+}
+#sn_right_scroll
+{
+    /*right:-12px;
+    background: url('../../Styles/Images/all_icon.png') no-repeat -31px -28px;*/
+    background: url('right_clickSlider.png') no-repeat right center;
+    cursor: pointer;
+    right:0;
+}
+#sn_left_scroll img, #sn_right_scroll img{
+cursor: pointer;
+cursor: hand;
+}
+/* left - right */
+#sn_carousel_Left {
+overflow: hidden;
+position:relative;
+width:963px;
+margin:0 auto;
+}
+
+#sn_carousel_left_ul {
+position:relative;
+left:0px; 
+list-style-type: none; 
+margin: 0px;
+padding: 0px;
+width:99999px;
+}
+#sn_carousel_left_ul .sn_Item
+{
+    float:left;width:175px;height:235px;
+    position:relative;
+    margin:0 4px 0 12px;
+}
+
+#sn_left_Pro_scroll img, #sn_right_Pro_scroll img{
+cursor: pointer;
+cursor: hand;
+}
+/**/
+#sn_comment
+{
+    width:100%;
+    overflow: hidden;
+    position:relative;
+    height:183px;
+}
+#sn_coment_ul
+{
+    position:relative;
+    left:0px; 
+    list-style-type: none; 
+    margin: 0px;
+    padding: 0px;
+    height:99999px;
+}
+#sn_coment_ul li{
+ /*   float: left; */
+    padding:0px;
+    /*width: 122px;*/
+    overflow:hidden;
+    margin-bottom:10px;
+    height:183px;
+}
+/*logo doi tac*/
+#sn_logo_inner {
+width:9999px;
+overflow: hidden;
+position:relative;
+margin:0 auto;display:inline-block;
+vertical-align:middle;
+height:72px;
+/*height:174px;*/
+}
+#sn_logo_ul {
+    position:relative;
+    left:0px; 
+    list-style-type: none; 
+    margin: 0px;
+    padding: 0px;
+    width:9999999px;
+}
+#sn_logo_ul li{
+    float: left; 
+    padding:0px;
+    width: 130px;
+    height:70px;
+    border:1px solid #ccc;
+    overflow:hidden;
+    margin:0 5px;
+    text-align:center;
+}
+#sn_logo_ul li img
+{
+    max-width:130px;
+    
+    /*height:70px !important;*/
+}
+
+#btn_click_logo_left, #btn_click_logo_right
+{
+    width:17px;
+    height:66px;
+    /*text-align:center;
+    z-index:2000;
+    position:absolute;*/
+    display:inline-block;vertical-align:middle;
+}
+
+#btn_click_logo_left
+{
+    cursor: pointer;
+    background: url('icon_leftSlider.png') no-repeat left center;
+    left:0;
+}
+#btn_click_logo_right
+{
+    background: url('icon_rightSlider.png') no-repeat right center;
+    cursor: pointer;
+    right:0;
+}
+/*slider left*/
+#box_slider_left
+{
+    position:relative;
+    margin: 0px auto;
+    padding: 0px;
+    height:405px;overflow:hidden;
+}
+#sn_box_inner_list_left {
+    position:relative;
+    left:0px; 
+    list-style-type: none; 
+    margin: 0px;
+    padding: 0px;
+    height:9999999px;
+}

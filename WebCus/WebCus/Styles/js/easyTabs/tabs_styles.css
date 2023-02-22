@@ -1,0 +1,64 @@
+﻿.tabs
+{
+    padding-bottom: 1px;
+    border-bottom: 1px solid #3879D9;
+    list-style:none;
+}
+
+
+
+.tabs li
+{
+    float: left;
+    margin-right: 2px;
+}
+
+.tabs li a
+{
+    display: block;
+    color: #FFF;
+    background: #3879D9;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0 10px;
+    min-width: 100px;
+}
+
+.tabs li a.active
+{
+    color: Red;
+    padding: 0 10px;
+    background: #F5FE01
+}
+
+.tab_content
+{
+}
+.tab-container div.tab_content{display:none; margin-left:10px;}
+.tab-container div.active
+{
+    display:block;
+    margin-left:20px;
+    overflow:auto;
+}
+.tab_content ul li{ 
+   list-style-type: disc; 
+   list-style-position: inside; 
+  
+}
+.tab_content  ol li { 
+   list-style-type: decimal; 
+   list-style-position: inside; 
+}
+.tab_content ul ul li,.tab_content ol ul li{ 
+   list-style-type: circle; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}
+.tab_content ol ol li,.tab_content ul ol li{ 
+   list-style-type: lower-latin; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}

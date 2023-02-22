@@ -1,0 +1,64 @@
+
+ul#menu, ul#menu ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-size: 1.0em;
+}
+
+ul#menu a
+{
+    display: block;
+    text-decoration: none;
+    color: #005399;
+    cursor: pointer;
+}
+
+ul#menu li
+{
+    -moz-box-shadow: 0 1px 0 #EFF3F6;
+    border-bottom: 1px dotted #C6C6C6;
+    margin-bottom: 3px;
+    margin-top: 0;
+    padding-bottom: 3px;
+    background: url("images/common/icon-arrow-grey-8x8.gif") no-repeat scroll 2px 0.5em transparent;
+    padding-left: 20px;
+    font-family: Arial;
+    font-size: 1.07em;
+    text-shadow: #4082AE 1px 1px 1px;
+}
+
+ul#menu li a
+{
+    /*background: #394248;   color: #fff;	   padding: 0.5em;*/
+    outline:none;
+}
+
+ul#menu li a:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}
+ul#menu li ul 
+{
+    margin-top:3px;
+}
+ul#menu li ul li
+{
+    padding-left:15px !important;
+    font-size:9pt;
+    border-bottom: 0px dotted #C6C6C6;
+    -moz-box-shadow: 0 0px 0 #EFF3F6;
+}
+ul#menu li ul li a
+{
+    outline:none;
+    color:#101010;
+}
+
+ul#menu li ul li a:hover
+{
+    /*  background: #aaa;   border-left: 5px #000 solid;   padding-left: 15px;*/
+}

@@ -1,0 +1,189 @@
+﻿
+/************************************************************************************************************
+    Tjenesteområder
+*************************************************************************************************************/		
+
+#LeftContent #SubMenu a
+{
+    display:block;
+	color:#000;
+	text-decoration:none;
+	padding-left:30px;
+	line-height:23px;
+	font-size:12pt;
+}
+
+
+#LeftContent #SubMenu a:hover,#LeftContent #SubMenu a:active,#LeftContent #SubMenu a.Current,#LeftContent #SubMenu li ul,#LeftContent #SubMenu li ul li
+{
+    background-color:#DBEBFD;
+}
+
+#LeftContent #SubMenu li.Current a,#LeftContent #SubMenu li.Current ul li.Current a
+{
+    font-weight:bold;   
+    background-color:#DBEBFD;
+}
+
+#LeftContent #SubMenu li.Current ul li a
+{
+    font-weight:normal;
+}
+
+#LeftContent #SubMenu li ul li a
+{
+    padding-left:40px;
+}
+
+#LeftContent #SubMenu li ul a:hover
+{
+    background:#fff;
+}
+
+
+
+#MainContent h1.Title1
+{
+	text-transform:uppercase;
+	color:#666666;
+	margin-bottom:15px;
+	margin-top:8px;
+	font-size:12px;
+	padding:10px 0;
+}
+
+#MainContent .PublisherItems
+{
+    margin-bottom:20px;
+    color:#000;   
+}
+
+#MainContent .PublisherItems a
+{
+    color:#336699;   
+	font-weight:bold;    
+}
+
+#MainContent .PublisherItems p
+{
+    font-weight:bold;
+}
+
+#MainContent ul.contentNews
+{
+    width:99%;
+}
+
+#MainContent ul.contentNews li
+{
+    float:left;
+    width:100%;
+}
+
+#MainContent ul.contentNews li._title
+{
+    color:#8F8F8F;
+    font-weight:bold;
+    border-top:#b7b7b7 solid 1px;
+    border-bottom:none;
+    background:url(images/main_mnu_bg.jpg) repeat-x left top;   
+    line-height:25px;
+}
+
+#MainContent ul.contentNews li._title label,#MainContent ul.contentNews li div
+{
+    width:85%;
+    float:left;
+}
+
+#MainContent ul.contentNews li._title span,#MainContent ul.contentNews li span
+{
+    width:12%;
+    float:right;
+}
+
+#MainContent ul.contentNews li
+{
+    border-bottom:#b7b7b7 solid 1px;   
+    padding-left:5px;
+}
+
+#MainContent .pages
+{
+}
+
+#MainContent .pages .prev
+{
+   float:left;
+}
+
+#MainContent .pages .next
+{
+    float:right;
+}
+
+#MainContent .contactArticles
+{
+}
+
+#MainContent .contactArticles div
+{
+    width:31%;
+    float:left;
+}
+
+#MainContent .mainMenu
+{
+    width:53%;
+    float:left;
+}
+
+#MainContent .tools
+{
+    width:45%;
+    float:left;
+}
+
+#MainContent .mainMenu h2,#MainContent .tools h2
+{
+    font-size:14px;
+    color:#8f8f8f;
+}
+
+#MainContent .mainMenu ul.margin20
+{
+    margin-bottom:20px;   
+}
+
+#MainContent .mainMenu ul li,#MainContent .tools ul li
+{
+    list-style:disc inside none;
+}
+
+#MainContent .mainMenu ul li ul li
+{
+    list-style:circle inside none;    
+}
+
+#MainContent .mainMenu ul li ul li ul li
+{
+    list-style:square inside none;    
+}
+
+#MainContent .mainMenu ul li,#MainContent .mainMenu ul li ul li,#MainContent .mainMenu ul li ul li ul li,#MainContent .tools ul li
+{
+    list-style-position:inside;
+    margin:0;
+    padding:0;
+    margin-left:30px;
+}
+
+#MainContent .mainMenu ul li a:hover
+{
+    text-decoration:underline;
+}
+
+#MainContent .tools ul li ul
+{
+    display:none;
+}

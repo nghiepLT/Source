@@ -1,0 +1,43 @@
+﻿input[type="text"],
+input[type="password"],
+input[type="file"]
+    {
+	    border:solid 1px #7c7c7c; 
+	    padding:0.2em;
+		vertical-align:middle;
+    } 
+textarea
+    {
+	    border:solid 1px #7c7c7c;
+        padding:0.2em;
+    }
+    textarea:focus, textarea:hover
+        {
+		    /*
+            border:solid 1px #7c7c7c; 
+		    */
+        } 
+
+input[type="radio"], input[type="checkbox"]
+    {
+        border:0;
+        vertical-align:middle;
+    }
+    /* right label for checkboxes and radios */
+    input[type="checkbox"] + label,
+    input[type="radio"] + label
+	    {
+		    margin-left:5px;
+		    /*width:180px;  /*Align radio/checkbox with text inputs. Same width as text inputs, minus ca width radiobutton/checkbox */
+			text-align:left;
+	    }
+
+input[type="submit"], button, input[type="button"]
+    {
+        background-image:url('images/guiBtn_forms_bg_filler.png');
+        background-position:left bottom;
+        background-repeat:repeat-x;
+        border:solid 1px #337caa; 
+	    padding:0.1em;
+		vertical-align:middle;
+    }

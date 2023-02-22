@@ -1,0 +1,1454 @@
+﻿/************************************************************************************************************
+    HEADER
+*************************************************************************************************************/
+#header_outer
+{
+	margin: auto;
+	width: 1035px;
+	margin-bottom: 10px;
+	padding-left: 45px;
+}
+
+
+
+#header
+{
+	position: relative;
+	width: 995px;
+	z-index: 1;
+}
+
+#header .TopLink, #header #searchEngine
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 2;
+	margin-top:-30px;
+	margin-right:-14px;
+}
+#header .TopLink
+{
+	right: 0;
+	top: 3px;
+}
+#header .TopLink li
+{
+	float: left;
+	padding-right: 7px;
+	display: inline;
+	margin-right: 7px;
+}
+
+#header .TopLink li img
+{
+	margin-top:4px;
+}
+
+#header .TopLink a
+{
+	font-size: 10pt;
+	color: #fff;
+}
+
+.topInfo
+{
+	width: 495px;
+	color:#fff;
+	float:right;
+	text-align:right;
+	margin-top:-40px;
+	margin-right:40px;
+	font-size:10pt;
+}
+
+
+#header #searchEngine
+{
+	width: 259px;
+	background: url(images/bg-search.png) left top no-repeat;
+	height: 24px;
+	font-size: 10pt;
+}
+#header #searchEngine input[type="text"]
+{
+	background: none;
+	border: none;
+	float: left;
+	font-size: 10pt;
+	margin: 3px;
+	display: inline;
+	width: 230px;
+	padding: 0px;
+}
+#header #searchEngine input[type="submit"]
+{
+	background: url(images/btn-search.gif) left top no-repeat;
+	width: 20px;
+	height: 20px;
+	overflow: visible;
+	border: none;
+	outline: none;
+	font-size: 0px;
+	line-height: 0px;
+	text-indent: -10000px;
+	float: left;
+	cursor: pointer;
+	margin: 1px 0px 0px;
+	padding: 0px;
+}
+
+
+/************************************************************************************************************
+    FEATURED PRODUCT
+*************************************************************************************************************/
+
+.FeaturedProduct
+{
+	height: 296px;
+	padding: 0 0 0 45px;
+	width: 995px;
+}
+.FeaturedProduct .Banner
+{
+	background: url(images/bg-banner.png) left top no-repeat;
+	width: 391px;
+	float: left;
+	text-align: center;
+	padding: 5px 0px;
+}
+.FeaturedProduct .Banner #under_banner
+{
+	width: 381px;
+	height: 257px;
+	margin: auto;
+	background-position: top center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.FeaturedProduct .ProductContent
+{
+	float: left;
+	width: 566px;
+	padding: 0px 0px 0px 38px;
+	margin-top: -9px;
+	position: relative;
+	overflow: hidden;
+}
+.FeaturedProduct .ProductContent #desc_banner
+{
+	position: relative;
+	height: 190px;
+	overflow: hidden;
+	margin-bottom: 17px;
+	vertical-align: middle;
+	padding-top: 15px;
+}
+.FeaturedProduct .ProductContent #desc_banner td
+{
+	height: 190px;
+	width: 100%;
+}
+.FeaturedProduct .ProductContent .caption
+{
+	line-height: 68px;
+}
+.FeaturedProduct .ProductContent #heading
+{
+	color: #f78f0a;
+	font-family: Georgia;
+	font-size: 50px;
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+.FeaturedProduct .ProductContent #description
+{
+	color: #fff;
+	font-family: Georgia;
+	font-size: 23px;
+	line-height: 38px;
+	padding-bottom: 10px;
+}
+
+
+.Carousel
+{
+	margin-top: 5px;
+}
+
+/************************************************************************************************************
+    SUB MENU
+*************************************************************************************************************/
+#contLeft254
+{
+	float: left;
+	width: 237px;
+	padding-left: 7px;
+}
+.banner202
+{
+	float: left;
+	margin-bottom: 5px;
+	width: 202px;
+	overflow: hidden;
+	text-align:center;
+	font-size:10pt;
+}
+#subMenu
+{
+	float: left;
+	width: 203px;
+	padding: 0px 34px 0px 0px;
+	margin-bottom: 20px;
+}
+#subMenu .listitem
+{
+	margin-bottom: 15px;
+	clear: both;
+	overflow: hidden;
+}
+#subMenu .ContainerRight
+{
+}
+#subMenu ul
+{
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+#subMenu li
+{
+	padding-bottom: 4px;
+	width: 203px;
+	float: left;
+	clear: both;
+	list-style-type: none;
+}
+#subMenu li a
+{
+	background: url(images/bg-submenu.gif) left top no-repeat;
+	color: #2e2e2e;
+	font-size: 11pt;
+	display: block;
+	padding: 3px 0px 0px;
+	text-decoration: none;
+}
+#subMenu li a span
+{
+	background: url(images/bg-submenu.gif) left bottom no-repeat;
+	display: block;
+	padding: 6px 13px 9px;
+}
+
+#subMenu li.Current a, #subMenu li a:hover
+{
+	background: url(images/bg-submenu-active.gif) left top no-repeat;
+}
+#subMenu li.Current a span, #subMenu li a:hover span
+{
+	background: url(images/bg-submenu-active.gif) left bottom no-repeat;
+	font-weight: bold;
+}
+#subMenu .BgItem3 li.Current a, #subMenu .BgItem3 li a:hover
+{
+	background: url(images/bg-submenu-active_blue.gif) left top no-repeat;
+}
+#subMenu .BgItem3 li.Current a span, #subMenu .BgItem3 li a:hover span
+{
+	background: url(images/bg-submenu-active_blue.gif) left bottom no-repeat;
+	font-weight: bold;
+}
+#subMenu .BgItem2 li.Current a, #subMenu .BgItem2 li a:hover
+{
+	background: url(images/bg-submenu-active_green.gif) left top no-repeat;
+}
+#subMenu .BgItem2 li.Current a span, #subMenu .BgItem2 li a:hover span
+{
+	background: url(images/bg-submenu-active_green.gif) left bottom no-repeat;
+	font-weight: bold;
+}
+#subMenu .BgItem4 li.Current a, #subMenu .BgItem4 li a:hover
+{
+	background: url(images/bg-submenu-active_gray.gif) left top no-repeat;
+}
+#subMenu .BgItem4 li.Current a span, #subMenu .BgItem4 li a:hover span
+{
+	background: url(images/bg-submenu-active_gray.gif) left bottom no-repeat;
+	font-weight: bold;
+}
+#subMenu .BgItem5 li.Current a, #subMenu .BgItem5 li a:hover
+{
+	background: url(images/bg-submenu-active_5.gif) left top no-repeat;
+}
+#subMenu .BgItem5 li.Current a span, #subMenu .BgItem5 li a:hover span
+{
+	background: url(images/bg-submenu-active_5.gif) left bottom no-repeat;
+	font-weight: bold;
+}
+#subMenu .BgItem1 .caption
+{
+	height: 30px;
+	float: left;
+	padding-right: 15px;
+	background: url(images/icon11x11_orange.gif) no-repeat right 10px;
+	font: 700 20px/30px arial;
+	padding-bottom: 5px;
+}
+#subMenu .BgItem3 .caption
+{
+	height: 30px;
+	float: left;
+	padding-right: 15px;
+	background: url(images/icon11x11_blue.gif) no-repeat right 10px;
+	font: 700 20px/30px arial;
+	padding-bottom: 5px;
+}
+#subMenu .BgItem2 .caption
+{
+	height: 30px;
+	float: left;
+	padding-right: 15px;
+	background: url(images/icon11x11_green.gif) no-repeat right 10px;
+	font: 700 20px/30px arial;
+	padding-bottom: 5px;
+}
+#subMenu .BgItem4 .caption
+{
+	height: 30px;
+	float: left;
+	padding-right: 15px;
+	background: url(images/icon11x11_gray.gif) no-repeat right 10px;
+	font: 700 20px/30px arial;
+	padding-bottom: 5px;
+}
+#subMenu .BgItem5 .caption
+{
+	height: 30px;
+	float: left;
+	padding-right: 15px;
+	background: url(images/icon11x11_5.gif) no-repeat right 10px;
+	font: 700 20px/30px arial;
+	padding-bottom: 5px;
+}
+#subMenu .caption a
+{
+	color: #333;
+}
+#subMenu .caption a:hover
+{
+	text-decoration: none;
+}
+#subMenu .BgItem4 ul li.Current ul li span
+{
+	background: none;
+	padding: 5px 0 0 25px;
+	font-weight: 100;
+	font-size: 11px;
+}
+#subMenu .BgItem4 ul li.Current ul li.Current span, #subMenu .BgItem4 ul li.Current ul li a:hover span
+{
+	background: url(  "images/ico_arrowOrange12x12.gif" ) no-repeat 8px 5px;
+	color: Orange;
+}
+#subMenu .BgItem4 ul li.Current ul li a
+{
+	background: none;
+}
+#subMenu .BgItem4 ul li.Current ul li a:hover
+{
+	background: none;
+}
+#subMenu ul li ul
+{
+	overflow: hidden;
+	background: #ededed;
+}
+/************************************************************************************************************
+    CONTENT TEMPLATE
+*************************************************************************************************************/
+#contentTemplate
+{
+	float: left;
+	width: 750px;
+}
+#contentTemplate .ContainerRight
+{
+	clear: both;
+	width: 760px;
+	overflow: hidden;
+}
+#contentTemplate .ContainerRight .col_left
+{
+	width: 310px;
+	float: left;
+	overflow: hidden;
+}
+#boxMainContainer .Ingress
+{
+	margin-bottom: 10px;
+}
+.contCrumbs
+{
+	height: 30px;
+	line-height: 30px;
+	font: 100 12px/30px arial;
+	clear: both;
+}
+.contCrumbs .fwCrumbs
+{
+	float: left;
+}
+.contCrumbs .contPrint
+{
+	float: right;
+}
+.contCrumbs ul
+{
+	margin: 0;
+	padding: 0;
+	float: left;
+	max-width: 600px;
+}
+.contCrumbs ul li
+{
+	display: inline;
+	list-style-type: none;
+}
+.contCrumbs ul li a
+{
+	padding: 0 5px;
+	color: #333333;
+	text-decoration: underline;
+}
+.contCrumbs ul li:first-child a
+{
+	padding-left: 0;
+}
+.contCrumbs ul li.end a
+{
+	text-decoration: none;
+}
+#boxMainContainer .cont_box
+{
+	width: 290px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+body .Container01, body .ContainerBody01
+{
+	font: 11pt/22pt arial;
+	min-height: 300px;
+	margin-bottom: 15px;
+}
+.ContainerBody01 .IngressImageController, .Container01 .IngressImageController
+{
+	margin-top: 3px;
+	margin-bottom: 8px;
+}
+.Container01 .IngressImageController .Image, .ContainerBody01 .IngressImageController .Image
+{
+	display: none;
+}
+.Container01 .IngressImageController .Image:first-child, .ContainerBody01 .IngressImageController .Image:first-child
+{
+	display: block;
+}
+.Body
+{
+	padding-top: 8px;
+	overflow: hidden;
+}
+body .Container01 p, body .ContainerBody01 p
+{
+	margin-bottom: 10px;
+}
+#boxMainContainer .Ingress h2
+{
+	margin-bottom: 10px;
+}
+#boxMainContainer .Ingress h2 strong
+{
+	font: 100 12px/20px arial;
+}
+#contentTemplate .ContainerRight .col_right
+{
+	width: 415px;
+	float: right;
+	overflow: hidden;
+}
+.TopBar
+{
+	margin-bottom: 30px;
+	text-align: right;
+}
+.TopBar a
+{
+	padding-right: 1px;
+}
+.Container01 .NewsTitle
+{
+	font: 700 21px/28px arial;
+	clear: both;
+	margin-bottom: 11px;
+}
+.Container01 .Body
+{
+	font-size: 16px;
+	font-family: Arial;
+	clear: both;
+	float: left;
+	width: 100%;
+	padding-top: 0;
+}
+
+.Container01 .Body ul.competitionLink li a
+{
+	text-decoration: underline;
+	color: #000;
+}
+
+.Container01 .Body ul.competitionLink li a:hover
+{
+	text-decoration: none;
+}
+/************************************************************************************************************
+    FOOTER
+*************************************************************************************************************/
+#footer
+{
+	text-align: center;
+	overflow: hidden;
+	clear: both;
+}
+#footer .FooterContainer
+{
+	white-space: nowrap;
+	background: url(images/bg-body.gif) left top repeat-y;
+	padding: 27px 0px 15px 0px;
+	width: 1080px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#footer .FooterContainer2_outer
+{
+	background: #001b2f url(images/bg-body-bottom.jpg) repeat-y;
+}
+#footer .FooterContainer2
+{
+	overflow: hidden;
+	padding: 30px 0 30px;
+	background: url(images/bgfooter1079x90.png) no-repeat center top;
+	height: 90px;
+	margin: auto;
+}
+#footer .FooterContainer table
+{
+	text-align: left;
+	margin-left: 20px;
+	width: 1040px;
+}
+#footer .FooterContainer table tr td
+{
+	text-align: left;
+	width: 20%;
+	font-weight: bold;
+	font-size: 11px;
+	vertical-align: top;
+}
+#footer .FooterContainer ul
+{
+	list-style: none;
+	margin: 0 0 0 0px;
+	padding: 0;
+	width: 206px;
+	overflow: hidden;
+}
+#footer .FooterContainer ul li
+{
+	padding: 0px 0px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #464646;
+	width: 208px;
+}
+#footer .FooterContainer .DefaultList li img
+{
+	height: 38px;
+}
+#footer p
+{
+	color: #fff;
+	font-size: 12px;
+	display: inline;
+}
+#footer dl, #footer dl dt, #footer dd
+{
+	color: #fff;
+	font-size: 12px;
+	display: inline;
+}
+#footer dd
+{
+	padding-right: 23px;
+}
+/*--------------------------------------------------------*/
+.rowContent
+{
+	clear: both;
+	width: 994px;
+	float: left;
+}
+.rowContent .col_left
+{
+	float: left;
+	width: 550px;
+	overflow: hidden;
+}
+.rowContent .col_right
+{
+	float: right;
+	width: 420px;
+	overflow: hidden;
+}
+.boxType01 .tt_box
+{
+	padding-right: 10px;
+	background: url(images/bg_bar600x30.gif) no-repeat right -30px;
+	height: 30px;
+	line-height: 30px;
+	clear: both;
+	overflow: hidden;
+}
+.boxType01 .tt_box p
+{
+	background: url(images/bg_bar600x30.gif) no-repeat 0 0;
+	float: left;
+	width: 100%;
+}
+.boxType01 .tt_box p strong
+{
+	font: 700 14px/30px arial;
+	padding-left: 30px;
+}
+.boxType01 .cont_box
+{
+	float: left;
+	width: 100%;
+	padding-top: 15px;
+}
+/*----------------------boxProduct--------------------------------*/
+#boxProduct
+{
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+#boxProduct .block01
+{
+	width: 171px;
+	background: url(images/lineSep1x135.gif) no-repeat right center;
+	min-height: 210px;
+	float: left;
+	padding-left: 20px;
+	padding-right: 5px;
+}
+#boxProduct .block02
+{
+	width: 164px;
+	background: url(images/lineSep1x135.gif) no-repeat right center;
+	min-height: 210px;
+	float: left;
+	padding-right: 10px;
+}
+#boxProduct .block03
+{
+	width: 174px;
+	min-height: 210px;
+	float: right;
+}
+#boxProduct .caption
+{
+	font: 700 13px/20px arial;
+	padding-bottom: 8px;
+}
+#boxProduct .Bgcolor1 .caption
+{
+	background: url(images/ico_arrowOrange12x12.gif) no-repeat left 3px;
+	padding-left: 15px;
+}
+#boxProduct .Bgcolor3 .caption
+{
+	background: url(images/ico_arrowBlue12x12.gif) no-repeat left 3px;
+	padding-left: 15px;
+}
+#boxProduct .Bgcolor2 .caption
+{
+	background: url(images/ico_arrowGreen12x12.gif) no-repeat left 3px;
+	padding-left: 15px;
+}
+#boxProduct .listItem
+{
+	padding-left: 10px;
+	clear: both;
+	list-style-type: none;
+	margin: 0;
+}
+#boxProduct .listItem li
+{
+	list-style-type: none;
+	clear: both;
+	padding: 2px 0;
+	overflow: hidden;
+}
+#boxProduct .listItem li img
+{
+}
+#boxProduct .listItem li a
+{
+	font: 100 12px/16px arial;
+	color: #3b3b3b;
+	float: left;
+	height: 16px;
+	padding-left: 6px;
+	padding-right: 3px;
+}
+#boxProduct .listItem li span
+{
+	float: left;
+	height: 16px;
+	padding-right: 3px;
+	overflow: hidden;
+}
+#boxProduct .Bgcolor1 .listItem li span:hover
+{
+	background: url(images/bg_over300x16.gif) no-repeat right -16px;
+}
+#boxProduct .Bgcolor1 .listItem li span:hover a
+{
+	background: url(images/bg_over300x16.gif) no-repeat 0 0;
+	text-decoration: none;
+	color: #fff;
+}
+#boxProduct .Bgcolor3 .listItem li span:hover
+{
+	background: url(images/bg_over300x16_blue.gif) no-repeat right -16px;
+}
+#boxProduct .Bgcolor3 .listItem li span:hover a
+{
+	background: url(images/bg_over300x16_blue.gif) no-repeat 0 0;
+	text-decoration: none;
+	color: #fff;
+}
+#boxProduct .Bgcolor2 .listItem li span:hover
+{
+	background: url(images/bg_over300x16_green.gif) no-repeat right -16px;
+}
+#boxProduct .Bgcolor2 .listItem li span:hover a
+{
+	background: url(images/bg_over300x16_green.gif) no-repeat 0 0;
+	text-decoration: none;
+	color: #fff;
+}
+/*----------------------boxFrontGallery--------------------------------*/
+#boxFrontGallery .cont_box .listGallery
+{
+	width: 492px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+#boxFrontGallery .cont_box .listGallery li
+{
+	list-style-type: none;
+	width: 492px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+#boxFrontGallery .cont_box .listGallery li .imgItem
+{
+	float: left;
+	text-align: center;
+	width: 150px;
+	padding: 7px;
+	height: 130px;
+	overflow: hidden;
+}
+#boxFrontGallery .cont_box .listGallery li .caption
+{
+	font: 100 11px/16px arial;
+	padding: 5px 0 0 0;
+	color: #6a6a6a;
+}
+#boxFrontGallery .cont_box .listGallery li .Image a
+{
+	display: inline-block;
+	width: 150px;
+	height: 112px;
+	border: solid 1px #ccc;
+	overflow: hidden;
+}
+#boxFrontGallery .cont_box .listGallery li .Image a img
+{
+	width: 150px;
+}
+#boxFrontGallery .cont_box .ContentGallery
+{
+	width: 492px;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+}
+#boxFrontGallery .cont_box .PrevBtn
+{
+	float: left;
+	margin-top: 120px;
+	cursor: pointer;
+}
+#boxFrontGallery .cont_box .NextBtn
+{
+	float: left;
+	margin-top: 120px;
+	cursor: pointer;
+}
+/*--------------------------boxNews----------------------*/
+
+#boxNews .contNewsSlide
+{
+	width: 100%;
+	float: left;
+	height: 280px;
+	overflow: hidden;
+}
+#boxNews .listNews
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 0 20px;
+	float: left;
+	position: relative;
+}
+#boxNews .listNews li
+{
+	list-style-type: none;
+	clear: both;
+	width: 100%;
+	height: 74px;
+	margin-bottom: 12px;
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 18px;
+}
+#boxNews .listNews li .imgbor
+{
+	display: block;
+	float: left;
+	width: 90px;
+	height: 70px;
+	text-align: center;
+	border: solid 1px #ccc;
+	margin-right: 12px;
+	overflow: hidden;
+}
+#boxNews .listNews li .caption a
+{
+	font: 700 12px/18px arial;
+	color: #3b3b3b;
+}
+#boxNews .contNewsSlide .jcarousel-container-vertical
+{
+	height: 280px;
+	padding: 0px;
+	width: 100%;
+	float: left;
+	position: relative;
+}
+#boxNews .contNewsSlide .jcarousel-clip
+{
+	height: 245px;
+	padding: 0;
+	width: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+#boxNews .jcarousel-next-vertical
+{
+	width: 33px;
+	height: 30px;
+	position: absolute;
+	cursor: pointer;
+	bottom: 0px;
+	left: 50%;
+	background: url(images/icon_arrowdown.png) no-repeat 0 0;
+}
+/*------------------------------contactbox---------------------------------*/
+#contactSlide
+{
+	position: absolute;
+	width: 420px;
+	overflow: hidden;
+	padding: 12px 30px 12px 15px;
+	height: 262px;
+	background: url(images/bg_465x262.png) no-repeat 0 0;
+	z-index: 1;
+	display: none;
+}
+#btncontact
+{
+	width: 29px;
+	height: 105px;
+	position: absolute;
+	margin-top: 23px;
+	cursor: pointer;
+	overflow: hidden;
+	background: url(images/btn_29x105.png) no-repeat 0 0;
+	z-index: 2;
+	right: 8px;
+	top: 0;
+	display: none;
+}
+#contactbox .ListType2
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+#contactbox .ListType2 li
+{
+	list-style-type: none;
+	overflow: hidden;
+	margin-bottom: 5px;
+	width: 100%;
+	font-size: 10px;
+}
+#contactbox .ListType2 .TextBox170
+{
+	width: 165px;
+	padding: 3px 2px;
+	border: solid 1px #bababa;
+	font-size: 12px;
+}
+#contactbox .ListType2 .SelectBox
+{
+	width: 170px;
+	padding: 3px 2px;
+	border: solid 1px #bababa;
+	font-size: 12px;
+}
+#contactbox .btnSend
+{
+	width: 171px;
+	height: 29px;
+	background: url(images/btn_171x29.png) no-repeat 0 0;
+	border: none;
+	display: inline-block;
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+}
+#contactbox .ListType2 .TextBox95
+{
+	width: 90px;
+	padding: 3px 2px;
+	border: solid 1px #bababa;
+	font-size: 12px;
+}
+#contactbox .BlockContent
+{
+	width: 190px;
+	padding-left: 20px;
+	float: left;
+	background: url(images/lineSep1x135.gif) no-repeat right center;
+	min-height: 210px;
+}
+#contactbox .BlockContent1
+{
+	float: right;
+	height: 210px;
+	width: 190px;
+}
+#contactbox .ListType1
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+#contactbox .ListType1 li.Item
+{
+	list-style-type: none;
+	overflow-y: auto;
+	margin-bottom: 5px;
+	width: 100%;
+	font-size: 12px;
+	height: auto;
+	height: 123px;
+	line-height: 18px;
+	float: left;
+}
+#contactbox .ListType1 li a
+{
+	color: #575757;
+}
+#contactbox .ListType1 .rowItem
+{
+	width: 100%;
+	height: 20px;
+	overflow: hidden;
+	background: url(images/dotline_6x1.gif) repeat-x 0 16px;
+	margin-bottom: 5px;
+}
+#contactbox .ListType1 .rowItem a
+{
+	background: #fff;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	font-weight: 700;
+}
+#contactbox .ListType1 .rowItem span
+{
+	float: right;
+	background: #fff;
+	height: 20px;
+	line-height: 20px;
+}
+#contactbox .ListType1 .font11
+{
+	font-size: 11px;
+}
+#contactbox .jcarousel-container-vertical
+{
+	height: 153px;
+	padding: 0px;
+	width: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+#contactbox .jcarousel-clip
+{
+	height: 123px;
+	padding: 0;
+	width: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.SearchResults dd
+{
+	margin-bottom: 15px;
+	font: 100 12px/18px arial;
+}
+.SearchResults dd a
+{
+	color: Green;
+}
+.SearchResults dt
+{
+	margin-bottom: 2px;
+}
+.SearchResults dt a
+{
+	font: 700 12px/20px tahoma;
+	color: #064B77;
+}
+.SearchFields
+{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.SearchFields .SearchInput
+{
+	width: 200px;
+	border: solid 1px #ccc;
+	padding: 1px;
+	float: left;
+}
+.SearchFields .SearchButton
+{
+	float: left;
+}
+.SearchFields .ContLine
+{
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+	padding: 5px 0;
+}
+.SearchFields .Headline
+{
+	font-size: 12px;
+	display: inline-block;
+	padding: 5px 0;
+	background: #F0F7F9;
+	width: 100%;
+}
+.SearchPageCount
+{
+	width: 100%;
+	text-align: center;
+	padding: 10px 0;
+	display: block;
+}
+.SearchPageCount a
+{
+	padding: 1px 3px;
+	color: #064B77;
+	font: 700 12px/20px arial;
+	text-decoration: underline;
+}
+.SearchPageCount .CurrentSearchPage
+{
+	color: #A90A08;
+	font-weight: 700;
+	text-decoration: none;
+}
+.mainMenu a
+{
+	font-size: 11px;
+}
+.mainMenu ul li
+{
+	line-height: 18px;
+}
+/*---------allNews------------*/
+.contAllNews
+{
+	clear: both;
+	float: left;
+	width: 730px;
+	padding: 10px 0px 10px 20px;
+	border-bottom: solid 1px #ccc;
+	border-top: solid 1px #ccc;
+	margin-top: 20px;
+}
+.allNews
+{
+	clear: both;
+	float: left;
+	width: 100%;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.allNews li
+{
+	list-style-type: none;
+	font: 100 14px/22px arial;
+}
+.allNews li .bold
+{
+	font-weight: 700;
+	margin-right: 5px;
+}
+.allNews li a
+{
+	color: #333;
+}
+.allNews li a:hover
+{
+	color: #064B77;
+}
+.contAllNews .caption
+{
+	margin-bottom: 5px;
+	clear: both;
+}
+.contAllNews .caption span
+{
+	font: 700 21px/28px arial;
+	margin-right: 10px;
+}
+.contAllNews .caption a
+{
+	font: 100 14px/28px arial;
+	text-decoration: underline;
+}
+.conRelatedLink
+{
+	clear: both;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+.conRelatedLink ul
+{
+	float: right;
+	list-style-type: none;
+	margin: 0;
+}
+.conRelatedLink ul li
+{
+	list-style-type: none;
+	display: inline;
+	padding-left: 5px;
+}
+.contIngressText
+{
+	clear: both;
+	overflow: hidden;
+	padding: 10px 15px;
+	background: #f2f2f2;
+	border: solid 1px #d3d3d1;
+	color: #3f3f3f;
+	margin-bottom: 11px;
+}
+
+/*----------- Competition Form ------------*/
+#mask
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+.competitionForm
+{
+	position: absolute;
+	z-index: 100000;
+	width: 828px;
+	height: 594px;
+	background: url(images/competitionFormBg_838x604.png) no-repeat left top;
+	padding: 5px;
+}
+
+.competitionForm .top_image, .competitionForm .top_image2
+{
+	width: 100%;
+	float: left;
+	background: url(images/img01_460x220.jpg) no-repeat left top;
+}
+
+.competitionForm .top_image2
+{
+	background: url(images/img02_195x180.jpg) no-repeat left top;
+}
+
+.competitionForm p.logo
+{
+	float: right;
+	margin-top: 20px;
+}
+
+.competitionForm .top_image .title
+{
+	margin: 140px 60px 0;
+	font-size: 34px;
+	font-family: Georgia Arial;
+	line-height: 65px;
+	color: #90b344;
+	border-top: #c5c9cb solid 1px;
+	border-bottom: #b9c1c7 solid 3px;
+}
+
+.competitionForm .top_image2 .title
+{
+	color: #fa9300;
+	font-size: 34px;
+	font-family: Georgia Arial;
+	margin: 65px 0 0 195px;
+}
+
+.competitionForm .top_image2 .subTitle
+{
+	font-size: 16px;
+	font-family: Myriad Pro;
+	color: #fa9300;
+	line-height: 20px;
+	margin: 10px 60px 0 60px;
+	font-weight: bold;
+	padding: 0 0 0 135px;
+}
+
+.competitionForm .Content
+{
+	margin: 35px 60px 0;
+	color: #465056;
+}
+
+.competitionForm .top_image2 .Content
+{
+	margin-top: 10px;
+}
+
+.competitionForm .top_image .Content .select
+{
+	border-bottom: #b9c2c7 solid 1px;
+	padding-bottom: 10px;
+}
+
+.competitionForm .top_image .Content select
+{
+	width: 282px;
+	height: 20px;
+	line-height: 20px;
+	color: #465056;
+	font-size: 12px;
+}
+
+.competitionForm .Content ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.competitionForm .top_image2 .Content > ul
+{
+	clear: both;
+	float: left;
+	border-bottom: #b9c1c7 solid 3px;
+}
+
+.competitionForm .Content ul li
+{
+	line-height: 38px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+
+.competitionForm .top_image .Content ul li
+{
+	border-bottom: #b9c2c7 solid 1px;
+	float: left;
+	width: 354px;
+}
+
+.competitionForm .top_image2 .Content > ul > li
+{
+	width: 350px;
+	float: left;
+	border-top: #b9c2c7 solid 1px;
+	padding-bottom: 10px;
+}
+
+.competitionForm .top_image2 .Content ul li li
+{
+	border: none;
+	line-height: 23px;
+}
+
+.competitionForm .top_image2 .Content ul li li input[type=checkbox]
+{
+	margin-right: 10px;
+}
+
+.competitionForm .top_image .Content ul li .label
+{
+	width: 40px;
+	padding-right: 20px;
+	float: left;
+}
+
+.competitionForm .top_image .Content ul li input[type=text]
+{
+	width: 225px;
+	height: 18px;
+	border: #b7d9ed solid 1px;
+	border-top: #3d7bad solid 1px;
+}
+
+.competitionForm .Content .info
+{
+	float: left;
+	padding: 16px 0 13px; .margin-left:-30px;
+}
+
+.competitionForm .Content .info input[type=text]
+{
+	width: 155px;
+	border: #cbdfeb solid 1px;
+	font-size: 12px;
+	margin: 0 2px 10px 0;
+	color: #465056;
+}
+
+.competitionForm .Content .info input[type=text].company
+{
+	width: 360px;
+}
+
+.competitionForm .Content .info input[type=text].tfl
+{
+	width: 145px;
+	margin-right: 0;
+}
+
+.competitionForm .Content .info label
+{
+	font-size: 11px;
+}
+
+.competitionForm .Content p
+{
+	float: left;
+	width: 100%;
+	font-size: 11px;
+	line-height: 17px;
+	margin: 30px 0;
+}
+
+.competitionForm .top_image2 .Content p
+{
+	margin: 0;
+	padding: 10px 0;
+	border-top: #c0c6c9 solid 1px;
+}
+
+.competitionForm .send
+{
+	width: 708px;
+	margin: 0 60px 0;
+	float: left;
+	border-top: #b9c2c7 solid 1px;
+	border-bottom: #b9c2c7 solid 1px;
+	padding: 6px 0;
+}
+
+.competitionForm .send input[type=submit]
+{
+	float: right;
+	font-size: 12px;
+	color: #fff;
+	padding: 2px 10px;
+	border: none;
+}
+
+.competitionForm .top_image .send input[type=submit]
+{
+	background: #90b344;
+}
+
+.competitionForm .top_image2 .send input[type=submit]
+{
+	background: #fa9300;
+}
+
+.competitionForm .website
+{
+	float: right;
+	font-size: 12px;
+	color: #465056;
+	margin: 5px 60px 0 0;
+}
+
+/* Print */
+@media print
+{
+	body
+	{
+		font-size: 12pt;
+	}
+	.allNews, .conRelatedLink, #header_outer, #footer, #menu, .FeaturedProduct, #contLeft254, .contCrumbs
+	{
+		display: none;
+	}
+}

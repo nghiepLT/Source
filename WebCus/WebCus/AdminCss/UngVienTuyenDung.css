@@ -1,0 +1,742 @@
+﻿
+.headertitle_box {
+    border: 1px solid;
+    line-height: 84px;
+    text-align: center;
+    z-index: 9999999;
+    background-color: white;
+}
+
+    .headertitle_box img {
+        border: 1px solid;
+        margin: 2px 2px;
+    }
+
+.headertitle_box_left {
+    width: 20%;
+    float: left;
+}
+
+.headertitle_box_right {
+    float: left;
+    width: 80%;
+}
+
+.headertitle_box_right_title {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.chungtoicamket {
+}
+
+.chungtoicamket_title {
+    text-align: center;
+    max-width: 279px;
+    font-style: italic;
+    margin: 0px auto;
+    font-size: 19px;
+}
+
+.chungtoicamket_img {
+    height: 70px;
+    width: 60px;
+    border: 1px solid;
+    margin: 15px;
+}
+
+.table_1 {
+}
+
+    .table_1 table {
+        margin-top: 7px;
+        border: 2px solid black !important;
+    }
+
+        .table_1 table ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .table_1 table ul li {
+                display: block;
+            }
+
+    .table_1 .ip {
+        border: none;
+        border-bottom: 1px dotted;
+        outline: none;
+    }
+
+    .table_1 .cb {
+    }
+
+.sp1 {
+    width: 39%;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.dotted {
+    border-bottom: 1px dotted !important;
+    width: 59%;
+    position: relative;
+    top: -7px;
+}
+
+.table_1 .ips {
+    border: none;
+    border-bottom: 1px dotted;
+    outline: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.tdgray {
+    background-color: #CCCCCC;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.table_1 td {
+    border: 1px solid;
+    font-size: 14px;
+    color: black;
+}
+
+.title_table {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ttcn_title {
+    font-weight: bold;
+    margin-top: 30px;
+    display: block;
+}
+
+.ulvanbang {
+    line-height: 33px;
+}
+
+    .ulvanbang li {
+        display: inline-block !important;
+        width: 25%;
+    }
+
+.tdnn_title {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn_luuthongtin {
+    margin-bottom: 50px;
+}
+
+.menuleft {
+    position: fixed;
+    top: 0px;
+    z-index: 999999999;
+    background-color: white;
+    width: 20%;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    padding: 10px 10px;
+    background-color: #dddddd;
+    color: white;
+}
+
+    .menuleft ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .menuleft ul li {
+            display: block;
+            margin: 7px 7px;
+        }
+
+            .menuleft ul li a {
+                color: black;
+                font-weight: bold;
+                font-size: 12px;
+                text-transform: capitalize;
+            }
+
+.btn_luuthongtinbox {
+    bottom: -40px;
+    z-index: 9999999;
+    background-color: white;
+    width: 100%;
+    border: 1px solid;
+    padding: 5px 5px;
+    border: none;
+    position: sticky;
+    background-color: white;
+}
+
+.full_box {
+    background-color: white;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 /90%);
+    padding: 10px 10px;
+}
+
+
+.duyetungvien_box {
+    background: #F7941F;
+    background: linear-gradient(277deg, #F7941F 0%, #F7941F 32%);
+    margin: 0px auto;
+    min-height: 100%;
+}
+
+.duyetungvien_child {
+    width: 95%;
+    padding: 20px 0px;
+    margin: 0px auto !important;
+}
+
+h1 {
+    font-size: 26px !important;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 20px !important;
+    font-family: 'Anton', sans-serif !important;
+}
+
+.duyetungvien_childdetail {
+    background-color: #ffffff;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 47%);
+    border-radius: 5px;
+    float: left;
+    width: 65%;
+    margin-right: 3%;
+    line-height: 23px;
+}
+
+.tgpv_title {
+    font-family: 'Anton', sans-serif !important;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.thumoipvright {
+    float: left;
+    width: 32%;
+}
+
+.title_right {
+    width: 40px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: 'Anton', sans-serif !important;
+}
+
+.inputhour {
+    display: inline-block;
+    width: 185px;
+    height: 28px;
+    outline: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #f9c281 !important;
+    font-family: 'Anton', sans-serif !important;
+}
+
+    .inputhour :hover {
+        background-color: transparent !important;
+    }
+
+.guithumpv {
+    text-align: right;
+    width: 92%;
+    margin-top: 5px;
+    text-transform: capitalize;
+    color: #f7f7f7;
+}
+
+.btnduyet {
+    width: 100%;
+    height: 30px;
+    display: block;
+    color: wheat;
+    line-height: 17px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #222222;
+}
+
+    .btnduyet a {
+        display: block;
+        background-color: #12afaf;
+        width: 100%;
+        margin: 0px auto;
+        color: white;
+        padding: 5px 5px;
+        margin-top: 10px;
+        text-align: center;
+        border-bottom: 2px solid;
+    }
+
+    .btnduyet:hover {
+        background-color: #0c8e8e !important;
+        color: white;
+        text-decoration: none;
+    }
+
+.ipngay {
+    display: inline-block;
+    width: 47px;
+    border: none !important;
+    background-color: transparent !important;
+    outline: none;
+    pointer-events: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tieudeh1 {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.tmpv_title {
+    background-color: #BCC1C5;
+    padding: 10px 20px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.dutuyenungvien_childchild {
+    padding: 20px 20px;
+    line-height: 25px;
+}
+
+.thumoinhanviec_box {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.tmnv_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+    margin: 20px 0px;
+}
+
+.tmnv_kinhgui {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ctchanthanh {
+}
+
+.lvtai {
+}
+
+.tmnv_padding {
+    height: 5px;
+}
+
+.w100 {
+    width: 100% !important;
+}
+
+.w90 {
+    width: 90% !important;
+}
+
+.w80 {
+    width: 80% !important;
+}
+
+.w70 {
+    width: 70% !important;
+}
+
+.w60 {
+    width: 60% !important;
+}
+
+.w40 {
+    width: 40% !important;
+}
+
+.w30 {
+    width: 30% !important;
+}
+
+.w20 {
+    width: 20% !important;
+}
+
+.w10 {
+    width: 10% !important;
+}
+
+.w7 {
+    width: 7% !important;
+}
+
+.w4 {
+    width: 4% !important;
+    text-align: center;
+}
+
+.lvtai {
+    padding: 5px 0px;
+}
+
+.denghiac {
+}
+
+.btnw {
+    width: 227px;
+}
+
+.btnmail_import {
+    margin: 6px 0px;
+}
+
+.btnmail_export {
+}
+
+textarea {
+    width: 100%;
+    min-width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.dotted {
+    border: none !important;
+    border-bottom: 1px dotted !important;
+    width: 59%;
+    position: relative;
+    top: -7px;
+    background-color: transparent !important;
+    outline: none;
+}
+
+.mydivtable {
+    width: 70%;
+    margin: 0px auto;
+}
+
+    .mydivtable h1 {
+        font-size: 18px !important;
+    }
+
+    .mydivtable input[type=checkbox] {
+        scale: 1.5;
+        margin: 0px auto;
+        text-align: center;
+        position: relative;
+        top: 28px;
+    }
+
+.khaosathoinhap_box {
+    width: 70%;
+    margin: 0px auto;
+}
+
+    .khaosathoinhap_box table img {
+        width: 100px;
+    }
+
+.khaosathoinhap_tab {
+}
+
+.khaosathoinhap_tab_active {
+    background-color: #FF0023 !important;
+}
+
+.khaosathoinhap_tab ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+    .khaosathoinhap_tab ul li {
+        display: inline-block;
+    }
+
+
+        .khaosathoinhap_tab ul li a {
+            background-color: #4C9FDD;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 10px 2px;
+            text-decoration: none !important;
+        }
+
+            .khaosathoinhap_tab ul li a:hover {
+                background-color: #FF0023 !important;
+            }
+
+.tdposition {
+    position: relative;
+}
+
+.ks_radio {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0px !important;
+}
+
+.inputStatus {
+    left: 6%;
+    top: 4px;
+    position: absolute;
+    scale: 0.8;
+    border-radius: 0px;
+    outline: none;
+}
+
+.btnphongvan {
+    background-color: #d93939;
+    color: white !important;
+    padding: 1px 15px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 26px;
+    margin-bottom: 8px;
+    padding-left: 14%;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+    .btnphongvan:hover {
+        background-color: #ff0023;
+        color: white !important;
+        text-decoration: none !important;
+    }
+
+.btnnhapthongtin {
+    background-color: #005399;
+    color: white !important;
+    padding: 2px 13px;
+    margin: 5px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    padding-left: 29px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+    .btnnhapthongtin:hover {
+        color: white;
+        background-color: #052d4f;
+    }
+
+td.RB_L {
+    position: relative;
+}
+
+.thongtinbox {
+    text-align: left;
+    padding: 10px 0px;
+    padding-left: 2%;
+}
+
+.Ngaytaobox {
+    margin: 5px 0px;
+    text-transform: capitalize;
+}
+
+.btnDanhgia {
+    background-color: #e55f11;
+    color: white;
+    padding: 2px 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+    padding-left: 13%;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+    .btnDanhgia:hover {
+        color: white;
+        background-color: #ff5e00;
+    }
+
+.btnGuithunhanviec {
+    background-color: #0c8e8e;
+    color: white;
+    padding: 2px 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+    padding-left: 29px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+    .btnGuithunhanviec:hover {
+        color: white;
+        background-color: #066565;
+    }
+
+.btnDongbo {
+    background-color: #F7941F;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+}
+
+.btnTomTatQuyTrinh {
+    background-color: #0c8e8e;
+    color: white !important;
+    padding: 3px 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+    width: 110px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.btnTomtatphucloi {
+    background-color: #ff5e00;
+    color: white !important;
+    padding: 2px 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+    width: 110px;
+    font-size: 10px;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+
+.btnKhaosat {
+    background-color: #d93939;
+    color: white !important;
+    padding: 2px 10px;
+    margin: 2px 5px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-bottom: 9px;
+    width: 110px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 10px;
+}
+
+table ::-webkit-scrollbar {
+    width: 2px;
+    height: 15px;
+}
+
+/* Track */
+table ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+table ::-webkit-scrollbar-thumb {
+    background: #12afaf;
+}
+
+    /* Handle on hover */
+    table ::-webkit-scrollbar-thumb:hover {
+        background: #066565;
+    }
+
+table ::-webkit-scrollbar-track {
+    max-height: 20%;
+    height: 20%;
+}
+
+.hotenuv {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+th.RB_C {
+    font-weight: bold !important;
+    line-height: 27px !important;
+}
+
+.dateks {
+    font-size: 12px;
+}
+
+.quatrinhdaotaobox {
+}
+
+    .quatrinhdaotaobox ul {
+    }
+
+    .quatrinhdaotaobox li {
+        display: inline-block !important;
+        border: 1px solid;
+        width: 109px;
+        padding: 5px 10px;
+        margin: 3px 0px;
+    }
+
+    .quatrinhdaotaobox span {
+        width: 58px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .quatrinhdaotaobox ul li input {
+        position: relative;
+        top: 2px;
+        right: 0px;
+    }
+
+.importfile {
+    background-color: #ff0023;
+    color: white;
+    padding: 3px 15px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+    .importfile:hover {
+        color: white !important;
+        text-decoration: none !important;
+        background-color: #e81d39;
+    }
+
+.iconimport {
+    width: 17px;
+    position: relative;
+    top: 7px;
+    left: 3px;
+}
+.scrolling {
+    
+    
+}
+
+.longdiv {
+   
+     width:290%;
+}
+.ngaytaouv{
+
+}

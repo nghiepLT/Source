@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cảnh báo phiên bản trình duyệt</title>
+    <style>
+        .divAlert
+        {
+            height: 250px;
+            width: 615px;
+            background: url("Images/Other/bgAlertVersion.jpg" );
+            margin-top: 100px;
+            font-family: Arial;
+            padding-top: 77px;
+            color: #fff;
+            line-height: 18pt;
+            font-size: 10pt;
+        }
+        a:hover
+        {
+            color: blue;
+            text-decoration: none;
+        }
+        a
+        {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .divBtn
+        {
+            padding-top: 40px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        
+        
+    function createCookie(name,value,days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = "; expires="+date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name+"="+value+expires+"; path=/";
+    }
+    
+    
+  
+
+ 
+    
+    </script>
+
+</head>
+<body>
+    <center>
+        <div class="divAlert">
+            Trình duyệt của bạn đang là IE 6.0
+            <br />
+            Website không hỗ trợ trình duyệt IE phiên bản nhỏ hơn 7.0
+            <br />
+            Vui lòng cập nhật lại phiên bản IE 7.0 trở lên.
+            <div class="divBtn">
+                <a href="http://comatech.vn/files/ie7.exe">Download IE 7.0</a> &nbsp; &nbsp;
+                &nbsp; &nbsp; <a href="/" onclick="createCookie('ignore', '1','1');">Tiếp tục vào web</a>
+            </div>
+            <br />
+            <span style="font-size: 9pt; font-style: italic; color: #bdd9f9;">Nếu bạn tiếp tục vào
+                web mà chưa update trình duyệt<br />
+                thì có thể giao diện web sẽ không hiển thị đúng.</span>
+        </div>
+    </center>
+</body>
+</html>

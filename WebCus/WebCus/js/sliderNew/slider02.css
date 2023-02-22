@@ -1,0 +1,100 @@
+#featured_sildetap{ 
+	/*width:400px; */
+	width:760px;
+	position:relative; 
+	top:0px;
+	height:235px; overflow:hidden;
+	left:0px;
+	padding:1px 3px;
+}
+#featured_sildetap ul.ui-tabs-nav{ 
+	position:absolute; 
+	top:1px; 
+	left:523px; 
+	/*left:0;*/
+
+	list-style:none; 
+	padding:0; margin:0; 
+    height:237px;
+    width:243px;
+	overflow:hidden;
+	z-index:1000;
+}
+#featured_sildetap ul.ui-tabs-nav li{ 
+	font-size:12px; 
+	color:#666; 
+	/*margin-bottom:3px;*/
+	/*border-bottom:1px solid #ccc;*/
+	/*height:47px;
+	overflow:hidden;*/
+}
+#featured_sildetap ul.ui-tabs-nav li .Rotate_boxLeftImg
+{
+    float:left;
+    width:60px;
+    height:50px;
+    padding:2px;    
+}
+#featured_sildetap ul.ui-tabs-nav li span{ 
+	font-size:11px; 
+	font-family:Verdana; 
+	padding:2px;
+}
+#featured_sildetap li.ui-tabs-nav-item a 
+{
+    border-bottom:1px solid #ccc;
+	display:block; 
+	text-decoration:none;
+	color:#333;
+	outline:none;
+	padding:5px;
+	margin-left:36px;
+	height:50px;
+	overflow:hidden;
+}
+#featured_sildetap li.ui-tabs-nav-item a:hover{ 
+}
+#featured_sildetap li.ui-tabs-selected, #featured_sildetap li.ui-tabs-active
+{
+    background-image: url('hover_slidernew.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    height:60px;width:257px;
+    overflow:hidden;
+    /*background: url('selected-item.gif') no-repeat left top;*/
+}
+
+#featured_sildetap ul.ui-tabs-nav li.ui-tabs-selected a, #featured_sildetap ul.ui-tabs-nav li.ui-tabs-active a
+{
+    color:#fff;    
+}
+#featured_sildetap .ui-tabs-panel{ 
+	width:260px; height:236px; 
+	position:relative;
+}
+#featured_sildetap .ui-tabs-panel .info
+{
+    position: relative;
+    /*background: url('transparent-bg.png');*/
+    width:100%;
+}
+#featured_sildetap .ui-tabs-panel .info a.hideshow{
+	position:absolute; font-size:11px; font-family:Verdana; color:#f0f0f0; right:10px; top:-20px; line-height:20px; margin:0; outline:none; background:#333;
+}
+#featured_sildetap .info h2{ 
+	font-size:1.2em; font-family:Georgia, serif; 
+	color:#000; padding:5px 0; margin:0; font-weight:normal;
+}
+#featured_sildetap .info p{ 
+}
+#featured_sildetap .info a{ 
+	text-decoration:none; 
+	color:#ff0403; 
+	font-weight:600;
+}
+#featured_sildetap .info a:hover{ 
+	text-decoration:underline; 
+}
+#featured_sildetap .ui-tabs-hide{ 
+	display:none; 
+}

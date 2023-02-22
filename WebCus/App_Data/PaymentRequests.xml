@@ -1,0 +1,10 @@
+<Requests>
+  <Request request_id="0" cart_id="1" price="59.98" request_date="8/26/2010 12:41:43 PM" />
+  <Request request_id="1" cart_id="1" price="59.98" request_date="8/26/2010 12:46:37 PM" />
+  <Request request_id="2" cart_id="1" price="449.78" request_date="8/27/2010 5:48:55 AM" />
+  <Request request_id="3" cart_id="1" price="449.78" request_date="8/27/2010 5:50:00 AM" />
+  <Request request_id="4" cart_id="1" price="449.78" request_date="8/27/2010 5:50:17 AM" />
+  <Request request_id="5" cart_id="1" price="449.78" request_date="8/27/2010 5:51:03 AM" />
+  <Request request_id="6" cart_id="1" price="449.78" request_date="8/29/2010 9:26:57 PM" />
+  <Request request_id="7" cart_id="1" price="449.78" request_date="8/29/2010 9:37:12 PM" />
+</Requests>

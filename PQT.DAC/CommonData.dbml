@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="thanhtamlongannew" Class="CommonDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-5BBOINK;Initial Catalog=thanhtamlongannew;Persist Security Info=True;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="thanhtamlongannewConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.THotel" Member="THotels">
+    <Type Name="THotel">
+      <Column Name="HotelID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HotelCategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StarNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="THotel_THotelOrder" Member="THotelOrders" ThisKey="HotelID" OtherKey="HotelID" Type="THotelOrder" />
+      <Association Name="THotel_THotelDetail" Member="THotelDetails" ThisKey="HotelID" OtherKey="HotelID" Type="THotelDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelCategory" Member="THotelCategories">
+    <Type Name="THotelCategory">
+      <Column Name="HotelCategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelCategoryDescription" Member="THotelCategoryDescriptions">
+    <Type Name="THotelCategoryDescription">
+      <Column Name="HotelCategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SubContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourOrder" Member="TTourOrders">
+    <Type Name="TTourOrder">
+      <Column Name="TourOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TourID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="YourName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TotalCus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TTour_TTourOrder" Member="TTour" ThisKey="TourID" OtherKey="TourID" Type="TTour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourCategoryDescription" Member="TTourCategoryDescriptions">
+    <Type Name="TTourCategoryDescription">
+      <Column Name="TourCategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SubContent" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourDetail" Member="TTourDetails">
+    <Type Name="TTourDetail">
+      <Column Name="TourDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TourID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="TTourDetail_TTourDetailDescription" Member="TTourDetailDescriptions" ThisKey="TourDetailID" OtherKey="TourDetailID" Type="TTourDetailDescription" />
+      <Association Name="TTour_TTourDetail" Member="TTour" ThisKey="TourID" OtherKey="TourID" Type="TTour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourDetailDescription" Member="TTourDetailDescriptions">
+    <Type Name="TTourDetailDescription">
+      <Column Name="TourDetailID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tmp1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="TTourDetail_TTourDetailDescription" Member="TTourDetail" ThisKey="TourDetailID" OtherKey="TourDetailID" Type="TTourDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TLanguage" Member="TLanguages">
+    <Type Name="TLanguage">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Locale" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Directory" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourCategory" Member="TTourCategories">
+    <Type Name="TTourCategory">
+      <Column Name="TourCategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SortOder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelDescription" Member="THotelDescriptions">
+    <Type Name="THotelDescription">
+      <Column Name="HotelID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SubDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelOrder" Member="THotelOrders">
+    <Type Name="THotelOrder">
+      <Column Name="HotelOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HotelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YourName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BornDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalCus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ArrivalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CheckOutDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoomsQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoomsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="THotel_THotelOrder" Member="THotel" ThisKey="HotelID" OtherKey="HotelID" Type="THotel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelDetail" Member="THotelDetails">
+    <Type Name="THotelDetail">
+      <Column Name="HotelDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HotelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="THotelDetail_THotelDetailDescription" Member="THotelDetailDescriptions" ThisKey="HotelDetailID" OtherKey="HotelDetailID" Type="THotelDetailDescription" />
+      <Association Name="THotel_THotelDetail" Member="THotel" ThisKey="HotelID" OtherKey="HotelID" Type="THotel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THotelDetailDescription" Member="THotelDetailDescriptions">
+    <Type Name="THotelDetailDescription">
+      <Column Name="HotelDetailID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tmp1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="THotelDetail_THotelDetailDescription" Member="THotelDetail" ThisKey="HotelDetailID" OtherKey="HotelDetailID" Type="THotelDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourDescription" Member="TTourDescriptions">
+    <Type Name="TTourDescription">
+      <Column Name="TourID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Destination" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PriceInfo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tmp1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tmp3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tmp4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tmp5" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TTour_TTourDescription" Member="TTour" ThisKey="TourID" OtherKey="TourID" Type="TTour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTour" Member="TTours">
+    <Type Name="TTour">
+      <Column Name="TourID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TourCategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AvaiablePosition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Transportation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DayNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExpectedHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsHot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AreagoOut" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AreagoIn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Price_old" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TTour_TTourOrder" Member="TTourOrders" ThisKey="TourID" OtherKey="TourID" Type="TTourOrder" />
+      <Association Name="TTour_TTourDetail" Member="TTourDetails" ThisKey="TourID" OtherKey="TourID" Type="TTourDetail" />
+      <Association Name="TTour_TTourDescription" Member="TTourDescriptions" ThisKey="TourID" OtherKey="TourID" Type="TTourDescription" />
+      <Association Name="TTour_TTourImage" Member="TTourImages" ThisKey="TourID" OtherKey="TourID" Type="TTourImage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TTourImage" Member="TTourImages">
+    <Type Name="TTourImage">
+      <Column Name="TourImageID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TourID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TempID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TempID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NameIMG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LinkIMG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="TTour_TTourImage" Member="TTour" ThisKey="TourID" OtherKey="TourID" Type="TTour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.p_THotel_Count" Method="p_THotel_Count">
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStarNum" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intCatID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_THotel_CountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_THotel_Rows" Method="p_THotel_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStarNum" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intCatID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_THotel_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HotelID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HotelCategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StarNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TTour_Count" Method="p_TTour_Count">
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTransportation" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intCatID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TTour_CountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TTourOrder_Rows" Method="p_TTourOrder_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPaymentType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateFromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateToDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TTourOrder_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TourOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TourID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="YourName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TotalCus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TTourOrder_Count" Method="p_TTourOrder_Count">
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPaymentType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateFromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateToDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TTourOrder_CountResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TLanguage_Row" Method="p_TLanguage_Row">
+    <Parameter Name="intLanguageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_TLanguage_RowResult">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Locale" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Directory" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TLanguage_Rows" Method="p_TLanguage_Rows">
+    <ElementType Name="p_TLanguage_RowsResult">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Locale" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Directory" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_THotelOrder_Rows" Method="p_THotelOrder_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPaymentType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dateFromDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="dateToDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="intSearchType" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_THotelOrder_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HotelOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HotelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YourName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BornDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaxCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalCus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCus3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ArrivalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CheckOutDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoomsQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoomsType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_THotelDetailDescription_Rows" Method="p_THotelDetailDescription_Rows">
+    <Parameter Name="intHotelDetailID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_THotelDetailDescription_RowsResult">
+      <Column Name="HotelDetailID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tmp1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_THotelDetail_Rows" Method="p_THotelDetail_Rows">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intHotelID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="p_THotelDetail_RowsResult">
+      <Column Name="NUM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HotelDetailID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HotelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Tmp1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tmp2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SubContent" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.p_TTour_Rows" Method="p_TTour_Rows" IsComposable="true">
+    <Parameter Name="intPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intPageSize" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intLangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intStatus" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTransportation" Type="System.Int32" DbType="Int" />
+    <Parameter Name="strSearchText" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="strCatID" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="intSorder" Type="System.Int32" DbType="Int" />
+    <Parameter Name="intTourID" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+</Database>

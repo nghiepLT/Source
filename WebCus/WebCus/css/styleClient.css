@@ -1,0 +1,270 @@
+﻿
+#header #topmenu
+{
+    height: 38px;
+    width: 100%;
+    float: left;
+    margin-top: -1px;
+}
+
+#topmenu ul
+{
+    list-style: none;
+    padding-left: 22px;
+}
+#topmenu ul li
+{
+    float: left;
+    width: 132px;
+    height: 31px;
+    font-size: 8pt;
+}
+
+#topmenu ul li a
+{
+    background: url(         '../Img/bgMenu.jpg' ) no-repeat;
+    color: #fff;
+    width: 132px;
+    height: 31px;
+    float: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 0px 2px 0px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+
+#topmenu ul li a:hover
+{
+    background: url(         '../Img/bgMenu_a.jpg' ) no-repeat;
+    color: #000;
+}
+
+#main
+{
+    min-height: 450px;
+    border: 1px solid #5f8fbf;
+    border-top: none;
+    padding: 10px 0px 0px 0px;
+}
+
+.title_page
+{
+    text-align: left;
+    color: #5f8fbf;
+    font-size: 16pt;
+    padding: 20px 20px 40px 10px;
+}
+#left
+{
+    float: left;
+    min-height: 450px;
+    width: 220px;
+    margin-right: 20px;
+}
+
+
+.box_leftmenu ul
+{
+    text-align: left;
+    list-style: none;
+    font-size: 11pt;
+}
+
+.box_leftmenu ul li
+{
+    background: #63bfdb;
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 1px;
+}
+
+.box_leftmenu ul li a
+{
+    font-weight: bold;
+    color: #fff;
+}
+
+.clear
+{
+    clear: both;
+}
+
+#content
+{
+    float: right;
+    min-height: 450px;
+    width: 737px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.space
+{
+    clear: both;
+    height: 10px;
+}
+.Container01 .box
+{
+    text-align: left;
+    font-size: 11pt;
+    line-height: 17pt;
+    background: #fff;
+    border: none;
+}
+
+.Container01 .box h2
+{
+    background: url(         '../Img/icon_home.gif' ) no-repeat 0 5px;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 3px 0px 5px 30px;
+    margin-bottom: 10px;
+    color: #5f8fbf;
+}
+
+.Container01 .box h3
+{
+    padding: 3px 0px 5px 30px;
+    background: url(         '../Img/icon_renew.gif' ) no-repeat 0 5px;
+}
+#tblFormRegis
+{
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 20px;
+}
+#tblFormRegis td
+{
+    padding: 3px;
+}
+#tblFormRegis span
+{
+    color: Red;
+}
+
+
+#tblFormRegis input
+{
+    font-weight: normal;
+    border: 1px solid #C0c0c0;
+    height: 18px;
+    width: 180px;
+}
+
+#tblFormRegis .btn
+{
+    font-weight: normal;
+    border: 1px solid #C0c0c0;
+    height: auto;
+    width: auto;
+    border: auto;
+}
+
+
+table tr td
+{
+    font-size: 9pt;
+    border-collapse: collapse;
+    margin: 0px;
+    color: #444444;
+    font-family: Arial, Dotum, sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 130%;
+}
+
+
+
+#header .headerInfo .tblHeaderInfo
+{
+    margin-top: 10px;
+}
+
+
+#header .headerInfo .tblHeaderInfo tr td
+{
+    font-size: 10pt;
+    text-align: right;
+    width: 350px;
+    color: #3E6A69;
+}
+
+#header .headerInfo .tblHeaderInfo tr td span
+{
+    font-size: 10pt;
+    color: Red;
+}
+#header .headerInfo .tblHeaderInfo tr td a
+{
+    font-size: 10pt;
+    text-decoration: none;
+}
+#header .headerInfo .tblHeaderInfo tr td a:hover
+{
+    font-size: 10pt;
+    text-decoration: underline;
+}
+.TextCredit
+{
+    text-align: center;
+    color: Blue;
+    font-size: 12pt;
+    font-weight: bold;
+    border: 1px solid #63bfdb;
+}
+#divInfoBuyCredit table tr td
+{
+    font-size: 10pt;
+}
+
+.thankyou
+{
+    height: 300px;
+    text-align: center;
+    width: 600px;
+}
+
+.thankyou h3
+{
+    padding: 0px;
+    font-size: 13pt;
+}
+
+.AlertLogin
+{
+    padding: 100px 50px 50px 50px;
+    color: Red;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#boxTerms
+{
+    font-weight: normal;
+    height: 130px;
+    overflow: auto;
+    border: 1px solid #c0c0c0;
+    padding: 5px 0px;
+    line-height: 15pt;
+}
+
+.login
+{
+    margin: 15px 100px 10px 100px;
+    width: 220px;
+    padding: 5px 30px 30px 30px;
+    height: 165px;
+    background: url('../Img/bgAccountLogin.jpg' ) no-repeat 0 0px;
+}
+.scroll_box
+{
+    max-height: 400px;
+    width: 100%;
+    overflow: auto; /*border: 1px solid #CCCCCC;*/
+    margin: 1em 0;
+}
+.clear
+{
+    clear: both;
+}
+
+

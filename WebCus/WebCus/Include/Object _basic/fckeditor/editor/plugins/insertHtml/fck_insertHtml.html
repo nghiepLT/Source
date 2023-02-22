@@ -1,0 +1,59 @@
+﻿<!--
+/*********************************************************************************************************/
+/**
+ * Fckeditor Insert Html Code Plugin (Support: Lajox ; Email: lajox@19www.com)
+ * 
+ * 
+ * Download: http://code.google.com/p/lajox
+ */
+/*********************************************************************************************************/
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+	<head>
+		<title>Insert Html Code</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta content="noindex, nofollow" name="robots">
+		<link rel="stylesheet" type="text/css" href="fck_insertHtml.css" />
+		<script type="text/javascript">
+
+var oEditor = window.parent.InnerDialogLoaded() ;
+
+window.onload = function()
+{
+	document.body.style.padding = '10px' ;
+
+	// First of all, translate the dialog box texts
+	oEditor.FCKLanguageManager.TranslatePage(document) ;
+
+	window.parent.SetOkButton( true ) ;
+	window.parent.SetAutoSize( true ) ;	
+}
+
+function Ok()
+{
+	var oArea = document.getElementById( 'insetHtml_area' ) ;
+
+	if ( oArea.value.length > 0 )
+		oEditor.FCK.InsertHtml( oArea.value ) ;
+
+	return true ;
+}
+
+function afficher(txt)
+{
+	document.getElementById( 'insetHtml_area' ).value = txt ;
+}
+
+function rechercher()
+{
+	return document.getElementById( 'insetHtml_area' ).value ;
+}
+
+		</script>
+	</head>
+	<body style="OVERFLOW: hidden;" scroll="no">
+		<textarea id="insetHtml_area" cols="40" rows="15" style="width:100%;height:180px;"></textarea>
+	</body>
+</html>

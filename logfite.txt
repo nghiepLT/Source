@@ -1,0 +1,20 @@
+<%
+sLogFileName = Server.mappath ("log") & "\" & Year(Now) & Right("0" & Month(Now), 2) & Right("0" & Day(Now),2) & ".txt"
+
+set oFs = server.createobject("Scripting.FileSystemObject")
+set oTextFile = oFs.OpenTextFile(sLogFileName, 8, True)
+
+oTextFile.WriteLine FormatDateTime(now) & " " & Session("Nguoidung")
+oTextFile.WriteLine Request.ServerVariables("HTTP_REFERER")
+For Each Item In Request.Form
+    fieldName = Item
+    fieldValue = Request.Form(Item)
+	oTextFile.WriteLine fieldName &" = "& fieldValue
+ Next 
+ 
+oTextFile.WriteLine ""
+
+oTextFile.Close
+set oTextFile = nothing
+set oFS = nothing
+%>

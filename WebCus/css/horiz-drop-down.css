@@ -1,0 +1,37 @@
+
+ul.sub_menu {
+    position: relative;
+	z-index:10000;
+}
+
+ul.sub_menu a {
+    display: block;    
+    text-decoration: none;
+    
+}
+/*sub nav*/
+ul.sub_menu ul {
+    position: absolute;   
+    overflow: hidden;
+	z-index:1000;
+	margin-top:-3px;
+	padding-top:15px;	
+		
+}
+
+ul.sub_menu ul li {
+    background: transparent;   
+    float: left; margin-right:1px;
+}
+
+ul.sub_menu ul li a, ul.sub_menu li.selected ul li a {
+    position: relative;
+    display: block;    
+    padding: 3px 20px;
+	background:#FF1717;z-index:1000;
+	color:#FFF;
+}
+
+ul.sub_menu ul li a:hover {
+    background:#F5F5F5; color:#333
+}

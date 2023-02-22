@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.875" name="AlbumGalleryData">
+  <DataContextMoniker Name="/AlbumGalleryDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2412bca6-a7f9-4a1d-b0c2-af831f4653e3" absoluteBounds="0.5, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TAlbum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1f47307-d739-4368-af78-aafeab81464b" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f910ef1b-290d-4f71-b79e-e5f0b0834d93" absoluteBounds="0.5, 7.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TAlbumCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="017103df-2242-40d3-9215-2bfb687a5224" absoluteBounds="0.51499999999999968, 8.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="be8b5b30-117c-4a0d-832a-f1bcd4ba93d8" absoluteBounds="0.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TAlbumCategoryDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57e6622a-2147-489c-85c8-68730c505b63" absoluteBounds="0.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa7f55f3-0025-4d4f-b404-c46a19c040f0" absoluteBounds="0.5, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TAlbumDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aee27566-aa1e-4e16-9106-f9a8c9a2bd0a" absoluteBounds="0.51500000000000012, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="523b57c7-063b-453d-b401-17f6060fc0ca" absoluteBounds="0.5, 6.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TAlbumToCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61a6c694-207b-4d8b-842e-16ec5cf5c347" absoluteBounds="0.51499999999999968, 6.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db77ad02-1a4c-4a9a-b744-23e7f13c08df" absoluteBounds="2.625, 0.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TGallery" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f4e01b0-3f34-488a-888a-d44b1928c503" absoluteBounds="2.64, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74abe0e8-12db-42ea-81a5-61c5845ea917" absoluteBounds="2.625, 3.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TGalleryDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4befeb8f-2e68-42ed-afe0-602f4bfb51be" absoluteBounds="2.64, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e38f103d-d06a-4091-b926-aa57b73c843b" absoluteBounds="2.625, 5.25, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/AlbumGalleryDataDataContext/TGalleryToAlbum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f565a54f-0413-4eea-bf16-327a89eecb7d" absoluteBounds="2.6399999999999997, 5.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,58 @@
+﻿
+#sn_carousel_inner_bottom {
+float:left; 
+width:820px;
+overflow: hidden;
+margin:0 auto;
+}
+
+#sn_carousel_ul_bottom {
+position:relative;
+left:0px; 
+list-style-type: none; 
+margin: 0px;
+padding: 0px;
+width:9999px;
+}
+
+#sn_carousel_ul_bottom img{
+    float: left; 
+    padding:0px;
+    vertical-align:middle;
+    text-align:center;
+    overflow:hidden;
+    margin:0 15px 0px 15px;
+    height:130px !important;
+}
+#sn_left_scroll_bottom, #sn_right_scroll_bottom
+{
+    top:40%;
+    position:absolute;
+    width:30px;
+    height:30px;
+    text-align:center;
+    z-index:2000;
+    display:none;
+}
+#sn_carousel_inner_bottom:hover #sn_left_scroll_bottom, #sn_carousel_inner_bottom:hover #sn_right_scroll_bottom
+{
+    display:block;
+}
+#sn_left_scroll_bottom
+{
+    left: 0px;
+    background: url('arrows.png') no-repeat;
+    cursor: pointer;
+    cursor: hand;
+}
+#sn_right_scroll_bottom
+{
+    right:0px;
+    background: url('arrows.png') no-repeat -30px 0px;
+    cursor: pointer;
+cursor: hand;
+}
+#sn_left_scroll_bottom img, #sn_right_scroll_bottom img{
+cursor: pointer;
+cursor: hand;
+}

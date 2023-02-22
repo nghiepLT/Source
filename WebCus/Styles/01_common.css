@@ -1,0 +1,114 @@
+﻿
+body { font:11px Arial, Verdana, Tahoma, Helvetica, sans-serif; }
+
+body, h1, h2, h3, h4, h5, h6, p, form, dl, dl dt, dl dd, blockquote {
+	margin:0;
+	padding:0
+}
+
+img { border:none }
+
+a { outline:none; color:#064B77}
+
+a:link, a:visited { text-decoration:none }
+
+a:hover { text-decoration:underline }
+
+fieldset {
+	border:none;
+	background:none;
+	margin:0;
+	padding:0
+}
+
+fieldset legend { display:none }
+
+input, select, textarea { font:100% Arial, Verdana, Tahoma, Helvetica, sans-serif }
+
+input[type="image"], input[type="submit"] { outline:none }
+
+input {
+	vertical-align:baseline;
+	margin:-1px -2px
+}
+
+html>body input {
+	vertical-align:text-bottom;
+	margin:0
+}
+
+object, embed { outline:none }
+
+.Wrapper {
+	overflow:visible;
+	height:1%
+}
+
+html>body .Wrapper {
+	overflow:hidden;
+	height:auto
+}
+
+.ClearItem {
+	clear:both;
+	height:0;
+	overflow:hidden
+}
+
+ul.DefaultList, ul.DefaultList li {
+	margin:0;
+	padding:0;
+	list-style:none
+}
+#wrapper {
+	background:url(images/wrapper_1x377.gif) repeat-x top;
+	min-width:1140px;
+}
+#wrapper .fwRoot{
+	background: url(images/bg-body-top3.jpg) center top no-repeat;	
+	min-width:1140px;
+	margin: 0px auto;
+	padding: 40px 0px 0px;
+}
+.contMainContent
+{
+    clear:both;
+    position:relative;
+    width:1110px;
+    float:left;
+}
+#mainContent 
+{
+	background: url(images/bg-body.gif) left top repeat-y;	
+	width:995px;
+	padding-left:45px;
+	padding-right:40px;
+	overflow:hidden;
+	float:left;	
+}
+#NewsTemp #wrapper {
+	background:url(images/wrapper_1x198.gif) repeat-x top;
+}
+#NewsTemp #wrapper .fwRoot{
+	background: url(images/bg-body-top4.jpg) center top no-repeat;	
+}
+#NewsTemp #mainContent {
+	margin-top:24px;		
+}
+#mainContent .innerContent
+{
+    width:100%;
+    overflow:hidden;   
+}
+.fwContent{
+	margin:0 auto;
+	width:1110px;
+	padding-left:30px;
+}
+.fwContent .bottom_line
+{
+	padding: 0px 144px 20px 160px;
+    height:12px;
+	overflow:hidden;
+	background:url(images/bot_line1334x12.gif) no-repeat 0 0;
+}

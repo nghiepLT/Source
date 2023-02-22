@@ -1,0 +1,85 @@
+div.sdmenu
+{
+	width: 100%;
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	color: #fff;
+	text-align: left;
+}
+div.sdmenu div
+{
+	overflow: hidden;
+	
+}
+
+
+div.sdmenu div.collapsed
+{
+	padding:5px 10px 2px 20px;
+	background: url( '../img/bullet_01.png' ) no-repeat 19px 11px;
+	margin-bottom:1px;
+	height:20px;
+}
+
+
+
+
+div.sdmenu div.selected a
+{
+	padding:5px 10px 2px 45px;
+	background: url( '../img/bullet_01.png' ) no-repeat 29px 10px;
+	margin-bottom:1px;
+}
+
+div.sdmenu div.selected span a
+{
+	padding:5px 10px 2px 35px;
+	background: url( '../img/bullet_01.png' ) no-repeat 19px 11px;
+	margin-bottom:1px;
+}
+
+div.sdmenu div span
+{
+	display: block;
+	padding: 1px 10px 10px 0px;
+	font-size: 9pt;
+	color: #0a0d98;
+	cursor: pointer;
+	height: 22px;
+}
+
+div.sdmenu div span:hover
+{
+	color: #1539af;
+	font-weight: bold;
+}
+
+div.sdmenu div.collapsed span
+{
+}
+div.sdmenu div a
+{
+	padding: 0px 20px 0px 15px;
+	text-decoration: none;
+	display: block;
+	height: 22px;
+	margin-bottom: 5px;
+	color:#fff;
+	font-weight:bold;
+	
+}
+
+div.sdmenu div div a
+{
+	padding: 5px 0px;
+	display: block;
+	border-bottom: 1px solid #ddd;
+	color: blue;
+}
+div.sdmenu div a.current, div.sdmenu div a:hover
+{
+	color: #fff;
+	text-decoration: underline;
+	font-weight:bold;
+}
+

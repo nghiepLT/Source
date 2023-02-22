@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBDFDDEA-AB89-4B5B-8090-204CDB69D22F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PQT.DAC</RootNamespace>
+    <AssemblyName>PQT.DAC</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PQT.API">
+      <HintPath>..\API\PQT.API.dll</HintPath>
+    </Reference>
+    <Reference Include="PQT.Common">
+      <HintPath>..\API\PQT.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbumGalleryData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlbumGalleryData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="BLC\GalleryMng_BLC.cs" />
+    <Compile Include="BLC\MenuMng_BLC.cs" />
+    <Compile Include="BLC\ProductMng_BLC.cs" />
+    <Compile Include="BLC\TourMng_BLC.cs" />
+    <Compile Include="BLC\UserMng_BLC.cs" />
+    <Compile Include="CommonData.cs">
+      <DependentUpon>CommonData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectSQL.cs" />
+    <Compile Include="dataArearesource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataArearesource.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataNhanVienResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataNhanVienResource.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EstateData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstateData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RealData.designer.cs">
+      <DependentUpon>RealData.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="UploadFile.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadFile.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="UserMngData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMngData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\VM_DanhGiaThuViec.cs" />
+    <Compile Include="ViewModel\VM_KhaoSat.cs" />
+    <Compile Include="ViewModel\VM_Thongketuyendung.cs" />
+    <Compile Include="ViewModel\VM_UngVien.cs" />
+    <Compile Include="ViewModel\VM_UngvienStatus.cs" />
+    <Compile Include="ViewModel\VM_YeuCauTuyenDung.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlbumGalleryData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AlbumGalleryData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CommonData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CommonData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataArearesource.xsc">
+      <DependentUpon>dataArearesource.xsd</DependentUpon>
+    </None>
+    <None Include="dataArearesource.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataArearesource.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataArearesource.xss">
+      <DependentUpon>dataArearesource.xsd</DependentUpon>
+    </None>
+    <None Include="DataNhanVienResource.xsc">
+      <DependentUpon>DataNhanVienResource.xsd</DependentUpon>
+    </None>
+    <None Include="DataNhanVienResource.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataNhanVienResource.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataNhanVienResource.xss">
+      <DependentUpon>DataNhanVienResource.xsd</DependentUpon>
+    </None>
+    <None Include="EstateData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>EstateData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MenuData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MenuData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ProductData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RealData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>RealData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UploadFile.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UploadFile.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserMngData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UserMngData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CommonData.dbml.layout">
+      <DependentUpon>CommonData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProductData.dbml.layout">
+      <DependentUpon>ProductData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EstateData.dbml.layout">
+      <DependentUpon>EstateData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RealData.dbml.layout">
+      <DependentUpon>RealData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UploadFile.dbml.layout">
+      <DependentUpon>UploadFile.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserMngData.dbml.layout">
+      <DependentUpon>UserMngData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlbumGalleryData.dbml.layout">
+      <DependentUpon>AlbumGalleryData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MenuData.dbml.layout">
+      <DependentUpon>MenuData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\PQT.DAC.dll" />
+    <Content Include="bin\Debug\PQT.DAC.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

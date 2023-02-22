@@ -1,0 +1,28 @@
+﻿
+span#pageCaption
+{
+	color:Aqua;
+}
+
+th
+{
+	vertical-align: middle;
+	text-align:center;
+	background-color:Maroon;
+}
+
+tr
+{
+	text-align:center;
+}
+
+div#button
+{
+	text-align:center;
+}
+
+.button
+{
+	width: 7em !important;
+	background-color:Aqua;
+}

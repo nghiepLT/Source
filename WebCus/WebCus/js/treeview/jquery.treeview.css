@@ -1,0 +1,21 @@
+/* fix for IE6 */
+* html .hitarea {
+	display: inline;
+	float:none;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+
+.filetree{ background:url('../../img/bg_01.png'); list-style:none;color:#fff;border-top:1px solid #fcf2af;}
+.filetree a,.filetree span{color:#0251c8;}
+.filetree li {font-size:11pt;border-bottom:1px solid #fcf2af; padding:6px 0px 0px 0px;background:url('../../img/bullet/10.gif') no-repeat 7px 10px; min-height:22px; font-weight:normal;}
+.filetree li span{margin-left:22px; cursor:pointer;}
+.filetree li ul { background:#eed84f; margin:0px; margin-top:7px;border-top:1px solid #fcf2af;}
+.filetree li ul li {font-size:10pt;padding: 3px 0 0px 0px; list-style:none;border-bottom:1px solid #fcf2af;background:url('../../img/bullet/08.png') no-repeat 12px 6px; font-weight:normal;}
+.filetree li ul li span{color:#1168e9;margin-left:30px;cursor:pointer;}
+.filetree li ul li span a{color:#1168e9;}
+.filetree li ul li ul {background:#ededed;border-top:1px solid #fcf2af;}
+.filetree li ul li ul li{font-size:10pt;background:url('../../img/bullet/12.gif') no-repeat 25px 9px; font-weight:normal;border-top:1px solid #d8c23c;}
+.filetree li ul li ul li span {margin-left:40px;cursor:pointer;}
+.filetree li ul li ul li span a{color:#1168e9;cursor:pointer;}

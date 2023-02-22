@@ -1,0 +1,22 @@
+﻿.stickytooltip{
+background:#1A75CE;
+display:none;
+position:absolute;
+display:none;
+z-index:3000;
+color:#fff;
+padding:10px;
+-webkit-border-radius:5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url('PIE.htc');
+}
+
+
+.stickytooltip .stickystatus{ /*Style for footer bar within tooltip*/
+background:black;
+color:white;
+padding-top:5px;
+text-align:center;
+font:bold 11px Arial;
+}

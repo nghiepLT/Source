@@ -1,0 +1,76 @@
+﻿/*#sn_slidercroll
+{
+    width:850px;
+    height:72px;
+    overflow:hidden;
+}*/
+#sn_carousel_inner {
+float:left; /* important for inline positioning */
+width:1000px; /* important (this width = width of list item(including margin) * items shown */ 
+overflow: hidden;  /* important (hide the items outside the div) */
+position:relative;
+}
+
+#sn_carousel_ul {
+position:relative;
+left:0px; /* important (this should be negative number of list items width(including margin) */
+list-style-type: none; /* removing the default styling for unordered list items */
+margin: 0px;
+padding: 0px;
+/*width:99999px;*/
+ /* important */
+ 
+/* non-important styling bellow */
+/*padding-bottom:10px;*/
+}
+
+#sn_carousel_ul img{
+
+/* important for inline positioning of the list items */                                    
+/* fixed width, important */
+/* just styling bellow*/
+    float: left; 
+    padding:0px;
+    vertical-align:middle;
+    /*margin:10px 15px 0px 0;*/
+    /*text-align:center;*/
+    
+    /*margin:0 14px;*/
+/*    width: 200px;*/
+    /**/
+    height:545px;
+    margin-right:5px;
+    /*
+    overflow:hidden;*/
+}
+#sn_carousel_ul li a img
+{
+    width:140px;
+    height:140px;
+    vertical-align:middle;
+}
+#sn_left_scroll, #sn_right_scroll
+{
+position:absolute;
+/*float:left;*/
+width:33px;
+z-index:1000;
+/*text-align:center;*/
+/*line-height:140px;*/
+/*line-height:84px;*/
+}
+#sn_left_scroll
+{
+    left:0;
+    top:50%;
+}
+#sn_right_scroll
+{
+    right:0px;
+    top:50%;
+}
+#sn_left_scroll img, #sn_right_scroll img{
+/*styling*/
+cursor: pointer;
+cursor: hand;
+}

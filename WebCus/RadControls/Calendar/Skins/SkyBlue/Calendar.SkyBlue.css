@@ -1,0 +1,491 @@
+/*Telerik RadCalendar SkyBlue skin*/
+
+table.RadCalendar_SkyBlue
+{
+	border-collapse:separate;
+	border:0;
+	background:#fff;
+	font:11px arial,tahoma,sans-serif;
+	width:224px;
+}
+
+/*titlebar*/
+
+.RadCalendar_SkyBlue .rcTitlebar
+{
+	width:100%;
+	border:1px solid #52a0e2;
+	padding:0;
+	background:#d4f3ff;
+	color:#136fb6;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar table
+{
+	width:100%;
+	border-collapse:separate;
+	border:1px solid;
+	border-color:#ceeefc #daf5ff #daf5ff;
+	font:14px/27px arial,tahoma,sans-serif;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar td
+{
+	border:0;
+	padding:0;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcTitle
+{
+	width:100%;
+	cursor:pointer;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcPrev,
+.RadCalendar_SkyBlue .rcTitlebar .rcNext,
+.RadCalendar_SkyBlue .rcTitlebar .rcFastPrev,
+.RadCalendar_SkyBlue .rcTitlebar .rcFastNext
+{
+	display:block;
+	width:13px;
+	height:13px;
+	overflow:hidden;
+	margin:0 3px;
+	background:transparent url('Calendar/sprite.gif') no-repeat;
+	text-indent:-1111px;
+	text-decoration:none;
+	color:#4692c9;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcPrev
+{
+	background-position:3px -48px;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcNext
+{
+	background-position:4px -98px;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcFastPrev
+{
+	margin-left:6px;
+	background-position:2px 2px;
+}
+
+.RadCalendar_SkyBlue .rcTitlebar .rcFastNext
+{
+	margin-right:6px;
+	background-position:2px -148px;
+}
+
+.RadCalendar_SkyBlue .rcMain
+{
+	width:100%;
+	border:1px solid #52a0e2;
+	border-top:0;
+	padding:0;
+}
+
+.RadCalendar_SkyBlue .rcMainTable
+{
+	border-collapse:separate;
+	border:0;
+	width:90%;
+	margin:6px 12px 10px 10px;
+	font:11px/15px arial,tahoma,sans-serif;
+}
+
+/*header, footer*/
+
+.RadCalendar_SkyBlue .rcHeader,
+.RadCalendar_SkyBlue .rcFooter
+{
+	border:1px solid #52a0e2;
+	border-top:0;
+	padding:0;
+}
+
+/*week numbers and days*/
+
+.RadCalendar_SkyBlue .rcRow th,
+.RadCalendar_SkyBlue .rcWeek th
+{
+	border:0;
+	padding:0 6px;
+	color:#136fb6;
+	font-weight:normal;
+	cursor:default;
+}
+
+.RadCalendar_SkyBlue .rcWeek th
+{
+	border-bottom:1px solid #52a0e2;
+	padding-top:4px;
+	padding-bottom:3px;
+	font-size:10px;
+	text-align:right;
+}
+
+.RadCalendar_SkyBlue .rcRow th,
+.RadCalendar_SkyBlue .rcRow td
+{
+	vertical-align:middle;
+}
+
+.RadCalendar_SkyBlue .rcWeek .rcViewSel,
+.RadCalendar_SkyBlue .rcRow th
+{
+	width:14px;
+	padding-left:4px;
+	text-align:center;
+}
+
+/*date cells*/
+
+.RadCalendar_SkyBlue .rcRow td
+{
+	border:1px solid #fff;
+	padding:0;
+	text-align:right;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcRow a,
+.RadCalendar_SkyBlue .rcMain .rcRow span
+{
+	display:block;
+	padding:1px 5px;
+	text-decoration:none;
+	color:#333;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcWeekend a
+{
+	color:#777;
+}
+
+.RadCalendar_SkyBlue .rcRow .rcToday
+{
+	border-color:#83c54d;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcToday a
+{
+	color:#468701;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcOtherMonth a
+{
+	color:#ccc;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcOutOfRange span
+{
+	color:#ccc;
+	cursor:default;
+}
+
+.RadCalendar_SkyBlue .rcRow .rcHover
+{
+	border-color:#77c34d;
+	background:#c4f190;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcRow .rcHover a
+{
+	color:#286400;
+}
+
+.RadCalendar_SkyBlue .rcRow .rcSelected
+{
+	border-color:#51af1e;
+	background:#99db4c;
+}
+
+.RadCalendar_SkyBlue .rcMain .rcRow .rcSelected a
+{
+	color:#286400;
+}
+
+/*multimonth view*/
+
+table.RadCalendarMultiView_SkyBlue
+{
+	width:auto;
+}
+
+.RadCalendarMultiView_SkyBlue .rcCalendar
+{
+	width:224px;
+	border:0;
+	padding:0;
+}
+
+.RadCalendarMultiView_SkyBlue .rcCalendars .rcMainTable
+{
+	width:100%;
+	margin:0;
+}
+
+.RadCalendarMultiView_SkyBlue .rcCalendars .rcMainTable .rcMainTable
+{
+	width:88%;
+	margin:3px 11px 2px;
+}
+
+.RadCalendarMultiView_SkyBlue .rcCalendars .rcMainTable .rcLastRow .rcMainTable
+{
+	margin-bottom:11px;
+}
+
+.RadCalendarMultiView_SkyBlue .rcMainTable .rcTitle
+{
+	border:0;
+	border-bottom:1px solid #52a0e2;
+	padding:3px 0 0;
+	font:12px/22px arial,tahoma,sans-serif;
+	color:#3a9f09;
+	text-align:center;
+}
+
+/*month view*/
+
+table.RadCalendarMonthView_SkyBlue
+{
+	border-collapse:separate;
+	border:1px solid #52a0e2;
+	background:#fff;
+	font:10px verdana,tahoma,sans-serif;
+	color:#333;
+}
+
+.RadCalendarMonthView_SkyBlue td
+{
+	border:0;
+	padding:2px;
+}
+
+.RadCalendarMonthView_SkyBlue #rcMView_Feb,
+.RadCalendarMonthView_SkyBlue #rcMView_Apr,
+.RadCalendarMonthView_SkyBlue #rcMView_Jun,
+.RadCalendarMonthView_SkyBlue #rcMView_Aug,
+.RadCalendarMonthView_SkyBlue #rcMView_Oct,
+.RadCalendarMonthView_SkyBlue #rcMView_Dec
+{
+	border-right:1px solid #52a0e2;
+}
+
+.RadCalendarMonthView_SkyBlue a
+{
+	display:block;
+	padding:2px 4px;
+	text-align:center;
+	text-decoration:none;
+	color:#333;
+}
+
+.RadCalendarMonthView_SkyBlue .rcHover a
+{
+	border:1px solid #77c34d;
+	padding:1px 3px;
+	background:#c4f190;
+	color:#286400;
+}
+
+.RadCalendarMonthView_SkyBlue .rcSelected a
+{
+	border:1px solid #51af1e;
+	padding:1px 3px;
+	background:#99db4c;
+	color:#286400;
+}
+
+.RadCalendarMonthView_SkyBlue .rcButtons
+{
+	border:0;
+	border-top:1px solid #d4f3ff;
+	padding:4px 6px;
+	background:#d4f3ff;
+	text-align:center;
+}
+
+.RadCalendarMonthView_SkyBlue input
+{
+	border:1px solid;
+	border-color:#3a9f09 #2b7507 #2b7507 #3a9f09;
+	padding:0;
+	background:#67c837;
+	color:#184900;
+	font:10px verdana,arial,sans-serif;
+	cursor:pointer;
+}
+
+.RadCalendarMonthView_SkyBlue #rcMView_Today
+{
+	margin:0 0.4em 0 0;
+}
+
+.RadCalendarMonthView_SkyBlue #rcMView_OK
+{
+	padding:0 0.2em;
+}
+
+/*time view*/
+
+table.RadCalendarTimeView_SkyBlue
+{
+	border-collapse:separate;
+	border:1px solid #52a0e2;
+	background:#fff;
+	font:11px arial,tahoma,sans-serif;
+	color:#333;
+}
+
+.RadCalendarTimeView_SkyBlue th
+{
+	border:0;
+	border-bottom:1px solid #d4f3ff;
+	padding:0;
+	background:#d4f3ff;
+	color:#136fb6;
+	font:11px/26px arial,tahoma,sans-serif;
+	text-align:center;
+	cursor:default;
+}
+
+.RadCalendarTimeView_SkyBlue td
+{
+	border:0;
+	border-left:1px solid #52a0e2;
+	padding:0;
+}
+
+.RadCalendarTimeView_SkyBlue td:first-child
+{
+	border-left:0;
+}
+
+.RadCalendarTimeView_SkyBlue a
+{
+	display:block;
+	padding:6px 6px 5px;
+	text-align:center;
+	color:#333;
+	text-decoration:none;
+}
+
+.RadCalendarTimeView_SkyBlue td.rcHover a
+{
+	border:1px solid #77c34d;
+	border-width:1px 0;
+	padding:5px 6px 4px;
+	background:#c4f190;
+	color:#286400;
+}
+
+.RadCalendarTimeView_SkyBlue td.rcSelected a
+{
+	border:1px solid #51af1e;
+	border-width:1px 0;
+	padding:5px 6px 4px;
+	background:#99db4c;
+	color:#286400;
+}
+
+.RadCalendarTimeView_SkyBlue .rcFooter
+{
+	border:0;
+	border-top:1px solid #52a0e2;
+	padding:0;
+}
+
+/*pickers*/
+
+.RadPicker_SkyBlue
+{
+	vertical-align:middle;
+}
+
+.RadPicker_SkyBlue table.rcTable,
+.RadPicker_SkyBlue table.rcTable td
+{
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+.RadPicker_SkyBlue td
+{
+	vertical-align:middle;
+}
+
+.RadPicker_SkyBlue table.rcTable .rcInputCell
+{
+	padding:0 4px 0 0;
+}
+
+.RadPicker_SkyBlue td a
+{
+	position:relative;/*FF*/
+	outline:none;/*FF*/
+	z-index:2;/*Opera*/
+	margin:0 2px;
+	text-decoration:none;
+}
+* html .RadPicker_SkyBlue td a{position:static}/*IE6*/
+*+html .RadPicker_SkyBlue td a{position:static}/*IE7*/
+
+.RadPicker_SkyBlue .rcCalPopup,
+.RadPicker_SkyBlue .rcTimePopup
+{
+	display:block;
+	overflow:hidden;
+	width:16px;
+	height:16px;
+	background:url('Calendar/sprite.gif') no-repeat;
+	text-indent:-1111px;
+	text-align:center;
+}
+
+.RadPicker_SkyBlue .rcCalPopup,
+.RadPicker_SkyBlue .rcDisabled.rcCalPopup:hover
+{
+	background-position:0 -200px;
+}
+
+.RadPicker_SkyBlue .rcCalPopup:hover
+{
+	background-position:0 -250px;
+}
+
+.RadPicker_SkyBlue .rcTimePopup,
+.RadPicker_SkyBlue .rcDisabled.rcTimePopup:hover
+{
+	background-position:0 -300px;
+}
+
+.RadPicker_SkyBlue .rcTimePopup:hover
+{
+	background-position:0 -350px;
+}
+
+.RadPicker_SkyBlue .rcDisabled,
+.RadCalendarMonthView_SkyBlue .rcDisabled
+{
+	opacity:0.5;
+	filter:alpha(opacity=50);
+}
+
+/*rtl*/
+
+.RadCalendarRTL_SkyBlue .rcTitlebar table
+{
+	direction:ltr;
+}
+
+.RadCalendarRTL_SkyBlue .rcTitle
+{
+	direction:rtl;
+}

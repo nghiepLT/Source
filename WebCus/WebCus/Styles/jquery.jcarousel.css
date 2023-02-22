@@ -1,0 +1,160 @@
+﻿/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+.jcarousel-container {
+    position: relative;
+}
+
+.jcarousel-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.jcarousel-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel-list li,
+.jcarousel-item {
+    float: left;
+    list-style: none;
+    /* We set the width/height explicitly. No width/height causes infinite loops. */
+    width: 75px;
+    height: 75px;
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {
+    z-index: 3;
+    display: none;
+}
+
+.jcarousel-prev {
+    z-index: 3;
+    display: none;
+}
+/************************************************************************************************************
+    SKIN01
+*************************************************************************************************************/ 
+
+
+.jcarousel-skin01 .jcarousel-container {}
+
+.jcarousel-skin01 .jcarousel-container-horizontal {
+    width: 410px;
+    padding: 0px 75px;
+}
+
+.jcarousel-skin01 .jcarousel-clip-horizontal {
+    width:  410px;
+    height: 70px;
+}
+
+.jcarousel-skin01 .jcarousel-item {
+    width: 54px;
+    height: 70px;
+	text-align: center;
+}
+.jcarousel-skin01 .activeItem{
+	display:none;
+}
+.jcarousel-skin01 .Current .activeItem{
+	display:inline;
+}
+.jcarousel-skin01 .Current .normalItem{
+	display:none;
+}
+.jcarousel-skin01 .jcarousel-item img
+{
+    height:54px;
+}
+		.jcarousel-skin01 .jcarousel-item img.Level01 {
+			/*opacity: 0.6;	
+			filter:alpha(opacity=60);*/
+		}
+		.jcarousel-skin01 .jcarousel-item img.Level02 {
+			/*opacity: 0.4;
+			filter:alpha(opacity=40);*/
+		}
+.jcarousel-skin01 .jcarousel-item span {
+	display: block;	
+	color: #3b3a3a;
+		font-size: 11px;
+}
+.jcarousel-skin01 .jcarousel-item-horizontal {
+	margin-right: 35px;	
+}
+
+.jcarousel-skin01 .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin01 .jcarousel-next-horizontal {
+    position: absolute;
+    top: 11px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    z-index:10;
+    cursor: pointer;
+    background: url(images/btn-next.png)  no-repeat 0 0;
+}
+
+.jcarousel-skin01 .jcarousel-next-horizontal:hover {
+    
+}
+
+.jcarousel-skin01 .jcarousel-next-horizontal:active {
+    
+}
+
+.jcarousel-skin01 .jcarousel-next-disabled-horizontal,
+.jcarousel-skin01 .jcarousel-next-disabled-horizontal:hover,
+.jcarousel-skin01 .jcarousel-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -96px 0;
+}
+
+.jcarousel-skin01 .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 11px;
+    left: 5px;
+    width: 32px;
+    height: 32px;
+    z-index:10;
+    cursor: pointer;
+    background: url(images/btn-prev.png) no-repeat 0 0;
+}
+
+.jcarousel-skin01 .jcarousel-prev-horizontal:hover {
+    
+}
+
+.jcarousel-skin01 .jcarousel-prev-horizontal:active {
+    
+}
+
+.jcarousel-skin01 .jcarousel-prev-disabled-horizontal,
+.jcarousel-skin01 .jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-skin01 .jcarousel-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -96px 0;
+}

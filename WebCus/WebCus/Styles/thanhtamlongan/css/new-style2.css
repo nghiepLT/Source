@@ -1,0 +1,123 @@
+/* CSS Document */
+.main-news ul
+{
+    list-style: none;
+}
+
+.main-news li
+{
+    width: 100%;
+    float: left;
+    padding: 0 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.list-img
+{
+    /*width: 200px;*/
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.list-title a
+{
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: block;
+}
+.list-date
+{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.related-news
+{
+    overflow: hidden;
+    margin: 30px 0 50px 0;
+}
+.related-news li
+{
+    width: 100%;
+    float: left;
+    padding: 0 15px;
+    list-style: none;
+}
+.menuchild li
+{
+    padding: 5px 15px;
+    list-style: none;
+    font-size:17px;
+}
+.menuchild li a
+{
+    background: url(../images/arrow.png) no-repeat left 11px;
+    padding: 5px 0 5px 15px;
+    
+}
+.menuchild li:hover a
+{font-weight:bold;}
+.related-news li a
+{
+    /*  border-bottom: 1px dotted #717171;     display: block;*/
+    background: url(../images/arrow.png) no-repeat left 11px;
+    padding: 5px 0 5px 15px;
+    color: #48484a;
+}
+.related-news ul li:hover a
+{
+    color: Blue;
+}
+.related-news li a:last-child
+{
+    /* display: block;*/
+    background: url(../images/arrow.png) no-repeat left 11px;
+    padding: 5px 0 5px 15px;
+    color: #48484a;
+}
+.blogtitle {font-weight:bold;}
+/*facebook link */
+._5lm5
+{
+    display: none;
+}
+/*----------------------------------------------------------------------*/
+@media (max-width:1200px)
+{
+    .related-news li a
+    {
+        font-size: 13px;
+    }
+}
+
+@media (max-width:768px)
+{
+
+    .main-news li
+    {
+        width: 100%;
+        float: none;
+    }
+    .related-news li
+    {
+        width: 100%;
+        float: none;
+    }
+}
+
+
+@media (max-width:360px)
+{
+    /*.list-img {
+    		width: 100%;
+    		float: none;
+    		margin-right: 0;
+    		margin-bottom: 10px;
+    	}
+    	.list-img img {
+    		width:100%;
+    	}*/
+    .list-content .list-date, .list-content .list-text
+    {
+        display: none;
+    }
+}

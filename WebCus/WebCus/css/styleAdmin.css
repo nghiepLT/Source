@@ -1,0 +1,205 @@
+﻿.clear
+{
+    clear:both;    
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+} 
+.clearfix {display: inline-block;}
+.clearfix { display: block;}
+body, h1, h2, h3, h4, h5, h6, h7, p, ul, ol, li, cite, hr, fieldset, img, dl, dt, dd
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	color: #000000;
+	font-family: Arial, helvetica, sans-serif;
+	font-size: 9pt;
+	padding: 0px;
+}
+
+#page
+{
+	width: 100%;
+	min-height: 500px;
+}
+
+#header
+{
+	height: 56px;
+	background: url( '../Img/admin/bgHeader.png' );
+}
+
+#header .logo
+{
+	float:left;	
+	color:#ededed;
+	font-weight:bold;
+	font-size:13pt;
+	padding:18px 10px 0px 31px;
+	position:absolute;
+}
+#header .logo_shadow
+{
+	float:left;	
+	color:#ffba00;
+	font-weight:bold;
+	font-size:13pt;
+	position:absolute;
+	padding:17px 10px 0px 30px;
+}
+
+
+#header img
+{
+	margin: 10px;
+}
+
+#header .headerInfo
+{
+	width: 450px;
+	float: right;
+	margin-right: 12px;
+	padding: 16px 15px 16px 15px;
+	color:#fff;
+	text-align:right;
+}
+
+#header .headerInfo a
+{
+	color:#fff;
+}
+
+#topmenu
+{
+	height: 35px;
+	width: 100%;
+	float: left;
+	margin-top: -2px;
+	background: url( '../Img/admin/bgTopMenu.png' );
+}
+
+#topmenu img
+{
+	margin: 0px;
+}
+
+#topmenu ul
+{
+	list-style: none;
+	padding-left: 22px;
+}
+#topmenu ul li
+{
+	float: left;
+	height: 31px;
+	font-size: 9pt;
+}
+
+#topmenu ul li a
+{
+	color: #fff;
+	float: left;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 8px 20px 15px 20px;
+	font-weight: bold;
+	text-align: center;
+	outline: none;
+	height: 21px;
+}
+
+#topmenu ul li span
+{
+	color: #c0c0c0;
+	float: left;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 8px 0px 12px 0px;
+	font-weight: bold;
+	text-align: center;
+	outline: none;
+	height: 21px;
+}
+
+#topmenu ul li a:hover
+{
+	background: url( '../Img/admin/bgMenu_a1.jpg' );
+	color: #da0002;
+}
+
+#main
+{
+	width:100%;
+	float:left;
+	min-height: 450px;
+	background: url( '../Img/admin/bgBody.png') repeat-x 0px -1px;
+	margin-top:0px;
+	
+}
+
+#main .content
+{
+	padding: 20px 20px 20px 20px;
+}
+
+.title_page
+{
+	text-align: left;
+	color: #5f8fbf;
+	font-size: 16pt;
+	padding: 20px 20px 40px 10px;
+}
+
+#footerAdmin
+{
+	background: url( '../Img/admin/bgBottom.png') repeat-x top center;
+	padding:40px 0px 20px 0px;
+	float:left;
+	width:100%;	
+	font-size:10pt;
+		
+}
+
+/*nguyet*/
+.textLeft
+{
+	text-align: left;
+	width: 40%;
+}
+.textRight
+{
+	text-align: right;
+	width: 60%;
+}
+.text9pt
+{
+	font-size: 10pt;
+	height: 27px;
+}
+.text9ptBold
+{
+	font-size: 10pt;
+	font-weight: bold;
+	height: 27px;
+}
+.button
+{
+	height: 32px;
+	width: 100px;
+	background-color: #5f8fbf;
+}
+
+.Link
+{
+	color: #5f8fbf;
+	font-size: 13pt;
+}

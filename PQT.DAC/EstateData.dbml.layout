@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.75, 14.75" name="EstateData">
+  <DataContextMoniker Name="/EstateDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="aa7442ce-7e19-4e07-a3a0-8470afc498b2" absoluteBounds="3.5, 1.5, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/EstateDataDataContext/Estate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17797382-f163-44b3-9c3d-8831a8001c2a" absoluteBounds="3.515, 1.96, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c1d198c-6839-4c0c-a4c5-79c9bac896b7" absoluteBounds="6.25, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateToCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcb8a93a-44fd-4c1b-a6bc-ebf7062f7495" absoluteBounds="6.265, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35c1cc42-f0cc-4324-b0c2-8e8f5eace108" absoluteBounds="11.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateBaseCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5464495e-bc1e-47af-a0f2-297a4c8992fd" absoluteBounds="11.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d29055e-e3ed-415c-baca-262b3713078a" absoluteBounds="3.5, 8.125, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f69feca2-6dd5-444b-b9f6-49ecc76015a7" absoluteBounds="3.515, 8.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d1a3632-513a-48d0-923a-65904aef2ab1" absoluteBounds="6.25, 9.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateCategoryDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d96e7c03-13a3-49f2-a0f3-a367ee6a8836" absoluteBounds="6.265, 9.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a199210f-18c4-4853-9fdf-8f0b51fa9a30" absoluteBounds="0.75, 2.875, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3fa7749f-2deb-45ef-81f6-7bc49dd8ff9d" absoluteBounds="0.765, 3.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b460806-8024-42c9-8aca-af5928b6fdbb" absoluteBounds="6.25, 6.125, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d14989a6-97c5-44a1-b66a-2b14fd36296d" absoluteBounds="6.265, 6.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bd12783-5b1f-4f48-a5de-a3e8aaa8f07b" absoluteBounds="8.75, 4.75, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d6ffe19-88e2-4bee-9bb7-dddc2d51080b" absoluteBounds="8.765, 5.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69a0864d-f869-406a-adaf-c91dc7eb0249" absoluteBounds="8.75, 8.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateDetailDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de07f0e8-5f93-453d-9c45-e21d378f5388" absoluteBounds="8.765, 9.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8bb6da81-7215-47ea-9324-034296ed2882" absoluteBounds="8.75, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateGroupBaseCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c279bef5-e1a3-4561-8efc-b86dd8945a92" absoluteBounds="8.765, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="727404e2-f573-4f99-975b-e3aa2598715c" absoluteBounds="6.25, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d96965f-05cd-4e08-a64f-ff1282aff5c9" absoluteBounds="6.265, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff3a8f7d-9c59-408a-8bc5-93ae3ac463bb" absoluteBounds="0.75, 11.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/EstateDataDataContext/EstateRoomNumber" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c209f6f-3dee-43eb-ba49-dba8e511087d" absoluteBounds="0.765, 12.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.09699625651042); (6.25 : 2.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/Estate/Estate_EstateToCategory" />
+      <nodes>
+        <classShapeMoniker Id="aa7442ce-7e19-4e07-a3a0-8470afc498b2" />
+        <classShapeMoniker Id="4c1d198c-6839-4c0c-a4c5-79c9bac896b7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.125); (5.875 : 7.75); (5.875 : 2.42674638476563); (6.25 : 2.42674638476563)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/EstateCategory/EstateCategory_EstateToCategory" />
+      <nodes>
+        <classShapeMoniker Id="4d29055e-e3ed-415c-baca-262b3713078a" />
+        <classShapeMoniker Id="4c1d198c-6839-4c0c-a4c5-79c9bac896b7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.73159912109375); (6.25 : 9.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/EstateCategory/EstateCategory_EstateCategoryDescription" />
+      <nodes>
+        <classShapeMoniker Id="4d29055e-e3ed-415c-baca-262b3713078a" />
+        <classShapeMoniker Id="2d1a3632-513a-48d0-923a-65904aef2ab1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.14505126953125); (3.5 : 4.14505126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/EstateCustomer/EstateCustomer_Estate" />
+      <nodes>
+        <classShapeMoniker Id="a199210f-18c4-4853-9fdf-8f0b51fa9a30" />
+        <classShapeMoniker Id="aa7442ce-7e19-4e07-a3a0-8470afc498b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.42866129557292); (5.79166666666667 : 6.42866129557291 : JumpStart); (5.95833333333333 : 6.42866129557292 : JumpEnd); (6.25 : 6.42866129557292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/Estate/Estate_EstateDescription" />
+      <nodes>
+        <classShapeMoniker Id="aa7442ce-7e19-4e07-a3a0-8470afc498b2" />
+        <classShapeMoniker Id="0b460806-8024-42c9-8aca-af5928b6fdbb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 2.01044840494792); (11.5 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/EstateGroupBaseCode/EstateGroupBaseCode_EstateBaseCode" />
+      <nodes>
+        <classShapeMoniker Id="8bb6da81-7215-47ea-9324-034296ed2882" />
+        <classShapeMoniker Id="35c1cc42-f0cc-4324-b0c2-8e8f5eace108" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.69314697265625); (5.79166666666667 : 4.69314697265625 : JumpStart); (5.95833333333333 : 4.69314697265625 : JumpEnd); (6.25 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EstateDataDataContext/Estate/Estate_EstateImage" />
+      <nodes>
+        <classShapeMoniker Id="aa7442ce-7e19-4e07-a3a0-8470afc498b2" />
+        <classShapeMoniker Id="727404e2-f573-4f99-975b-e3aa2598715c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

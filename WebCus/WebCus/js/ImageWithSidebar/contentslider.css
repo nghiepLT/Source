@@ -1,0 +1,79 @@
+#paginate-slider4 a img:hover, #paginate-slider4 a.selected img
+{
+	border: 1px solid #E42217;
+}
+
+.sliderwrapper
+{
+	position: relative; /*leave as is*/
+	overflow: hidden; /*leave as is*/
+	width: 671px; /*width of featured content slider*/
+	height: 422px;
+	float: left;
+}
+
+.sliderwrapper .contentdiv
+{
+	visibility: hidden; /*leave as is*/
+	position: absolute; /*leave as is*/
+	left: 0; /*leave as is*/
+	top: 0; /*leave as is*/
+	background: white;
+	width: 671px; /*width of content DIVs within slider. Total width should equal slider's inner width (390+5+5=400) */
+	filter: progid:DXImageTransform.Microsoft.alpha(opacity=100);
+	-moz-opacity: 1;
+	opacity: 1;
+	height:422px;
+	padding:14px;
+}
+
+.sliderwrapper h2
+{
+	padding: 5px 0px 5px 0px;
+	font-size: 9pt;
+}
+
+.sliderwrapper h2 a
+{
+	color: #a73c2c;
+}
+
+.sliderwrapper	 h2 a:hover
+{
+	color: #101010;
+}
+
+.sliderwrapper p
+{
+	padding:0 5px 5px 0;
+}
+
+.thum_img
+{
+	float: left;
+	width: 108px;
+	margin-left:15px;
+}
+.thum_img ul
+{
+	list-style: none;
+	padding:0px;
+	margin:0px;
+	padding-top:14px;
+}
+
+.thum_img ul li
+{
+	padding-bottom:5px;
+}
+
+
+.thum_img ul li a
+{
+}
+.thum_img ul li a img
+{
+	width:106px;
+	height:58px;
+	border:1px solid #fff;
+}

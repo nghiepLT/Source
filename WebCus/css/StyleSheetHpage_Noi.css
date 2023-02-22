@@ -1,0 +1,20 @@
+﻿body 
+{
+    margin:0;
+    padding:0;
+    font-size:18px;
+}
+
+
+
+.bgTitleShileNoi{
+	background:url(../Images/imgnoi/bgtitleshow.png) top left repeat-x;
+	height:30px;
+	clear:both;
+	position:relative;
+	top:-31px;
+	z-index:100;
+	padding:6px;
+	color:#FFF;
+}	
+

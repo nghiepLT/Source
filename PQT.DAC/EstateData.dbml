@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MatTroiXanh" Class="EstateDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=MatTroiXanh;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="MatTroiXanhConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Estate" Member="Estates">
+    <Type Name="Estate">
+      <Column Name="EstateID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AreaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Price1" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="Price2" Type="System.Decimal" DbType="Decimal(15,4)" CanBeNull="true" />
+      <Column Name="PriceText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="XSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="YSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TotalSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UseSize" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DirectionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UltilityString" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PostDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ViewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PostTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NewsType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CurrencyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Estate_EstateToCategory" Member="EstateToCategories" ThisKey="EstateID" OtherKey="EstateID" Type="EstateToCategory" />
+      <Association Name="Estate_EstateDescription" Member="EstateDescriptions" ThisKey="EstateID" OtherKey="EstateID" Type="EstateDescription" />
+      <Association Name="Estate_EstateImage" Member="EstateImages" ThisKey="EstateID" OtherKey="EstateID" Type="EstateImage" />
+      <Association Name="EstateCustomer_Estate" Member="EstateCustomer" ThisKey="CustomerID" OtherKey="CustomerID" Type="EstateCustomer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateToCategory" Member="EstateToCategories">
+    <Type Name="EstateToCategory">
+      <Column Name="EstateCategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EstateID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Estate_EstateToCategory" Member="Estate" ThisKey="EstateID" OtherKey="EstateID" Type="Estate" IsForeignKey="true" />
+      <Association Name="EstateCategory_EstateToCategory" Member="EstateCategory" ThisKey="EstateCategoryID" OtherKey="EstateCategoryID" Type="EstateCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateBaseCode" Member="EstateBaseCodes">
+    <Type Name="EstateBaseCode">
+      <Column Name="BaseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Option1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Option3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="EstateGroupBaseCode_EstateBaseCode" Member="EstateGroupBaseCode" ThisKey="GroupID" OtherKey="GroupID" Type="EstateGroupBaseCode" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateCategory" Member="EstateCategories">
+    <Type Name="EstateCategory">
+      <Column Name="EstateCategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UniqueKey" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="EstateCategory_EstateToCategory" Member="EstateToCategories" ThisKey="EstateCategoryID" OtherKey="EstateCategoryID" Type="EstateToCategory" />
+      <Association Name="EstateCategory_EstateCategoryDescription" Member="EstateCategoryDescriptions" ThisKey="EstateCategoryID" OtherKey="EstateCategoryID" Type="EstateCategoryDescription" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateCategoryDescription" Member="EstateCategoryDescriptions">
+    <Type Name="EstateCategoryDescription">
+      <Column Name="EstateCategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="EstateCategory_EstateCategoryDescription" Member="EstateCategory" ThisKey="EstateCategoryID" OtherKey="EstateCategoryID" Type="EstateCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateCustomer" Member="EstateCustomers">
+    <Type Name="EstateCustomer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fullname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AreaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Passport" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="EstateCustomer_Estate" Member="Estates" ThisKey="CustomerID" OtherKey="CustomerID" Type="Estate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateDescription" Member="EstateDescriptions">
+    <Type Name="EstateDescription">
+      <Column Name="EstateID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SubContent" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Remark" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Estate_EstateDescription" Member="Estate" ThisKey="EstateID" OtherKey="EstateID" Type="Estate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateDetail" Member="EstateDetails">
+    <Type Name="EstateDetail">
+      <Column Name="EstateDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EstateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="File1" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="File2" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Keyword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RegDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateDetailDescription" Member="EstateDetailDescriptions">
+    <Type Name="EstateDetailDescription">
+      <Column Name="EstateDetailID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SubContent" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateGroupBaseCode" Member="EstateGroupBaseCodes">
+    <Type Name="EstateGroupBaseCode">
+      <Column Name="GroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SortOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeyWord" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="EstateGroupBaseCode_EstateBaseCode" Member="EstateBaseCodes" ThisKey="GroupID" OtherKey="GroupID" Type="EstateBaseCode" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateImages" Member="EstateImages">
+    <Type Name="EstateImage">
+      <Column Name="EstateImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EstateID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="Estate_EstateImage" Member="Estate" ThisKey="EstateID" OtherKey="EstateID" Type="Estate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstateRoomNumber" Member="EstateRoomNumbers">
+    <Type Name="EstateRoomNumber">
+      <Column Name="EstateID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SoPhongKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhongNgu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhongBep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhongWC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhongTho" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoTang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="So3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

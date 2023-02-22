@@ -1,0 +1,82 @@
+﻿
+/************************************************************************************************************
+    Julekampanje
+*************************************************************************************************************/		
+
+#Campaign
+    {
+        background:url(images/julekampanje/julekampanje2009.jpg) top center no-repeat #dae8f1;
+    }
+    
+    #Campaign #Container
+        {
+            width:760px;
+            margin:0px auto;
+            padding-top:180px;
+            
+        }
+        
+        #Campaign #Container .Header
+            {
+                font-weight:bold;
+                font-size:12px;
+                line-height:18px;
+
+            }
+            
+        #Campaign #Container .Question
+            {
+                font-size:12px;
+                font-weight:bold;
+                margin-top:20px;
+            }
+            
+        #Campaign #Container #Stage1
+            {
+                position:relative;
+            }
+            
+        #Campaign #Container #Stage2
+            {
+            }
+            
+            #Campaign #Container #Next
+                {
+                    position:absolute;
+                    right:130px;
+                    bottom:50px;
+                }
+                
+        #Campaign ul
+            {
+                margin-top:20px;
+            }
+ 
+        #Campaign li
+            {
+                margin-bottom:5px;
+            }                 
+        #Campaign .label
+            {
+                float:left;
+                width:100px;
+                font-size:12px;
+                font-weight:bold;
+            }
+            
+        #Campaign .text
+            {
+                width:200px;
+                padding:5px;
+            }
+            
+        #Campaign #Note
+            {
+                margin-top:20px;
+            } 
+            
+        #uxMessage
+            {
+                font-size:12px;
+                font-weight:bold;
+            }     
