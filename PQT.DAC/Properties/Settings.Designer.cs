@@ -26,8 +26,8 @@ namespace PQT.DAC.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.117.111;Initial Catalog=EmployeeData;Persist Security Info=Tr" +
-            "ue;User ID=sa;Password=123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NGHIEPLT-KTHT;Initial Catalog=EmployeeData;Persist Security Info=True" +
+            ";User ID=sa;Password=123456")]
         public string Quanlynhansu_nkcn_2018ConnectionString {
             get {
                 return ((string)(this["Quanlynhansu_nkcn_2018ConnectionString"]));
@@ -37,8 +37,8 @@ namespace PQT.DAC.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.117.111;Initial Catalog=EmployeeData;User ID=sa;Password=1234" +
-            "56")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NGHIEPLT-KTHT;Initial Catalog=EmployeeData;User ID=sa;Password=123456" +
+            "")]
         public string EmployeeDataConnectionString {
             get {
                 return ((string)(this["EmployeeDataConnectionString"]));

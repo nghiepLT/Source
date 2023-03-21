@@ -7,17 +7,17 @@
 <ul id="menu">
     <asp:Repeater ID="rptMenu" runat="server" OnItemDataBound="rptMenu_ItemDataBound">
         <ItemTemplate>
-            <li><a href='<%#Eval("Link") %>'>
+            <li><a href='<%#changerlink(Eval("Link")) %>'>
                 <%#Eval("MenuName") %></a>
                 <ul>
                     <asp:Repeater ID="rptSubMenu" runat="server" OnItemDataBound="rptMenu_ItemDataBound">
                         <ItemTemplate>
-                            <li><a href='<%#Eval("Link") %>'>
+                            <li><a href='<%#changerlink(Eval("Link"))%>'>
                                 <%#Eval("MenuName") %></a>
                                 <ul runat="server">
                                     <asp:Repeater ID="rptSubMenu" runat="server">
                                         <ItemTemplate>
-                                            <li><a href='<%#Eval("Link") %>'>
+                                            <li><a href='<%#changerlink(Eval("Link"))%>'>
                                                 <%#Eval("MenuName") %></a></li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -31,10 +31,13 @@
     </asp:Repeater>
     <li>
         <a href="/sinhnhatnv.aspx">Sinh nhật NV</a>
+       <%-- <%=Session["codesecret"].ToString() %>--%>
+       <%-- <%=WebCus.Utility.Encrypt(Session["codesecret"].ToString()) %>
+        <%=WebCus.Utility.Decrypt("7do0pgA9HjUtZlqqHVZU9NoaABXaYRpA") %>--%>
     </li>
     <li>
         <a href="/Logout.aspx">Đăng xuất</a>
-    </li> 
+    </li>
     <li id="menuSupperAdmin" runat="server"><a href="#" rel="subMenuTypeAdmin">Supper Admin</a>
         <ul id="subMenuTypeAdmin">
             <li><a href="/RenderModule.aspx?smid=UserMng&md=UserControl.ascx&muid=MenuAdminMng">

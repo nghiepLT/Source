@@ -82,11 +82,11 @@
             <td class="RB_L">
                 <div>
                     <div>
-                        <a style="    background-color: #316ac5;
+                        <a id="fileimport" runat="server" style="    background-color: #316ac5;
     color: white;
     padding: 5px 5px;
     display: inline-block;
-    margin-bottom: 6px;" href="../Uploads/TuyenDung/FileMau/1.%20Phiếu%20đề%20nghị%20Tuyển%20dụng.doc">Tải file mẫu</a>
+    margin-bottom: 6px;" href="/Uploads/TuyenDung/FileMau/1.%20Phiếu%20đề%20nghị%20Tuyển%20dụng.doc">Tải file mẫu</a>
                     </div>
                     <div id="upload_show" style="display: none;">
                         <asp:FileUpload ID="filesUpload" runat="server" CssClass="btn-1" OnLoad="filesUpload_Load" />
@@ -244,7 +244,8 @@
                         <asp:TemplateField HeaderText="Phòng ban">
                             <ItemTemplate>
                              <div>
-                                 <strong>    <%#string.Format("{0}", Eval("TrucThuoc").ToString() == "1" ? "Nguyên Kim" : "Chính Nhân")%></strong>
+                                 <%--<strong>    <%#string.Format("{0}", Eval("TrucThuoc").ToString() == "1" ? "Nguyên Kim" : "Chính Nhân")%></strong>--%>
+                                   <%#checktructhuoc(int.Parse(Eval("TrucThuoc").ToString()))%>
                              </div>
                                 <%#Eval("TenPhong")%>
                             </ItemTemplate>
@@ -326,7 +327,7 @@
     </div>
     <div style="padding: 10px 10px;">
         <asp:Button ID="Button1" runat="server" Text="Cập nhật" CssClass="btnduyet" OnClick="btnSaveBanner_Click2"
-            OnClientClick="return CheckValidBanner();" />
+            />
     </div>
 </div>
 <style>
@@ -441,8 +442,8 @@
         }
     });
     $(document).ready(function () {
-        if ($("#ctl00_MainContent_TTYeuCauTuyenDung_filepath").html() == '') {
-            $("#ctl00_MainContent_TTYeuCauTuyenDung_filepath").hide();
+        if ($("#ctl00_MainContent_filepath").html() == '') {
+            $("#ctl00_MainContent_filepath").hide();
         }
         $("#mymodal").hide();
     });
@@ -454,10 +455,10 @@
             type: "POST",
             data: formData,
             success: function (status) {
-                $("#ctl00_MainContent_TTYeuCauTuyenDung_filepath").show();
-                $("#ctl00_MainContent_TTYeuCauTuyenDung_filepath").html(status);
-                $("#ctl00_MainContent_TTYeuCauTuyenDung_filepath").attr("href", "/Uploads/TuyenDung/" + status);
-                $("#ctl00_MainContent_TTYeuCauTuyenDung_Filess").val("/Uploads/TuyenDung/" + status);
+                $("#ctl00_MainContent_filepath").show();
+                $("#ctl00_MainContent_filepath").html(status);
+                $("#ctl00_MainContent_filepath").attr("href", "/Uploads/TuyenDung/" + status);
+                $("#ctl00_MainContent_Filess").val("/Uploads/TuyenDung/" + status);
             },
             processData: false,
             contentType: false,
@@ -506,6 +507,20 @@
         window.location.href = url + "?type=" + id;
     }
 </script>
+    <script>
+    function CheckValidBanner() {
+        if ($("#ctl00_MainContent_txtTieuDe").val() == '') {
+            alert("Vui lòng nhập tiêu đề");
+            $("#ctl00_MainContent_txtTieuDe").focus();
+            return false;
+        }
 
+        if ($("#ctl00_MainContent_filepath").html() == null || $("#ctl00_MainContent_filepath").html() == '') {
+            alert("Vui lòng chọn file");
+            return false;
+        }
+
+    }
+</script>
 
 </asp:Content>

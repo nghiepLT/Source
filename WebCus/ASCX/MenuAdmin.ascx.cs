@@ -56,6 +56,20 @@ namespace WebCus.ASCX
             rptMenu.DataSource = dt;
             rptMenu.DataBind();
         }
+        public string changerlink(object url) {
+
+            if (url.ToString().Contains("?code"))
+            {                
+               //http://192.168.117.111:8080/?code=7do0pgA9HjUtZlqqHVZU9NoaABXaYRpA
+                string code = Utility.Encrypt(Session["codesecret"].ToString());
+                string urltrans = url.ToString().Replace("?code","?code="+code);
+                //    // "http://192.168.117.111:8080/?code".Replace("?code", "?code=" + code)
+                //    Response.Redirect(urltrans);
+
+                return urltrans;
+            }
+            else return url.ToString();           
+        }
 
         #endregion
 

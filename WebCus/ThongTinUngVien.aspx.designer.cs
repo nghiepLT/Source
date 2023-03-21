@@ -220,6 +220,24 @@ namespace WebCus {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl rs3;
         
         /// <summary>
+        /// a9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor a9;
+        
+        /// <summary>
+        /// rs9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rs9;
+        
+        /// <summary>
         /// a4 control.
         /// </summary>
         /// <remarks>
@@ -353,6 +371,15 @@ namespace WebCus {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ip3;
+        
+        /// <summary>
+        /// ip0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ip0;
         
         /// <summary>
         /// ip4 control.

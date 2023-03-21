@@ -11,7 +11,7 @@ namespace WebCus
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+           // Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
             //Microsoft.Office.Interop.Word.Document doc = app.Documents.Open(@"D:\SourceCode\Source\WebCus\Uploads\TuyenDung\3ttuvdutuyen.doc");
             //object missing = System.Reflection.Missing.Value;
             //if (doc == null)

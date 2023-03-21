@@ -82,7 +82,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText NgayPV;
+        protected global::Telerik.WebControls.RadDatePicker NgayPV;
         
         /// <summary>
         /// Text6 control.
@@ -91,7 +91,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text6;
+        protected global::Telerik.WebControls.RadDatePicker Text6;
         
         /// <summary>
         /// Text7 control.
@@ -100,7 +100,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text7;
+        protected global::Telerik.WebControls.RadDatePicker Text7;
         
         /// <summary>
         /// NguoiPV control.

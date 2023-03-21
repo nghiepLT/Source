@@ -17,7 +17,6 @@
                 obj.click();
                 return false;
             }
-
         }
         
     

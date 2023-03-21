@@ -128,7 +128,7 @@ namespace WebCus
                 { 
                     ngayoff = DateTime.Parse(item.NgayVaoLam.ToString());
                     TimeSpan thoigiansd = DateTime.Now - ngayoff; 
-                    if (thoigiansd.Days == 7)
+                    if (thoigiansd.Days == 6)
                     {
                         i = i + 1;
                         // uvdata += i + "/ " + item.NhanVien.HoTen + "-" + string.Format("{0:dd/MM/yyyy}", item.NgayVaoLam) + "<br/>";
@@ -139,134 +139,18 @@ namespace WebCus
                         string contentHtml = "";
                         contentHtml += "<div>";
                         contentHtml += "<table>";
-
                         contentHtml += "<tr style='padding:5px 0px;'>";
                         contentHtml += "<td>";
-                        contentHtml += "<div>Chào bạn "+ "<span style='color:blue'>"+ item.NhanVien.HoTen.ToUpper()+ "</span>,</div>";
+                        contentHtml += "<div>Chào bạn " + "<span style='color:blue'>" + item.NhanVien.HoTen.ToUpper() + "</span>,</div>";
                         contentHtml += "</td>";
                         contentHtml += "</tr>";
 
                         contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Kỹ thuật đã tạo mã portal, tài khoản đào tạo. lấy dấu vân tay cho bạn. Hàng ngày, bạn cần scan vân tay trên cả 2 máy (máy cũ + máy mới) để chấm công nhé.";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Nếu gặp khó khăn trong quá trình đăng nhập, bạn có thể liên hệ trực tiếp:";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "1-Web portal: Chương (0902.013.243)";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "2- Phần mềm Nhân sự, đào tạo: Nhân (0334.435.608).";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Có thắc mắc về các cách sử dụng, bạn có thể liên hệ trực tiếp Phòng Nhân sự để được hỗ trợ kịp thời nhé!";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        //I/ HƯỚNG DẪN TẠO PHÉP ONLINE:
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "I/ HƯỚNG DẪN TẠO PHÉP ONLINE:";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Hiện tại, Công ty đang có 2 phần mềm đăng ký phép online. Sau khi đã lấy dấu vân tay, bất cứ phát sinh đi trễ, về sớm hay nghỉ phép, bạn đều phải tạo phép trên cả 2 phần mềm (File hướng dẫn).";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Hiện tại, Công ty đang có 2 phần mềm đăng ký phép online. Sau khi đã lấy dấu vân tay, bất cứ phát sinh đi trễ, về sớm hay nghỉ phép, bạn đều phải tạo phép trên cả 2 phần mềm (File hướng dẫn).";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "1.	Web portal: http://192.168.117.212:8011/";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Thông tin đăng nhập đã gửi qua email Công ty của bạn bao gồm tên đăng nhập và mật khẩu. ";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Tên đăng nhập: 070322NK0272";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Pass: (pass đã được gửi qua email và sẽ được yêu cầu thay đổi khi bạn đăng nhập lần đầu tiên)";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "2.	Phần mềm Nhân sự: http://nhansu.nguyenkimvn.com.vn/ hoặc đường link: http://192.168.117.250:800/login";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Tên đăng nhập: Lamtm";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Pass: 1 (pass này mặc định giống nhau, bạn có thể thay đổi pass theo nhu cầu)";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "II/ TÀI KHOẢN ĐÀO TẠO QUI TRÌNH, QUI ĐỊNH CỦA CÔNG TY:";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Đăng nhập tài khoản đào tạo qui trình, qui định của công ty, đường link: daotao.nguyenkimvn.com.vn hoặc đường link: http://192.168.117.250:801";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Tên đăng nhập: Lamtm";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>";
-                        contentHtml += "Pass: 1 (pass này mặc định giống nhau, bạn có thể thay đổi pass theo nhu cầu)";
-                        contentHtml += "</td>";
-                        contentHtml += "</tr>";
-
-                        contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>Sau 07 ngày làm việc, bạn vui lòng đăng nhập vào hệ thống để đánh giá.</td>";
+                        contentHtml += "<td>Sau 7 ngày làm việc, bạn vui lòng đăng nhập vào hệ thống để đánh giá.</td>";
                         contentHtml += "</tr>";
                         contentHtml += "</table>";
                         contentHtml += "</div>";
-                        sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 07 ngày làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                        //sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 07 ngày làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
                     }
                     if (thoigiansd.Days == 14)
                     {
@@ -617,7 +501,7 @@ namespace WebCus
                 myMessage.To.Add(new MailAddress(emailTo));
                 myMessage.IsBodyHtml = true;
 
-                SmtpServer.Send(myMessage);
+               // SmtpServer.Send(myMessage);
                 bFlag = true;
             }
             catch (Exception ex)

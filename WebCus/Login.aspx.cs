@@ -36,7 +36,7 @@ namespace WebCus
             string loginID = Login1.UserName.ToLower();
             string pwd = Login1.Password;
             UserMng_BLC_NTX blc = new UserMng_BLC_NTX();
-            UserMngOther_BLC blc_user = new UserMngOther_BLC();
+
             UserEntity userEnt = blc.RowUserByLoginID(loginID);
             if (userEnt != null)
             {
@@ -44,24 +44,23 @@ namespace WebCus
                 //{
                     if (pwd == Utility.Decrypt(userEnt.Password))
                     {
-                        this.LoginID = loginID;
-                        this.UserID = userEnt.UserID;
-                        this.Password = Utility.Decrypt(userEnt.Password);
-                        Session["PermissionString"] = userEnt.PermissionString;
-                        Session["g_UserMemberID"] = userEnt.UserID;                        
-                        Session["g_UserMemberType"] = userEnt.UserType;
-                        Session["g_UserMemberName"] = userEnt.UserName;
-                        Session["g_UserMemberLoginID"] = userEnt.LoginID;
-                        Session["g_UserMemberLike"] = userEnt.UserLike;
-                        Session["g_UserMemberParentID"] = userEnt.Parentid;
+                    this.LoginID = loginID;
+                    this.UserID = userEnt.UserID;
+                    this.Password = Utility.Decrypt(userEnt.Password);
+                    Session["codesecret"] = userEnt.LoginID + "&" + userEnt.Password;
+                    Session["PermissionString"] = userEnt.PermissionString;
+                    Session["g_UserMemberID"] = userEnt.UserID;
+                    Session["g_UserMemberType"] = userEnt.UserType;
+                    Session["g_UserMemberName"] = userEnt.UserName;
+                    Session["g_UserMemberLoginID"] = userEnt.LoginID;
+                    Session["g_UserMemberLike"] = userEnt.UserLike;
+                    Session["g_UserMemberParentID"] = userEnt.Parentid;
+                    UserAuthType userType = userEnt.UserType == 1 ? UserAuthType.ADMIN : UserAuthType.DATAADMIN;
 
-                        UserAuthType userType = userEnt.UserType == 1 ? UserAuthType.ADMIN : UserAuthType.DATAADMIN;
 
-
-                        SiteIdentity identity = null;
+                    SiteIdentity identity = null;
                         identity = new SiteIdentity(this.UserID, this.LoginID, userEnt.UserName, 1, userEnt.CompanyName, userType, string.Empty, 5, false, 0, string.Empty);
-                        Session["LoginInfo"] = identity; 
-                     
+                        Session["LoginInfo"] = identity;
                         if (Config.GetConfigValue("baotri") == "1")
                         {
                             if (userEnt.UserType == 1)
@@ -70,29 +69,14 @@ namespace WebCus
                         }
                         else
                         {
-                        //if (userEnt.UserType == 4)
-                        //{
-                        //if (Session["UserDangNhap"] != null)
-                        //{
+                            //if (userEnt.UserType == 4)
+                            //{
+                            
+                             Response.Redirect("/Index.aspx");
+                            //}
 
-                        //    Response.Redirect(HttpContext.Current.Request.Url.Host +":8088/RenderPopupDanhGiatuyenDung.aspx?id=" + Session["UserDangNhap"]+"&type="+ Session["UserType"]);
-                        //}
-                        //else
-                        //{
-                        //    if (Session["UserDangNhap2"] != null)
-                        //    {
-                        //        Response.Redirect(HttpContext.Current.Request.Url.Host +":8088/RenderPopupDanhGia.aspx?id=" + Session["UserDangNhap2"] + "&type=" + Session["UserType2"]);
-
-                        //    }
-
-                        //}
-                        if (userEnt.UserID != 568)
-                            blc_user.InsertLogg("Login", userEnt.UserID);
-                        Response.Redirect("/Index.aspx");
-                        //}
-
-                        //else Response.Redirect("/Index.aspx");// nomall
-                    }
+                            //else Response.Redirect("/Index.aspx");// nomall
+                        }
                         //if (userEnt.UserType == 4)
                         //{
                         //    if (userEnt.Gender == 200 || userEnt.Gender == 300 || userEnt.Gender == 400)

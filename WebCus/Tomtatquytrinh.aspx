@@ -4,7 +4,7 @@
 
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
-   
+   <input id="userid" runat="server" />
     <div class="mydivtable">
          <div class="text-center">
              <h1>MỘT SỐ QUY TRÌNH QUY ĐỊNH HƯỚNG DẪN NHÂN VIÊN MỚI</h1>

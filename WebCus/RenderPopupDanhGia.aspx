@@ -6,13 +6,14 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <input id="userid" runat="server" style="display:none;" />
     <input id="type" runat="server" style="display:none" />
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
+    <link href="AdminCss/admin.css" rel="stylesheet" />
     <div class="mycontainer">
-        <div class="row">
-
+        <div class="row"> 
             <div class="col-sm-12">
                 <div class="full_box">
                     <div class="headertitle_box">
@@ -67,13 +68,31 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2">Ngày
-                                            <input class="ip dotted w70 js-date" id="NgayPV" runat="server" required />
+                                           <%-- <input class="ip dotted w70 js-date" id="NgayPV" runat="server" required />--%>
+                                            <radCln:RadDatePicker ID="NgayPV" CssClass="datePicker " Width="100px" AllowEmpty="false"
+                                                MinDate="1911-01-01" runat="server" MaxDate="2199-12-16" Calendar-BackColor="#CCCCCC">
+                                                <DateInput DisplayPromptChar="_" PromptChar=" " onclick="ToggleSecondPopup()" DateFormat="dd/MM/yyyy">
+                                                </DateInput>
+                                                <PopupButton Visible="False"></PopupButton>
+                                            </radCln:RadDatePicker>
                                         </td>
                                         <td colspan="2">Ngày
-                                            <input class="ip dotted w70" id="Text6" runat="server" />
+                                          <%--  <input class="ip dotted w70" id="Text6" runat="server" />--%>
+                                            <radCln:RadDatePicker ID="Text6" CssClass="datePicker" Width="100px" AllowEmpty="false"
+                                                MinDate="1911-01-01" runat="server" MaxDate="2199-12-16" Calendar-BackColor="#CCCCCC">
+                                                <DateInput DisplayPromptChar="_" PromptChar=" " onclick="ToggleSecondPopup2()" DateFormat="dd/MM/yyyy">
+                                                </DateInput>
+                                                <PopupButton Visible="False"></PopupButton>
+                                            </radCln:RadDatePicker>
                                         </td>
                                         <td colspan="2">Ngày
-                                            <input class="ip dotted w70" id="Text7" runat="server" />
+                                            <%--<input class="ip dotted w70" id="Text7" runat="server" />--%>
+                                             <radCln:RadDatePicker ID="Text7" CssClass="datePicker" Width="100px" AllowEmpty="false"
+                                                MinDate="1911-01-01" runat="server" MaxDate="2199-12-16" Calendar-BackColor="#CCCCCC">
+                                                <DateInput DisplayPromptChar="_" PromptChar=" " onclick="ToggleSecondPopup3()" DateFormat="dd/MM/yyyy">
+                                                </DateInput>
+                                                <PopupButton Visible="False"></PopupButton>
+                                            </radCln:RadDatePicker>
                                         </td>
                                     </tr>
                                     <tr>
@@ -654,13 +673,13 @@
             return date.toISOString().startsWith(isoFormattedStr);
         }
         function CheckValidBanner() {
-            var dd = checkDateValidate("ctl00_ContentPlaceHolder1_NgayPV");
-            if (dd == false)
-                return false; 
+            //var dd = checkDateValidate("ctl00_ContentPlaceHolder1_NgayPV");
+            //if (dd == false)
+            //    return false; 
 
-            var dd = checkDateValidate("ctl00_ContentPlaceHolder1_Text6");
-            if (dd == false)
-                return false; 
+            //var dd = checkDateValidate("ctl00_ContentPlaceHolder1_Text6");
+            //if (dd == false)
+            //    return false; 
             //ctl00_ContentPlaceHolder1_radDat1
             if(!$("#ctl00_ContentPlaceHolder1_radDat1").prop("checked") && !$("#ctl00_ContentPlaceHolder1_radKhongDat1").prop("checked")){
                alert("Vui lòng đánh giá kết quả")
@@ -870,6 +889,22 @@
              pointer-events:none;
              background-color:#dddddd;
         }
+        body{
+            background:none;
+        }
+        .Default_Windows,.Default_Windows:active {
+            width: 93px!important;
+            background-color: transparent!important;
+            border: none!important;
+            border-bottom: 1px dotted!important;
+            outline: none!important;
+        }
+        .Over_Windows{
+              width: 93px!important;
+                 border: none!important;
+            border-bottom: 1px dotted!important;
+            outline: none!important;
+        }
     </style>
 
     <script>
@@ -882,5 +917,25 @@
                 $(this).attr("checked",true);
             } 
         });
+
+        function ToggleSecondPopup()
+        {
+            <%= NgayPV.ClientID %>.ShowPopup();
+            $("#ctl00_ContentPlaceHolder1_NgayPV_dateInput_TextBox").addClass("classDate");
+        }
+         function ToggleSecondPopup2()
+        {
+            <%= Text6.ClientID %>.ShowPopup();
+         }
+        //
+         function ToggleSecondPopup3()
+        {
+            <%= Text7.ClientID %>.ShowPopup();
+         }
+        $("#ctl00_ContentPlaceHolder1_Text6_dateInput_TextBox").val();
+
+        $(document).ready(function(){
+            //$("#ctl00_ContentPlaceHolder1_NgayPV_dateInput_TextBox").addClass("classDate");
+        })
     </script>
 </asp:Content>

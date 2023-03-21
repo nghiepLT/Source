@@ -13,6 +13,15 @@ namespace WebCus {
     public partial class Tomtatquytrinh {
         
         /// <summary>
+        /// userid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userid;
+        
+        /// <summary>
         /// giolamviec control.
         /// </summary>
         /// <remarks>

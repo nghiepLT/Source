@@ -239,10 +239,10 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <input class="ips" id="DCTamTru" runat="server" />
+                                    <textarea  class="ips" id="DCTamTru" runat="server" style="pointer-events: all;"></textarea>
                                 </td>
                                 <td colspan="3">
-                                    <input class="ips" id="DCThuongTru" runat="server" />
+                                    <textarea class="ips" id="DCThuongTru" runat="server" style="pointer-events: all;"  > </textarea> 
                                 </td>
                             </tr>
 
@@ -690,18 +690,16 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td class="tdgray" colspan="2">Điểm mạnh
                                 </td>
-                                <td colspan="2" rowspan="3">
-
-                                    <input class="ips" id="nangnlucvuottroi" runat="server" />
+                                <td colspan="2" rowspan="3"> 
+                                    <textarea rows="3" class="ips" id="nangnlucvuottroi" runat="server" style="pointer-events:all" ></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    <input class="ips" id="diemyeu" runat="server" />
+                                <td colspan="2"> 
+                                    <textarea rows="3" class="ips" id="diemyeu" runat="server" style="pointer-events:all" ></textarea>
                                 </td>
                                 <td colspan="2">
-                                    <input class="ips" id="diemmanh" runat="server" />
-
+                                     <textarea rows="3" class="ips" id="diemmanh" runat="server" style="pointer-events:all" ></textarea>
                                 </td>
                             </tr>
                         </table>
@@ -717,11 +715,12 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 <td>
                                     <strong>TÊN CÔNG TY 1: </strong>
                                     <div>
-                                        <input class="ips" id="tencongty1" runat="server" />
+                                         <textarea class="ips" id="tencongty1" runat="server" style="pointer-events:all" ></textarea>
+
                                     </div>
                                     Địa chỉ:
                             <div>
-                                <input class="ips" id="diachicongty1" runat="server" />
+                                 <textarea class="ips" id="diachicongty1" runat="server" style="pointer-events:all" ></textarea>
                             </div>
                                 </td>
                                 <td colspan="2">Ngành nghề/ lĩnh vực Cty hoạt động :
@@ -750,7 +749,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td rowspan="4">Nhiệm vụ và trách nhiệm chính:
                             <div>
-                                <textarea style="pointer-events: all;" class="ips" id="nvchinh1" runat="server"></textarea>
+                                <textarea rows="4" style="pointer-events: all;" class="ips" id="nvchinh1" runat="server"></textarea>
                             </div>
                                 </td>
                             </tr>
@@ -800,11 +799,11 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 <td>
                                     <strong>TÊN CÔNG TY 2: </strong>
                                     <div>
-                                        <input class="ips" id="tencongty2" runat="server" />
+                                         <textarea class="ips" id="tencongty2" runat="server" style="pointer-events:all" ></textarea>
                                     </div>
                                     Địa chỉ:
                             <div>
-                                <input class="ips" id="diachicongty21" runat="server" />
+                                  <textarea class="ips" id="diachicongty21" runat="server" style="pointer-events:all" ></textarea>
                             </div>
                                 </td>
                                 <td colspan="2">Ngành nghề/ lĩnh vực Cty hoạt động :
@@ -833,7 +832,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td rowspan="4">Nhiệm vụ và trách nhiệm chính:
                             <div>
-                                <textarea style="pointer-events: all;" class="ips" id="nvchinh2" runat="server"></textarea>
+                                <textarea rows="4" style="pointer-events: all;" class="ips" id="nvchinh2" runat="server"></textarea>
                             </div>
                                 </td>
                             </tr>
@@ -978,10 +977,11 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <input class="ips" id="MuctieuPhatTrien" runat="server" />
+                                     <textarea rows="3" class="ips" id="MuctieuPhatTrien" runat="server" style="pointer-events:all" ></textarea>
+
                                 </td>
                                 <td colspan="2">
-                                    <input class="ips" id="ViSaoBanMuon" runat="server" />
+                                     <textarea rows="3" class="ips" id="ViSaoBanMuon" runat="server" style="pointer-events:all" ></textarea>
                                 </td>
                             </tr>
                         </table>

@@ -30,6 +30,17 @@ namespace WebCus
         {
             if (!IsPostBack)
             {
+                if (Session["g_UserMemberType"]== null)
+                {
+                    Response.Redirect("/");
+                }
+                var pathdelete = HttpContext.Current.Server.MapPath("~/Uploads/TuyenDung/FileMau/");
+                DirectoryInfo dir = new DirectoryInfo(pathdelete);
+                foreach (FileInfo fi in dir.GetFiles())
+                {
+                    fileimport.HRef = "/Uploads/TuyenDung/FileMau/"+fi.Name;
+                }
+               
                 int type = 0;
                 if (Request.QueryString["type"] != null)
                 {
@@ -61,7 +72,7 @@ namespace WebCus
                 spFile.Visible = false;
                 tb_input.Visible = false;
                 btnSaveBanner.Visible = false;
-                if (Session["g_UserMemberType"].ToString() == "3" || idUser == 275 || idUser == 277 || idUser == 478 || idUser == 276 || idUser == 568)
+                if (Session["g_UserMemberType"].ToString() == "3" || idUser == 275 || idUser == 277 || idUser == 478 || idUser == 276 || idUser == 568 || idUser==6)
                 {
                     trTrangthai.Visible = true;
                     trLydo.Visible = true;
@@ -117,17 +128,20 @@ namespace WebCus
         protected int TruThuoc { get; set; }
         private void BindPhongBan(PhongBan tenPhongBan)
         {
-
-            //var get
-            int tructhuoc = int.Parse(dropTructhuoc.SelectedValue);
-            this.TruThuoc = tenPhongBan.TrucThuoc.Value;
-            IList<PhongBan> lstPhongban = blc_user.ListPhongban().Where(m => m.TrucThuoc == tructhuoc).ToList();
-            dropPhongban.DataSource = lstPhongban;
-            dropPhongban.DataTextField = "TenPhong";
-            dropPhongban.DataValueField = "IDPhong";
-            dropPhongban.DataBind();
-            if (tructhuoc == this.TruThuoc)
-                dropPhongban.SelectedValue = tenPhongBan.IDPhong.ToString();
+            if (tenPhongBan != null)
+            {
+                //var get
+                int tructhuoc = int.Parse(dropTructhuoc.SelectedValue);
+                this.TruThuoc = tenPhongBan.TrucThuoc.Value;
+                IList<PhongBan> lstPhongban = blc_user.ListPhongban().Where(m => m.TrucThuoc == tructhuoc).ToList();
+                dropPhongban.DataSource = lstPhongban;
+                dropPhongban.DataTextField = "TenPhong";
+                dropPhongban.DataValueField = "IDPhong";
+                dropPhongban.DataBind();
+                if (tructhuoc == this.TruThuoc)
+                    dropPhongban.SelectedValue = tenPhongBan.IDPhong.ToString();
+            }
+          
             // dropPhongban.SelectedIndex = blc_user.ListPhongban().IndexOf(tenPhongBan);
             //dropPhongban.Enabled = false;
         }
@@ -197,8 +211,9 @@ namespace WebCus
             }
             var idUser = this.UserMemberID;
             TUser tuser = blc_user.GetUser_ByIDAll(idUser);
-            var IdPhongban = blc_user.GetUser_ByIDAll(idUser).ParentID;
-            var tenPhongBan = blc_user.GetPhongBan_ByID(IdPhongban.Value);
+            // var IdPhongban = blc_user.GetUser_ByIDAll(idUser).ParentID;
+            var idPhongBan = int.Parse(Page.Request.Form["ctl00$MainContent$dropPhongban"].ToString());
+            var tenPhongBan = blc_user.GetPhongBan_ByID(idPhongBan);
             //var get
             this.TruThuoc = tenPhongBan.TrucThuoc.Value;
             //string path
@@ -213,7 +228,7 @@ namespace WebCus
                 try
                 {
                     //sendEmail  
-                    sendEmail(tuser.Email, getEmailtitle(tuser.UserName, tenPhongBan.TenPhong), txtNoiDung.Text.Trim(), link, 1);
+                   // sendEmail(tuser.Email, getEmailtitle(tuser.UserName, tenPhongBan.TenPhong), txtNoiDung.Text.Trim(), link, 1);
                 }
                 catch (Exception ex)
                 {
@@ -298,6 +313,17 @@ namespace WebCus
 
             //}
             //else Alert.Show("NO Action !");
+        }
+        public string checktructhuoc(int id)
+        {
+            string result = "";
+            if(id==1)
+                result= "Nguyên Kim";
+            if (id == 2)
+                result = "Chính Nhân";
+            if (id == 3)
+                result = "SMC";
+            return result;
         }
         public string checktrangthai(string status, int IdYeuCau)
         {
@@ -472,7 +498,7 @@ namespace WebCus
         {
             int userid = 0;
             var UserID = this.UserMemberID;
-            if (Session["g_UserMemberType"].ToString() != "3" && UserID != 275 && UserID != 277 && UserID != 478 && UserID != 276 && UserID != 568)
+            if (Session["g_UserMemberType"].ToString() != "3" && UserID != 275 && UserID != 277 && UserID != 478 && UserID != 276 && UserID != 568 && UserID!=6)
             {
                 userid = UserMemberID;
             }

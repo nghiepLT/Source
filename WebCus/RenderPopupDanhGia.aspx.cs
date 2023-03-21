@@ -82,7 +82,7 @@ namespace WebCus
                 this.HoTenUngVien.Value = uv.HoTen;
                 if (uv.UngCuViTri != null)
                 {
-                    this.NgayPV.Value = uv.NgayPhongVan.Value.ToShortDateString();
+                    this.NgayPV.SelectedDate = uv.NgayPhongVan.Value;
                     this.vitriungtuyen.Value = JsonConvert.DeserializeObject<ThongTinViTri>(uv.UngCuViTri).ViTriungTuyen;
                     this.vitricongviec.Value= JsonConvert.DeserializeObject<ThongTinViTri>(uv.UngCuViTri).ViTriungTuyen;
                     this.phongban.Value = uv.PhongBan;
@@ -110,7 +110,7 @@ namespace WebCus
                         this.vitriungtuyen.Value = dgtd.Vitriungtuyen;
                         this.Mucluonghientai.Value = dgtd.Mucluonghientai.ToString();
                         this.Mucluongdenghi.Value = dgtd.Mucluongdenghi.ToString();
-                        this.NgayPV.Value = dgtd.NgayPV.HasValue ? dgtd.NgayPV.Value.ToShortDateString() : "";
+                        this.NgayPV.SelectedDate = dgtd.NgayPV.Value;
                         this.NguoiPV.Value = dgtd.NguoiPV != null ? dgtd.NguoiPV.ToString() : ""; 
                         //Đánh giá tuyển dụng
                         if (!string.IsNullOrEmpty(dgtd.KienThucChuyenNganh))
@@ -201,7 +201,8 @@ namespace WebCus
                             //this.vitriungtuyen.Value = dgtd2.Vitriungtuyen;
                             //this.Mucluonghientai.Value = dgtd2.Mucluonghientai.ToString();
                             //this.Mucluongdenghi.Value = dgtd2.Mucluongdenghi.ToString();
-                            this.Text6.Value = dgtd2.NgayPV.HasValue ? dgtd2.NgayPV.Value.ToShortDateString() : "";
+                            if (dgtd2.NgayPV.HasValue)
+                                this.Text6.SelectedDate = dgtd2.NgayPV.Value;
                             this.Text9.Value = dgtd2.NguoiPV != null ? dgtd2.NguoiPV.ToString() : "";
 
                             //Đánh giá tuyển dụng
@@ -287,7 +288,8 @@ namespace WebCus
                         }
                         else
                         {
-                            this.Text6.Value = uvtt.NgayGoiPV2.HasValue? uvtt.NgayGoiPV2.Value.ToShortDateString():"";
+                            if(uvtt.NgayGoiPV2!=null)
+                            this.Text6.SelectedDate = uvtt.NgayGoiPV2.Value;
                         }
                         //
                         var dgtd3 = blc_user.CheckDanhGiatuyenDung3(this.IDNTD);
@@ -297,7 +299,7 @@ namespace WebCus
                             //this.vitriungtuyen.Value = dgtd3.Vitriungtuyen;
                             //this.Mucluonghientai.Value = dgtd3.Mucluonghientai.ToString();
                             //this.Mucluongdenghi.Value = dgtd3.Mucluongdenghi.ToString();
-                            this.Text7.Value = dgtd3.NgayPV.HasValue ? dgtd3.NgayPV.Value.ToShortDateString() : "";
+                            this.Text7.SelectedDate = dgtd3.NgayPV.Value;
                             this.Text10.Value = dgtd3.NguoiPV != null ? dgtd3.NguoiPV.ToString() : "";
 
                             //Đánh giá tuyển dụng
@@ -394,14 +396,14 @@ namespace WebCus
                    dgtd = new DanhGiaTuyenDung();
             //2
             DanhGiaTuyenDung dgtd2 = blc_user.CheckDanhGiatuyenDung2(this.IDNTD);
-            if (Page.Request.Form["ctl00$ContentPlaceHolder1$Text6"].ToString() != "")
+            if (Page.Request.Form["ctl00$ContentPlaceHolder1$Text6$dateInput_TextBox"].ToString() != "" && Page.Request.Form["ctl00$ContentPlaceHolder1$Text6$dateInput_TextBox"].ToString()!="01/01/1911")
             {
                 if (dgtd2 == null)
                     dgtd2 = new DanhGiaTuyenDung();
             }
             DanhGiaTuyenDung dgtd3 = blc_user.CheckDanhGiatuyenDung3(this.IDNTD);
             //pvlan3
-            if (Page.Request.Form["ctl00$ContentPlaceHolder1$Text7"].ToString() != "")
+            if (Page.Request.Form["ctl00$ContentPlaceHolder1$Text7$dateInput_TextBox"].ToString() != "" && Page.Request.Form["ctl00$ContentPlaceHolder1$Text7$dateInput_TextBox"].ToString() != "01/01/1911")
             {
                 if (dgtd3 == null)
                     dgtd3 = new DanhGiaTuyenDung();
@@ -418,8 +420,8 @@ namespace WebCus
             //Đánh giá  
             if (type == 1 || 1<2)
             {
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayPV"]))
-                    dgtd.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayPV"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayPV$dateInput_TextBox"]))
+                    dgtd.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayPV$dateInput_TextBox"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
                 dgtd.NguoiPV = Page.Request.Form["ctl00$ContentPlaceHolder1$NguoiPV"].ToString();
                 dgtd.KienThucChuyenNganh = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkienthuc1"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetkienthuc1"].ToString();
                 dgtd.ChuyenMon = Page.Request.Form["ctl00$ContentPlaceHolder1$diemchuyenmon1"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetchuyenmon1"].ToString();
@@ -431,12 +433,22 @@ namespace WebCus
                 dgtd.KhaNangHoiNhap = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkhanang1"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$noidungkhanang1"].ToString();
                 dgtd.TongDiem = Page.Request.Form["ctl00$ContentPlaceHolder1$tongdiem1"].ToString();
                 if (Page.Request.Form["ctl00$ContentPlaceHolder1$kqdat1"].ToString() == "radDat1")
+                {
                     dgtd.Ketqualan1 = 1;
+                    //Cập nhật lại trạng thái ứng viên
+                    blc_user.UpdateStatus(this.IDNTD, 1, 5);
+                }
                 else
+                {
                     dgtd.Ketqualan1 = 0;
+                    blc_user.UpdateStatus(this.IDNTD,2,0);
+                }
                 dgtd.Baocaocho = Page.Request.Form["ctl00$ContentPlaceHolder1$baocaocho"].ToString();
                 if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"]))
+                {
                     dgtd.Ngaynhanviec = dgtd.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                   
+                }
                 if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongthuviec"]))
                     dgtd.Luongthuviec = Page.Request.Form["ctl00$ContentPlaceHolder1$luongthuviec"].ToString();
                 dgtd.Thoigianthuviec = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigianthuviec"].ToString();
@@ -472,8 +484,8 @@ namespace WebCus
             }
             if (type == 2 || dgtd2!=null)
             {
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$Text6"]))
-                    dgtd2.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$Text6"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$Text6$dateInput_TextBox"]))
+                    dgtd2.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$Text6$dateInput_TextBox"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
                 dgtd2.NguoiPV = Page.Request.Form["ctl00$ContentPlaceHolder1$Text9"].ToString();
                 dgtd2.KienThucChuyenNganh = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkienthuc2"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetkienthuc2"].ToString();
                 dgtd2.ChuyenMon = Page.Request.Form["ctl00$ContentPlaceHolder1$diemchuyenmon2"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetchuyenmon2"].ToString();
@@ -484,10 +496,23 @@ namespace WebCus
                 dgtd2.TinhCach = Page.Request.Form["ctl00$ContentPlaceHolder1$diemtinhcach2"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxettinhcach2"].ToString();
                 dgtd2.KhaNangHoiNhap = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkhanang2"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$noidungkhanang2"].ToString();
                 dgtd2.TongDiem = Page.Request.Form["ctl00$ContentPlaceHolder1$tongdiem2"].ToString();
+                //if (Page.Request.Form["ctl00$ContentPlaceHolder1$kqdat2"].ToString() == "radDat2")
+                //    dgtd2.Ketqualan2 = 1;
+                //else
+                //    dgtd2.Ketqualan2 = 0;
+
                 if (Page.Request.Form["ctl00$ContentPlaceHolder1$kqdat2"].ToString() == "radDat2")
+                {
                     dgtd2.Ketqualan2 = 1;
+                    //Cập nhật lại trạng thái ứng viên
+                    blc_user.UpdateStatus(this.IDNTD, 1, 5);
+                }
                 else
+                {
                     dgtd2.Ketqualan2 = 0;
+                    blc_user.UpdateStatus(this.IDNTD, 2, 0);
+                }
+
                 dgtd2.Baocaocho = Page.Request.Form["ctl00$ContentPlaceHolder1$baocaocho"].ToString();
                 if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"]))
                     dgtd2.Ngaynhanviec = dgtd.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
@@ -528,8 +553,8 @@ namespace WebCus
             //
             if (type == 3 || dgtd3!=null)
             {
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$Text7"]))
-                    dgtd3.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$Text7"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$Text7$dateInput_TextBox"]))
+                    dgtd3.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$Text7$dateInput_TextBox"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
                 dgtd3.NguoiPV = Page.Request.Form["ctl00$ContentPlaceHolder1$Text10"].ToString();
                 dgtd3.KienThucChuyenNganh = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkienthuc3"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetkienthuc3"].ToString();
                 dgtd3.ChuyenMon = Page.Request.Form["ctl00$ContentPlaceHolder1$diemchuyenmon3"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxetchuyenmon3"].ToString();
@@ -540,10 +565,22 @@ namespace WebCus
                 dgtd3.TinhCach = Page.Request.Form["ctl00$ContentPlaceHolder1$diemtinhcach3"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$nhanxettinhcach3"].ToString();
                 dgtd3.KhaNangHoiNhap = Page.Request.Form["ctl00$ContentPlaceHolder1$diemkhanang3"].ToString() + "," + Page.Request.Form["ctl00$ContentPlaceHolder1$noidungkhanang3"].ToString();
                 dgtd3.TongDiem = Page.Request.Form["ctl00$ContentPlaceHolder1$tongdiem3"].ToString();
+                //if (Page.Request.Form["ctl00$ContentPlaceHolder1$kqdat3"].ToString() == "radDat")
+                //    dgtd3.Ketqualan3 = 1;
+                //else
+                //    dgtd3.Ketqualan3 = 0;
+
                 if (Page.Request.Form["ctl00$ContentPlaceHolder1$kqdat3"].ToString() == "radDat")
-                    dgtd3.Ketqualan3 = 1;
+                {
+                    dgtd.Ketqualan3 = 1;
+                    //Cập nhật lại trạng thái ứng viên
+                    blc_user.UpdateStatus(this.IDNTD, 1, 5);
+                }
                 else
-                    dgtd3.Ketqualan3 = 0;
+                {
+                    dgtd.Ketqualan3 = 0;
+                    blc_user.UpdateStatus(this.IDNTD, 2, 0);
+                }
                 dgtd3.Baocaocho = Page.Request.Form["ctl00$ContentPlaceHolder1$baocaocho"].ToString();
                 if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"]))
                     dgtd3.Ngaynhanviec = dgtd.NgayPV = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$ngaynhanviec"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);

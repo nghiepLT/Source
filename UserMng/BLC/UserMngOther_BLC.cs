@@ -4983,6 +4983,20 @@ namespace UserMng.BLC
             yctd.IsDone = IsDone;
             da.SubmitChanges();
         }
+
+        public void CapNhatNgayNhanViec(int idnhanvien,DateTime Ngaynhanviec)
+        {
+            ThongTinNhanSu ttns = da.ThongTinNhanSus.Where(m => m.IdNhanVien == idnhanvien).FirstOrDefault();
+            if (ttns != null)
+            {
+                ttns.NgayVaoLam = Ngaynhanviec;
+                da.SubmitChanges();
+            }
+        }
+        public ImportFile GetImportFile(Guid id)
+        {
+            return da.ImportFiles.Where(m => m.IdUV == id).FirstOrDefault();
+        }
         #endregion
         #endregion
         #endregion

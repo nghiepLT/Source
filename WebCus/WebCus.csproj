@@ -256,12 +256,14 @@
     <Content Include="js\accounting.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="Khaosathoinhap.aspx" />
+    <Content Include="QuanLyFile.aspx" />
     <Content Include="RenderPopupCapnhatngaylam.aspx" />
     <Content Include="RenderPopupCapNhatTrangThai.aspx" />
     <Content Include="RenderPopupDanhGiatuyenDung.aspx" />
     <Content Include="RenderPopupNguoiDanhGia.aspx" />
     <Content Include="RenderPopupNguoiDanhGiaThuViec.aspx" />
     <Content Include="RenderPopupThuChucMung.aspx" />
+    <Content Include="TestCapcha.aspx" />
     <Content Include="ThietLapGuiMail.aspx" />
     <Content Include="Thongketuyendung.aspx" />
     <Content Include="Tomtatphucloi.aspx" />
@@ -2808,6 +2810,13 @@
     <Compile Include="Khaosathoinhap.aspx.designer.cs">
       <DependentUpon>Khaosathoinhap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyFile.aspx.cs">
+      <DependentUpon>QuanLyFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuanLyFile.aspx.designer.cs">
+      <DependentUpon>QuanLyFile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RenderPopupCapnhatngaylam.aspx.cs">
       <DependentUpon>RenderPopupCapnhatngaylam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2849,6 +2858,13 @@
     </Compile>
     <Compile Include="RenderPopupThuChucMung.aspx.designer.cs">
       <DependentUpon>RenderPopupThuChucMung.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestCapcha.aspx.cs">
+      <DependentUpon>TestCapcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestCapcha.aspx.designer.cs">
+      <DependentUpon>TestCapcha.aspx</DependentUpon>
     </Compile>
     <Compile Include="ThietLapGuiMail.aspx.cs">
       <DependentUpon>ThietLapGuiMail.aspx</DependentUpon>
@@ -2893,6 +2909,9 @@
     </Compile>
     <Compile Include="UploadUngVien.ashx.cs">
       <DependentUpon>UploadUngVien.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadYCTD.ashx.cs">
+      <DependentUpon>UploadYCTD.ashx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -3874,6 +3893,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="UploadTMNV.ashx" />
+    <Content Include="UploadYCTD.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

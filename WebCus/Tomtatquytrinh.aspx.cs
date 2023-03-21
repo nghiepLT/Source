@@ -48,7 +48,8 @@ namespace WebCus
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    this.IDNTD = Guid.Parse(Request.QueryString["id"]); 
+                    this.IDNTD = Guid.Parse(Request.QueryString["id"]);
+                    this.userid.Value = UserMemberID.ToString();
                 }
                 BindingData();
                 //Insert nếu chua có 

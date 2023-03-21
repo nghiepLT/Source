@@ -847,7 +847,7 @@ th.RB_C {
 }
 
 .longdiv tr:nth-child(even) td.stickytd {
-    background:#e9e9e9;
+    background: #e9e9e9;
 }
 
 .hoten {
@@ -860,33 +860,57 @@ th.RB_C {
     top: 0px;
     z-index: 99999999;
 }
-.TboardBox th.RB_C { 
-    text-shadow: none; 
-    background-color: #a7adb1; 
-        border-bottom: solid 1px #686868;
+
+.TboardBox th.RB_C {
+    text-shadow: none;
+    background-color: #a7adb1;
+    border-bottom: solid 1px #686868;
     border-right: solid 1px #464646;
 }
+
 .TboardBox th.RB_L {
     text-shadow: none;
     background-color: #e1e1e1;
     border-right: solid 1px #464646;
     border-bottom: solid 1px #464646;
 }
-.TboardBox td.RB_L { 
+
+.TboardBox td.RB_L {
     border-right: solid 1px #adadad;
-    border-bottom: solid 1px #adadad; 
+    border-bottom: solid 1px #adadad;
 }
+
 .TboardBox td.Line2 {
     background-color: #060606;
 }
+
 .row {
     background: #e9e9e9;
-}.row:hover, .row-alt:hover {
-    background: #bbbbbb;
 }
+
+    .row:hover, .row-alt:hover {
+        background: #bbbbbb;
+    }
+
 .pd-15 {
-    padding-left: 15px!important;
+    padding-left: 15px !important;
 }
+
 .mb-15 {
-    padding-bottom: 10px!important;
+    padding-bottom: 10px !important;
 }
+
+.trangthaitable {
+}
+
+    .trangthaitable table {
+    }
+
+        .trangthaitable table tr {
+        }
+
+        .trangthaitable table td {
+            border: 1px solid #a5a5a5;
+            padding: 5px 5px;
+            font-size: 11px;
+        }

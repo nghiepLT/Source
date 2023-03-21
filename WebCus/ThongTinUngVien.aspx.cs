@@ -321,7 +321,8 @@ namespace WebCus
                         ttuv.LoaiNV = 2;
                         ttuv.ViTri = 4;
                         Ungvien_Trangthai uvtt = blc_user.GetUngvien_TrangthaiById(idNTD);
-                        ttuv.NgayVaoLam = uvtt.NgayNhanViec!=null?uvtt.NgayNhanViec:DateTime.Now;
+                        DanhGiaTuyenDung dgtd = blc_user.CheckDanhGiatuyenDung(ent.Id);
+                        ttuv.NgayVaoLam = dgtd.Ngaynhanviec.HasValue ? dgtd.Ngaynhanviec.Value : DateTime.Now;
                         YeuCauTuyenDung yctd = blc_user.GetIDPhongBanByYeuCau(ent.IdYeuCau.Value);
                         if (yctd != null)
                         {
@@ -392,6 +393,7 @@ namespace WebCus
                     }
                     else
                     {
+
                         var result = blc_user.UpdateNhanVien(dbnv);
                         if (result == true)
                         {
@@ -708,10 +710,10 @@ namespace WebCus
             Ungvien_Trangthai uvStatus = blc_user.GetUngvien_TrangthaiById(id);
             DanhGiaTuyenDung dgtd = blc_user.CheckDanhGiatuyenDung(id);
             DanhGiaTuyenDung dgtd2 = blc_user.CheckDanhGiatuyenDung2(id);
-
+            ImportFile imp = blc_user.GetImportFile(id);
             strResult += " <div>";
             string input = "";
-            if (uvStatus.NgayGuithumoi.HasValue)
+            if (uvStatus.NgayGuithumoi.HasValue || imp!=null)
                 input += "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
             else
                 input += "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\"/>";
@@ -732,6 +734,12 @@ namespace WebCus
             {
                 strResult += "<div><strong class='dateks'> Ngày tạo: " + uvStatus.NgayGuithumoi.Value + " </strong></div>";
                 strResult += "<div><strong class='dateks'> Ngày nhận việc: " + uvStatus.NgayNhanViec.Value + " </strong></div>";
+            }
+           
+            if (imp != null)
+            {
+                strResult += "<div><strong class='dateks'> Ngày tạo: " + imp.DateImport + " </strong></div>";
+
             }
             return strResult;
         }
@@ -1800,6 +1808,35 @@ namespace WebCus
             blc_user2.CapNhatNextPV(id);
         }
 
+        public string ReturnTable(Guid id)
+        {
+            string html = "";
+            html += "<div class=\"trangthaitable\">";
+            html += "<table>";
+            html += "<tr>";
+            html += "<td>PV lần 1";
+            html += "</td>";
+            html += "<td>PV lần 2";
+            html += "</td>";
+            html += "<td>PV lần 3";
+            html += "</td>";
+            html += "</tr>";
+
+            html += "<tr>";
+            html += "<td>";
+            html += "PV Lần 2";
+            html += "</td>";
+            html += "<td>";
+            html += "PV Lần 3";
+            html += "</td>";
+            html += "<td>";
+            html += "Đạt";
+            html += "</td>";
+            html += "</tr>";
+            html += "</table>";
+            html += "</div>";
+            return html;
+        }
         public string GetNgayVL(Guid id)
         {
             UngVien uv = blc_user.GetUngVienByID(id);

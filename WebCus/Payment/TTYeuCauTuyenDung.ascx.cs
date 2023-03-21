@@ -189,7 +189,7 @@ namespace WebCus
                 try
                 {
                     //sendEmail  
-                    sendEmail(tuser.Email, getEmailtitle(tuser.UserName,tenPhongBan.TenPhong),txtNoiDung.Text.Trim(), link,1);
+                   // sendEmail(tuser.Email, getEmailtitle(tuser.UserName,tenPhongBan.TenPhong),txtNoiDung.Text.Trim(), link,1);
                 }
                 catch(Exception ex)
                 {
@@ -222,8 +222,8 @@ namespace WebCus
                                 gioitinh = "Chị";
                             contentduyet += "<div>Dear " + gioitinh + " " + nv.HoTen+",</div>";
                             contentduyet += "<div>Phòng hành chánh đã duyệt " + yctd.TieuDe+"</div>";
-                            if (isCheck)
-                                sendEmail(tu.Email, "Phòng hành chánh duyệt yêu cầu tuyển dụng", contentduyet, "",2);
+                            //if (isCheck)
+                            //    sendEmail(tu.Email, "Phòng hành chánh duyệt yêu cầu tuyển dụng", contentduyet, "",2);
                         }
                     }
                     else

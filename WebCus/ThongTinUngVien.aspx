@@ -58,16 +58,16 @@
             </tr>
         </table>
         <%-- <hr />--%>
-        <table cellpadding="0" cellspacing="0" style="display: none;">
+        <table cellpadding="0" cellspacing="0">
 
             <tr class="trLabelFilter1">
                 <td>Họ tên ứng viên</td>
                 <td>Trực thuộc
                 </td>
-                <td>Yêu cầu tuyển dụng
+              <%--  <td>Yêu cầu tuyển dụng
                 </td>
                 <td>Trạng thái
-                </td>
+                </td>--%>
                 <td colspan="2">&nbsp;
                 </td>
             </tr>
@@ -84,7 +84,7 @@
                         <asp:ListItem Text="Smart Connec" Value="3"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td class="RB_L">
+                <td class="RB_L" style="display: none;">
                     <asp:DropDownList AutoPostBack="true" ID="drop_yeucautuyendung" CssClass="select" Width="150px" runat="server" OnSelectedIndexChanged="drop_yeucautuyendung_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
@@ -101,7 +101,7 @@
                         <asp:ListItem Text="--Tất Cả--" Value="-1"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td class="RB_L">
+                <td class="RB_L" style="display: none;">
                     <asp:DropDownList ID="dropTrangThai" CssClass="select" Width="120px"
                         runat="server" AutoPostBack="true" OnSelectedIndexChanged="dropTrangThai_SelectedIndexChanged">
                         <asp:ListItem Text="Tất cả" Value="0" Selected="True"></asp:ListItem>
@@ -131,6 +131,9 @@
             </li>
             <li>
                 <a class="achung" id="a3" runat="server" onclick="tabactive(3)">UV Suy nghĩ thêm <span>(</span><span id="rs3" runat="server"></span><span>) </span></a>
+            </li>
+              <li>
+                <a class="achung" id="a9" runat="server" onclick="tabactive(9)">Xem xét thêm <span>(</span><span id="rs9" runat="server"></span><span>) </span></a>
             </li>
             <li>
                 <a class="achung" id="a4" runat="server" onclick="tabactive(4)">Từ chối phỏng vấn <span>(</span><span id="rs4" runat="server"></span><span>) </span></a>
@@ -192,6 +195,13 @@
                                             <HeaderStyle CssClass="RB_C stickyheader" />
                                             <ItemStyle CssClass="RB_L stickytd pd-15 mb-15" />
                                         </asp:TemplateField>
+                                       <%--   <asp:TemplateField HeaderText="Trạng thái">
+                                            <ItemTemplate>
+                                                <%#ReturnTable(Guid.Parse(Eval("Id").ToString()))%>
+                                            </ItemTemplate>
+                                            <HeaderStyle CssClass="RB_C " />
+                                            <ItemStyle CssClass="RB_L pd-15 mb-15" />
+                                        </asp:TemplateField>--%>
                                         <asp:TemplateField HeaderText="Ngày vào làm">
                                             <ItemTemplate>
                                                 <div class="">
@@ -529,6 +539,10 @@
                 <li>
                     <input id="ip3" type="radio" name="ttpv" runat="server" />
                     <span onclick="clickip('ip3')">- UV Suy nghĩ thêm</span>
+                </li>
+                 <li>
+                    <input id="ip0" type="radio" name="ttpv" runat="server" />
+                    <span onclick="clickip('ip0')">- Xem xét thêm</span>
                 </li>
                 <li>
                     <input id="ip4" type="radio" name="ttpv" runat="server" />
@@ -955,7 +969,8 @@
         }
 
         $('input:radio').click(function () {
-            $("#ctl00_MainContent_ip1").prop("checked", true);
+          // $("#ctl00_MainContent_ip1").prop("checked", true);
+           // alert("ds")
         });
 
 
