@@ -1,0 +1,38 @@
+    <add key="connectionString" value="Data Source=.;Initial Catalog=EmployeeData; Connection Timeout=3600; User ID=sa;Password=sapassword@123;"/>
+
+manv
+dr_tructhuoccty_SelectedIndexChanged
+--
+select * from UngVien
+order by CreatedDate desc
+
+--
+select * from Ungvienkhaosat uvks
+join NhanVien nv
+on uvks.IdNhanSu  = nv.IdNhanVien
+
+--Kiem tra so ngày
+
+
+select ttns.Id,nv.HoTen, DATEDIFF(day,ttns.NgayVaoLam,GETDATE()) as  'songay'
+from ThongTinNhanSu ttns 
+join NhanVien nv
+on ttns.IdNhanVien =nv.IdNhanVien
+where DATEDIFF(day,ttns.NgayVaoLam,GETDATE()) =6
+or DATEDIFF(day,ttns.NgayVaoLam,GETDATE()) =13
+or DATEDIFF(day,ttns.NgayVaoLam,GETDATE()) =59
+
+
+--delete SendUngVienThuViec
+delete SendUngVienThuViec
+where DateSend=(select convert(varchar, getdate(), 23))
+
+--Tìm nhân viên theo tên
+
+select * from ThongTinNhanSu
+where IdNhanVien=(select IdNhanVien from NhanVien
+where HoTen= N'Nguyễn Thị Quỳnh Hương')
+ 
+select * from TUser
+where UserName =N'Nguyễn Thị Quỳnh Hương'
+

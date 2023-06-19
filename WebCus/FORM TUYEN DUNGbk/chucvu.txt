@@ -1,0 +1,20 @@
+<select name="ctl00$MainContent$TTNhanvien1$dr_vitri" id="ctl00_MainContent_TTNhanvien1_dr_vitri" class="demo-default" style="width:92.5%;">
+			<option value="0">--Chọn Vị Trí--</option>
+			<option value="5">Giám Đốc</option>
+			<option value="6">Phó GĐ</option>
+			<option value="8">Trợ lý GĐ</option>
+			<option selected="selected" value="1">Trưởng Phòng</option>
+			<option value="2">Phó Phòng</option>
+			<option value="9">Trưởng Bộ Phận</option>
+			<option value="10">Phó Bộ Phận</option>
+			<option value="3">Trưởng Nhóm</option>
+			<option value="11">Phó Nhóm</option>
+			<option value="4">Nhân Viên</option>
+			<option value="7">NV Thực Tập</option>
+
+		</select>
+
+  $("#tb4").addClass("tabledisable");
+@aDMIN1971
+
+http://localhost:1502/RenderPopupDanhGiatuyenDung.aspx?id=adbe40c4-2a8a-4c5b-b414-ffbf58159f9c
