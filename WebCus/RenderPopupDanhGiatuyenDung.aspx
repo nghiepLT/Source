@@ -9,7 +9,10 @@
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
     <input id="type" runat="server" style="display:none;" />
-    <input id="iduser" runat="server" style="display:none;" />
+    <input id="iduser" runat="server"  style="display:none;"/>
+    <input id="typePhanquyen" runat="server"  style="display:none;"/>
+    <input id="typeChucvu" runat="server" style="display:none;" />
+    <input id="idungvien" runat="server" style="display:none;"/>
     <div class="mycontainer">
         <div class="row">
 
@@ -45,13 +48,13 @@
                                 <tr>
                                     <td>Vị trí làm việc: <span id="vitrilamviec" runat="server">NV Lái xe</span>
                                     </td>
-                                    <td>Người đánh giá: <span id="nguoidanhgia" runat="server">Mr. Minh</span>
+                                    <td>Người đánh giá: <span id="nguoidanhgia" runat="server"></span> <input id="ipNguoiDanhGia" runat="server" class="ip" style="width:60%"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Bộ phận/ Phòng: <span id="bophanphong" runat="server">Giao nhận</span>
                                     </td>
-                                    <td>Chức vụ: <span id="chucvu" runat="server">TBP. Giao nhận</span>
+                                    <td>Chức vụ: <span id="chucvu" runat="server"></span> <input id="ipChucVuDanhGia" runat="server"  class="ip" style="width:80%"/>
                                     </td>
                                 </tr>
                             </table>
@@ -60,7 +63,7 @@
                                     <td colspan="7">Đánh giá quá trình làm việc trong thời gian thử việc: Tốt 80-100%, Khá 70-<80%, TB 50-<70%, Yếu<50%
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="position: sticky; top: 0px; background-color: white; z-index: 999999999; box-shadow: 1px 1px 1px 1px #16161661;">
                                     <td>Nội dung đánh giá
                                     </td>
                                     <td>% H.thành
@@ -478,7 +481,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> <input class="ip dotted w100" id="Nhanxetnguoidanhgia" runat="server" /></td>
+                                    <td><textarea class="ip dotted w100" id="Nhanxetnguoidanhgia" runat="server" style="pointer-events:auto" ></textarea> </td>
                                     <td> <input name="radDiLamDungGio" type="radio" class="ip" id="radKhongtiepnhan" runat="server" /> Không tiếp nhận;
                                     </td>
                                 </tr>
@@ -517,20 +520,19 @@
                                     <td>Ký tên: 
                                         <input class="ip dotted w80" id="truongphongkyten" runat="server" />
                                     </td>
-                                    <td>
-                                        <input class="ip dotted w100" id="truongphongnhanxet" runat="server" /></td>
+                                    <td rowspan="3"> 
+                                        <textarea rows="3" style="pointer-events:all" class="ip dotted w100" id="truongphongnhanxet" runat="server"></textarea>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Họ tên:
                                         <input class="ip dotted w80" id="TruongPhongHoTen" runat="server" />
                                     </td>
-                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td>Ngày:
                                         <input class="ip dotted w80" id="Truongphongngay" runat="server" />
                                     </td>
-                                    <td></td>
                                 </tr>
                                 
                             </table>
@@ -545,14 +547,14 @@
                                     <td>Ký tên:<input class="ip dotted w80" id="Hanhchanhkyten" runat="server" />
                                     </td>
                                     <td>
-                                        <input class="ip dotted w80" id="Hanhchanhnhanxet" runat="server" /></td>
+                                        <textarea rows="2" style="pointer-events:all"  class="ip dotted w80" id="Hanhchanhnhanxet" runat="server" ></textarea>
+                                    </td>
                                 </tr>
 
                                 <tr>
                                     <td>Ngày:
                                         <input class="ip dotted w80" id="Hanhchanhngay" runat="server" />
                                     </td>
-                                    <td></td>
                                 </tr>
                             </table>
                             <table class="table" id="tb5">
@@ -610,7 +612,20 @@
             </div>
         </div>
     </div>
-    
+    <div style="" class="danhgia_dangnhap_background">
+        <div class="danhgia_dangnhap_box">
+            <div class="danhgia_dangnhap_input">
+                <input type="text" placeholder="User name" id="username" />
+            </div>
+            <div class="danhgia_dangnhap_input">
+                <input type="password" placeholder="Password" id="password" />
+            </div>
+            <div class="danhgia_dangnhap">
+                <a onclick="dangnhap()">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+   
     <style>
       input[type="radio"]{
           cursor:pointer;
@@ -659,6 +674,79 @@
     </style>
     <script src="js/jquery-1.8.2.js"></script>
     <script>
+        function dangnhap() {
+           
+            $.ajax({
+                type: "POST", //POST
+                url: "RenderPopupDanhGiatuyenDung.aspx/Login",
+                data: "{username:'" + $("#username").val() + "',password:'" + $("#password").val() + "',idungvien:'"+$("#ctl00_ContentPlaceHolder1_idungvien").val()+"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async:false,
+                success: function (msg) {
+                    if (msg.d != "-1") {
+                        var type = msg.d;
+                        var splitType = type.split(',');
+                        $("#ctl00_ContentPlaceHolder1_iduser").val(splitType[4])
+                        //Cấp nhân viên
+                        if (splitType[0] == "0") {
+                            type1();
+                            $("#ctl00_ContentPlaceHolder1_ipNguoiDanhGia").val(splitType[1]);
+                            $("#ctl00_ContentPlaceHolder1_ipChucVuDanhGia").val(splitType[2]);
+                            $("#ctl00_ContentPlaceHolder1_type").val(1).change();
+                        }
+                        //Cấp quản lý
+                        if (splitType[0] == "1") {
+                            type2();
+                            if (splitType[3] == "0") {
+                                $("#ctl00_ContentPlaceHolder1_ipNguoiDanhGia").val(splitType[1]);
+                                $("#ctl00_ContentPlaceHolder1_ipChucVuDanhGia").val(splitType[2]);
+                                $("#ctl00_ContentPlaceHolder1_type").val(3).change();
+                            }
+                            else {
+                                $("#ctl00_ContentPlaceHolder1_type").val(2).change();
+                                $("#tb1").addClass("tabledisable");
+                                $("#tb2").addClass("tabledisable");
+                            }
+                            if ($("#ctl00_ContentPlaceHolder1_TruongPhongHoTen").val()=='')
+                            {
+                                $("#ctl00_ContentPlaceHolder1_TruongPhongHoTen").val(splitType[1]).change();
+                            }
+                            if ($("#ctl00_ContentPlaceHolder1_truongphongkyten").val() == '') {
+                                $("#ctl00_ContentPlaceHolder1_truongphongkyten").val(splitType[1]).change();
+                            }
+                            if ($("#ctl00_ContentPlaceHolder1_Truongphongngay").val() == '') {
+
+                            }
+                        }
+                        //Cấp giám đốc
+                        if (splitType[0] == "2") {
+                            type3();
+                            $("#ctl00_ContentPlaceHolder1_type").val(5).change();
+                            if ($("#ctl00_ContentPlaceHolder1_BangiamdocKyten").val() == '') {
+                                $("#ctl00_ContentPlaceHolder1_BangiamdocKyten").val(splitType[1]).change();
+                            }
+                            if ($("#ctl00_ContentPlaceHolder1_Bangiamdochoten").val() == '') {
+                                $("#ctl00_ContentPlaceHolder1_Bangiamdochoten").val(splitType[1]).change();
+                            }
+                        }
+                        //Nếu là 
+
+                        $(".mycontainer").show();
+                        $(".danhgia_dangnhap_background").hide();
+                    }
+                    else {
+                        alert("Đăng nhập thất bại!");
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
         function taithuviec() {
             $("#ctl00_ContentPlaceHolder1_TiepnhanchinhthucTu").val('');
             $("#ctl00_ContentPlaceHolder1_TiepnhanchinhthucDen").val('');
@@ -706,7 +794,6 @@
                 }
             }
 
-
             //Nếu chưa chọn đánh giá
             if ($("#ctl00_ContentPlaceHolder1_radKhongtiepnhan").prop("checked") == false && $("#ctl00_ContentPlaceHolder1_radTaithuviec").prop("checked") == false && $("#ctl00_ContentPlaceHolder1_radTiepnhanchinhthuc").prop("checked") == false) {
                 alert("Vui lòng chọn đề xuất của người đánh giá");
@@ -719,40 +806,33 @@
         });
 
         $(document).ready(function () {
-            if ($("#ctl00_ContentPlaceHolder1_type").val() == 1) {
-                type1();
+          
+            //Phan quyen
+          
+            if ($("#ctl00_ContentPlaceHolder1_iduser").val() == 0) {
+                $(".mycontainer").hide();
             }
-            if ($("#ctl00_ContentPlaceHolder1_type").val() == 2) {
-                type2();
+            else {
+                $(".danhgia_dangnhap_background").hide();
             }
-            if ($("#ctl00_ContentPlaceHolder1_type").val() == 3) {
-                type3();
-            }
-            if ($("#ctl00_ContentPlaceHolder1_type").val() == 4) {
-                type4();
-            }
+          
         });
+        //Cho cấp nhân viên
         function type1() {
             $("#tb3").addClass("tabledisable");
             $("#tb4").addClass("tabledisable");
             $("#tb5").addClass("tabledisable");
         }
-        function type2() {
-            $("#tb1").addClass("tabledisable");
-            $("#tb2").addClass("tabledisable");
+        //Cho cấp quản lý
+        function type2() { 
             $("#tb4").addClass("tabledisable");
             $("#tb5").addClass("tabledisable");
         }
+        //Cho cấp giám đốc
         function type3() {
             $("#tb1").addClass("tabledisable");
-            $("#tb3").addClass("tabledisable");
             $("#tb2").addClass("tabledisable");
-            $("#tb5").addClass("tabledisable");
-        }
-        function type4() {
-            $("#tb1").addClass("tabledisable");
             $("#tb3").addClass("tabledisable");
-            $("#tb2").addClass("tabledisable");
             $("#tb4").addClass("tabledisable");
         }
     </script>

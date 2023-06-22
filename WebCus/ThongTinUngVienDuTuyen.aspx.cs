@@ -27,23 +27,44 @@ namespace WebCus
                         SelectFrist();
                     this.radDocThan.Checked = true;
                     //
-                    this.radCSLuongcung1.Checked = true;
-                    this.radCSThuong1.Checked = true;
-                    this.radCSLuubanggoc1.Checked = true;
-                    this.radThuongthamnien1.Checked = true;
-                    this.radThuongXSCV1.Checked = true;
-                    this.radThuongluong131.Checked = true;
-                    this.radCSphucloihoicuoi1.Checked = true;
-                    this.radCSPhucloiquatet1.Checked = true;
-                    this.radCSMungsinhnhat1.Checked = true;
-                    this.radCSMuabaohiem1.Checked = true;
-                    this.radCSdaotaotaitro1.Checked = true;
-                    this.radCSKhamsuckhoedinhky1.Checked = true;
-                    this.radCSmuahangtragop1.Checked = true;
-                    this.radCSLuubanggoc1.Checked = true;
-                    this.radCSdulichhangnam1.Checked = true;
+                    //this.radCSLuongcung1.Checked = true;
+                    //this.radCSThuong1.Checked = true;
+                    //this.radCSLuubanggoc1.Checked = true;
+                    //this.radThuongthamnien1.Checked = true;
+                    //this.radThuongXSCV1.Checked = true;
+                    //this.radThuongluong131.Checked = true;
+                    //this.radCSphucloihoicuoi1.Checked = true;
+                    //this.radCSPhucloiquatet1.Checked = true;
+                    //this.radCSMungsinhnhat1.Checked = true;
+                    //this.radCSMuabaohiem1.Checked = true;
+                    //this.radCSdaotaotaitro1.Checked = true;
+                    //this.radCSKhamsuckhoedinhky1.Checked = true;
+                    //this.radCSmuahangtragop1.Checked = true;
+                    //this.radCSLuubanggoc1.Checked = true;
+                    //this.radCSdulichhangnam1.Checked = true;
                     LoadFormData();
                     LoadBankhaosat();
+                    //
+                    YeuCauTuyenDung getyctd = blc_user.GetYeuCauTD_ByID(uv.IdYeuCau.Value);
+                    if (getyctd != null)
+                    {
+                        if (getyctd.TrucThuoc == 1)
+                        {
+                            this.logomain.Src = "/Images/logo_form.png";
+                            this.logomain2.Src = "/Images/logo_form.png";
+                        }
+                        if (getyctd.TrucThuoc == 2)
+                        {
+                            this.logomain.Src = "/Images/Logo/chinhnhan_logo.png";
+                            this.logomain2.Src = "/Images/Logo/chinhnhan_logo.png";
+                        }
+                        if (getyctd.TrucThuoc == 3)
+                        {
+                            this.logomain.Src = "/Images/Logo/smc_logo.jpg";
+                            this.logomain2.Src = "/Images/Logo/smc_logo.jpg";
+                        }
+                    }
+                   
                 }
                  
             }
@@ -659,39 +680,76 @@ namespace WebCus
             if (uv == null)
                 uv = new UngVien();
             VM_UngVien VMungvien = new VM_UngVien();
-            //Quyền lợi
             QuyenLoiNoiLamViec QuyenLoiNoiLamViec = new QuyenLoiNoiLamViec();
-            QuyenLoiNoiLamViec.DuocSuDungXe = Page.Request.Form["ctl00$ContentPlaceHolder1$radSuDung"]!=null? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radSuDung"].ToString()):0;
-            QuyenLoiNoiLamViec.PhuCapDiLai = Page.Request.Form["ctl00$ContentPlaceHolder1$radPhuCap"]!=null? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radPhuCap"].ToString()):0;
-            QuyenLoiNoiLamViec.DienThoai = Page.Request.Form["ctl00$ContentPlaceHolder1$radDienThoaiDiDong"]!=null? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radDienThoaiDiDong"].ToString()):0;
-            QuyenLoiNoiLamViec.TienThuong = Page.Request.Form["ctl00$ContentPlaceHolder1$radTienThuong"]!=null? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radTienThuong"].ToString()):0;
-            QuyenLoiNoiLamViec.TienVay = Page.Request.Form["ctl00$ContentPlaceHolder1$radtienVay"]!=null? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radtienVay"].ToString()):0;
-            QuyenLoiNoiLamViec.MucTieuPhatTrien = Page.Request.Form["ctl00$ContentPlaceHolder1$MuctieuPhatTrien"].ToString();
-            QuyenLoiNoiLamViec.ViSaoBanMuon = Page.Request.Form["ctl00$ContentPlaceHolder1$ViSaoBanMuon"].ToString();
-            VMungvien.QuyenLoiNoiLamViec = QuyenLoiNoiLamViec;
+            //Quyền lợi
+            try
+            {
+               
+                QuyenLoiNoiLamViec.DuocSuDungXe = Page.Request.Form["ctl00$ContentPlaceHolder1$radSuDung"] != null ? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radSuDung"].ToString()) : 0;
+                QuyenLoiNoiLamViec.PhuCapDiLai = Page.Request.Form["ctl00$ContentPlaceHolder1$radPhuCap"] != null ? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radPhuCap"].ToString()) : 0;
+                QuyenLoiNoiLamViec.DienThoai = Page.Request.Form["ctl00$ContentPlaceHolder1$radDienThoaiDiDong"] != null ? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radDienThoaiDiDong"].ToString()) : 0;
+                QuyenLoiNoiLamViec.TienThuong = Page.Request.Form["ctl00$ContentPlaceHolder1$radTienThuong"] != null ? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radTienThuong"].ToString()) : 0;
+                QuyenLoiNoiLamViec.TienVay = Page.Request.Form["ctl00$ContentPlaceHolder1$radtienVay"] != null ? int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$radtienVay"].ToString()) : 0;
+                QuyenLoiNoiLamViec.MucTieuPhatTrien = Page.Request.Form["ctl00$ContentPlaceHolder1$MuctieuPhatTrien"].ToString();
+                QuyenLoiNoiLamViec.ViSaoBanMuon = Page.Request.Form["ctl00$ContentPlaceHolder1$ViSaoBanMuon"].ToString();
+               
+            }
+            catch (Exception ex)
+            {
+                blc_user.InsertLogg("QuyenLoiNoiLamViec_"+" "+ uv.Id + ex.Message, -1);
+            }
+            finally
+            {
+                VMungvien.QuyenLoiNoiLamViec = QuyenLoiNoiLamViec;
+            }
+            
             //TinhCachCaNhan
             TinhCachCaNhan TinhCachCaNhan = new TinhCachCaNhan();
-            TinhCachCaNhan.DiemYeu= Page.Request.Form["ctl00$ContentPlaceHolder1$diemyeu"].ToString();
-            TinhCachCaNhan.DiemManh = Page.Request.Form["ctl00$ContentPlaceHolder1$diemmanh"].ToString();
-            TinhCachCaNhan.NangLucVuotTroi = Page.Request.Form["ctl00$ContentPlaceHolder1$nangnlucvuottroi"].ToString();
-            VMungvien.TinhCachCaNhan = TinhCachCaNhan;
+            try
+            {
+               
+                TinhCachCaNhan.DiemYeu = Page.Request.Form["ctl00$ContentPlaceHolder1$diemyeu"].ToString();
+                TinhCachCaNhan.DiemManh = Page.Request.Form["ctl00$ContentPlaceHolder1$diemmanh"].ToString();
+                TinhCachCaNhan.NangLucVuotTroi = Page.Request.Form["ctl00$ContentPlaceHolder1$nangnlucvuottroi"].ToString();
+                
+            }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("TinhCachCaNhan_" +" "+ uv.Id + ex.Message, -1);
+            }
+            finally
+            {
+                VMungvien.TinhCachCaNhan = TinhCachCaNhan;
+            }
             //Kỹ năng
             KyNang KyNang = new KyNang();
-            KyNang.ViTinh= Page.Request.Form["ctl00$ContentPlaceHolder1$knViTinh"].ToString();
-            KyNang.ViTinhghiChu= Page.Request.Form["ctl00$ContentPlaceHolder1$ViTinhGhiChu"].ToString();
-            KyNang.LanhDao= Page.Request.Form["ctl00$ContentPlaceHolder1$knLanhDao"].ToString();
-            KyNang.LanhDaoghiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$LanhDaoGhiChu"].ToString();
-            KyNang.GiaiQuyetVanDe = Page.Request.Form["ctl00$ContentPlaceHolder1$knGiaiQuyet"].ToString();
-            KyNang.GiaiQuyetVanDeGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$GiaiQuyetGhiChu"].ToString();
-            KyNang.TrinhBay = Page.Request.Form["ctl00$ContentPlaceHolder1$knTrinhBay"].ToString();
-            KyNang.TrinhBayGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$TrinhBayGhiChu"].ToString();
-            KyNang.LamViecDocLap = Page.Request.Form["ctl00$ContentPlaceHolder1$knLamViec"].ToString();
-            KyNang.LamViecDocLapGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$LamViecGhiChu"].ToString();
-            KyNang.SinhHoat = Page.Request.Form["ctl00$ContentPlaceHolder1$knSinhHoat"].ToString();
-            KyNang.SinhHoatGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$knSinhHoatGhiChu"].ToString();
-            KyNang.HoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$knHoatDong"].ToString();
-            KyNang.HoatDongGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$knHoatDongGhiChu"].ToString();
-            VMungvien.KyNang = KyNang;
+            try
+            {
+                KyNang.ViTinh = Page.Request.Form["ctl00$ContentPlaceHolder1$knViTinh"].ToString();
+                KyNang.ViTinhghiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$ViTinhGhiChu"].ToString();
+                KyNang.LanhDao = Page.Request.Form["ctl00$ContentPlaceHolder1$knLanhDao"].ToString();
+                KyNang.LanhDaoghiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$LanhDaoGhiChu"].ToString();
+                KyNang.GiaiQuyetVanDe = Page.Request.Form["ctl00$ContentPlaceHolder1$knGiaiQuyet"].ToString();
+                KyNang.GiaiQuyetVanDeGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$GiaiQuyetGhiChu"].ToString();
+                KyNang.TrinhBay = Page.Request.Form["ctl00$ContentPlaceHolder1$knTrinhBay"].ToString();
+                KyNang.TrinhBayGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$TrinhBayGhiChu"].ToString();
+                KyNang.LamViecDocLap = Page.Request.Form["ctl00$ContentPlaceHolder1$knLamViec"].ToString();
+                KyNang.LamViecDocLapGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$LamViecGhiChu"].ToString();
+                KyNang.SinhHoat = Page.Request.Form["ctl00$ContentPlaceHolder1$knSinhHoat"].ToString();
+                KyNang.SinhHoatGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$knSinhHoatGhiChu"].ToString();
+                KyNang.HoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$knHoatDong"].ToString();
+                KyNang.HoatDongGhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$knHoatDongGhiChu"].ToString();
+            }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("KyNang_" + uv.Id +" "+ ex.Message, -1);
+            }
+            finally
+            {
+                VMungvien.KyNang = KyNang;
+            }
+        
+          
 
             //Thông tin vị trí ứng tuyển
             if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$vitriungtuyen"].ToString()))
@@ -699,270 +757,378 @@ namespace WebCus
                 //ThongTinViTri ThongTinViTri = JsonConvert.DeserializeObject<ThongTinViTri>(uv.UngCuViTri);
                 ThongTinViTri ThongTinViTri = new ThongTinViTri();
 
-                ThongTinViTri.ViTriungTuyen = Page.Request.Form["ctl00$ContentPlaceHolder1$vitriungtuyen"].ToString();
-                ThongTinViTri.ViTriMongMuonKhac = Page.Request.Form["ctl00$ContentPlaceHolder1$vitrimongmuon"].ToString();
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$thoigianbatdau"].ToString() != "")
-                    ThongTinViTri.Thoigianbatdau = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigianbatdau"].ToString();
-                ThongTinViTri.MucLuong = Page.Request.Form["ctl00$ContentPlaceHolder1$mucluongdenghi"].ToString();
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcinternet"].ToString() != "")
+                try
                 {
-                    ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcinternet"].ToString();
-                    ThongTinViTri.LoaiNguontin = 1;
+                    ThongTinViTri.ViTriungTuyen = Page.Request.Form["ctl00$ContentPlaceHolder1$vitriungtuyen"].ToString();
+                    ThongTinViTri.ViTriMongMuonKhac = Page.Request.Form["ctl00$ContentPlaceHolder1$vitrimongmuon"].ToString();
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$thoigianbatdau"].ToString() != "")
+                        ThongTinViTri.Thoigianbatdau = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigianbatdau"].ToString();
+                    ThongTinViTri.MucLuong = Page.Request.Form["ctl00$ContentPlaceHolder1$mucluongdenghi"].ToString();
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcinternet"].ToString() != "")
+                    {
+                        ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcinternet"].ToString();
+                        ThongTinViTri.LoaiNguontin = 1;
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcdvvl"].ToString() != "")
+                    {
+                        ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcdvvl"].ToString();
+                        ThongTinViTri.LoaiNguontin = 2;
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcgioithieuboi"].ToString() != "")
+                    {
+                        ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcgioithieuboi"].ToString();
+                        ThongTinViTri.LoaiNguontin = 3;
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$lckhac"].ToString() != "")
+                    {
+                        ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lckhac"].ToString();
+                        ThongTinViTri.LoaiNguontin = 4;
+                    }
                 }
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcdvvl"].ToString() != "")
+                catch(Exception ex)
                 {
-                    ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcdvvl"].ToString();
-                    ThongTinViTri.LoaiNguontin = 2;
+                    blc_user.InsertLogg("ThongTinViTri_" + uv.Id + " " + ex.Message, -1);
                 }
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$lcgioithieuboi"].ToString() != "")
+                finally
                 {
-                    ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lcgioithieuboi"].ToString();
-                    ThongTinViTri.LoaiNguontin = 3;
+                    VMungvien.ThongTinViTri = ThongTinViTri;
                 }
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$lckhac"].ToString() != "")
-                {
-                    ThongTinViTri.Nguontin = Page.Request.Form["ctl00$ContentPlaceHolder1$lckhac"].ToString();
-                    ThongTinViTri.LoaiNguontin = 4;
-                }
-                VMungvien.ThongTinViTri = ThongTinViTri;
+                
+              
             }
             var idPhongban = blc_user.GetYeuCauTD_ByID(uv.IdYeuCau.Value).IDPhongBan.Value;
-            uv.PhongBan = blc_user.GetPhongBan_ByID(idPhongban).TenPhong;
-            uv.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$HoTen"].ToString();
-            if (Page.Request.Form["ctl00$ContentPlaceHolder1$NgaySinh"].ToString() != "")
-                uv.NgaySinh = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgaySinh"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-            uv.NoiSinh = Page.Request.Form["ctl00$ContentPlaceHolder1$NoiSinh"].ToString();
-            uv.GioiTinh = Page.Request.Form["ctl00$ContentPlaceHolder1$GioiTinh"].ToString();
-            uv.Email = Page.Request.Form["ctl00$ContentPlaceHolder1$Email"].ToString();
-            uv.SoDt = Page.Request.Form["ctl00$ContentPlaceHolder1$SoDt"].ToString();
-            uv.Dantoc = Page.Request.Form["ctl00$ContentPlaceHolder1$Dantoc"].ToString();
-            uv.Tongiao = Page.Request.Form["ctl00$ContentPlaceHolder1$Tongiao"].ToString();
-            uv.DCTamTru = Page.Request.Form["ctl00$ContentPlaceHolder1$DCTamTru"].ToString();
-            uv.DCThuongTru = Page.Request.Form["ctl00$ContentPlaceHolder1$DCThuongTru"].ToString();
-            uv.CMND = Page.Request.Form["ctl00$ContentPlaceHolder1$CMND"].ToString();
-            if (Page.Request.Form["ctl00$ContentPlaceHolder1$NgayCMND"].ToString() != "")
-                uv.NgayCMND = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayCMND"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-            uv.NoiCapCMND = Page.Request.Form["ctl00$ContentPlaceHolder1$NoiCapCMND"].ToString();
-            VMungvien.UngVien = uv;
+            try
+            {
+                uv.PhongBan = blc_user.GetPhongBan_ByID(idPhongban).TenPhong;
+                uv.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$HoTen"].ToString();
+                if (Page.Request.Form["ctl00$ContentPlaceHolder1$NgaySinh"].ToString() != "")
+                    uv.NgaySinh = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgaySinh"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                uv.NoiSinh = Page.Request.Form["ctl00$ContentPlaceHolder1$NoiSinh"].ToString();
+                uv.GioiTinh = Page.Request.Form["ctl00$ContentPlaceHolder1$GioiTinh"].ToString();
+                uv.Email = Page.Request.Form["ctl00$ContentPlaceHolder1$Email"].ToString();
+                uv.SoDt = Page.Request.Form["ctl00$ContentPlaceHolder1$SoDt"].ToString();
+                uv.Dantoc = Page.Request.Form["ctl00$ContentPlaceHolder1$Dantoc"].ToString();
+                uv.Tongiao = Page.Request.Form["ctl00$ContentPlaceHolder1$Tongiao"].ToString();
+                uv.DCTamTru = Page.Request.Form["ctl00$ContentPlaceHolder1$DCTamTru"].ToString();
+                uv.DCThuongTru = Page.Request.Form["ctl00$ContentPlaceHolder1$DCThuongTru"].ToString();
+                uv.CMND = Page.Request.Form["ctl00$ContentPlaceHolder1$CMND"].ToString();
+                if (Page.Request.Form["ctl00$ContentPlaceHolder1$NgayCMND"].ToString() != "")
+                    uv.NgayCMND = DateTime.ParseExact(Page.Request.Form["ctl00$ContentPlaceHolder1$NgayCMND"].ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                uv.NoiCapCMND = Page.Request.Form["ctl00$ContentPlaceHolder1$NoiCapCMND"].ToString();
+            }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("UngVien_" + uv.Id + " " + ex.Message, -1);
+            }
+            finally
+            {
+                VMungvien.UngVien = uv;
+            }
+           
+           
 
             //2. GIA ĐÌNH:
             GiaDinh GiaDinh = new GiaDinh();
-            GiaDinh.TinhTrangHonNhan = Page.Request.Form["ctl00$ContentPlaceHolder1$radHonnhan"].ToString() == "radLapGiaDinh" ? 1 : 2;
-            VoChong vochong = new VoChong();
-            if (Page.Request.Form["ctl00$ContentPlaceHolder1$hotenvochong"].ToString() != "")
+            try
             {
-                vochong.HoTenVoChong = Page.Request.Form["ctl00$ContentPlaceHolder1$hotenvochong"].ToString();
-                vochong.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhvochong"].ToString());
-                vochong.CongTacTai = Page.Request.Form["ctl00$ContentPlaceHolder1$congtactai"].ToString();
-                GiaDinh.VoChong = vochong;
-            }
+                GiaDinh.TinhTrangHonNhan = Page.Request.Form["ctl00$ContentPlaceHolder1$radHonnhan"].ToString() == "radLapGiaDinh" ? 1 : 2;
+                VoChong vochong = new VoChong();
+                if (Page.Request.Form["ctl00$ContentPlaceHolder1$hotenvochong"].ToString() != "")
+                {
+                    vochong.HoTenVoChong = Page.Request.Form["ctl00$ContentPlaceHolder1$hotenvochong"].ToString();
+                    vochong.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhvochong"].ToString());
+                    vochong.CongTacTai = Page.Request.Form["ctl00$ContentPlaceHolder1$congtactai"].ToString();
+                    GiaDinh.VoChong = vochong;
+                }
 
-            if (hotencon1.Value != "")
-            {
-                Con con = new Con();
-                con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon1"].ToString();
-                con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon1"].ToString());
-                con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong1"].ToString();
-                GiaDinh.lstCon.Add(con);
-            }
-            if (hotencon2.Value != "")
-            {
-                Con con = new Con();
-                con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon2"].ToString();
-                con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon2"].ToString());
-                con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong2"].ToString();
-                GiaDinh.lstCon.Add(con);
-            }
-            if (hotencon3.Value != "")
-            {
-                Con con = new Con();
-                con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon3"].ToString();
-                con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon3"].ToString());
-                con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong3"].ToString();
-                GiaDinh.lstCon.Add(con);
-            }
+                if (hotencon1.Value != "")
+                {
+                    Con con = new Con();
+                    con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon1"].ToString();
+                    con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon1"].ToString());
+                    con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong1"].ToString();
+                    GiaDinh.lstCon.Add(con);
+                }
+                if (hotencon2.Value != "")
+                {
+                    Con con = new Con();
+                    con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon2"].ToString();
+                    con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon2"].ToString());
+                    con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong2"].ToString();
+                    GiaDinh.lstCon.Add(con);
+                }
+                if (hotencon3.Value != "")
+                {
+                    Con con = new Con();
+                    con.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$hotencon3"].ToString();
+                    con.NamSinh = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namsinhcon3"].ToString());
+                    con.HocTaiTruong = Page.Request.Form["ctl00$ContentPlaceHolder1$hoctaitruong3"].ToString();
+                    GiaDinh.lstCon.Add(con);
+                }
 
-            Nguoilienhe nlh = new Nguoilienhe();
-            nlh.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$tennlh"].ToString();
-            nlh.Moiquanhe = Page.Request.Form["ctl00$ContentPlaceHolder1$moiqh"].ToString();
-            nlh.DienThoaiLienLac = Page.Request.Form["ctl00$ContentPlaceHolder1$dtnlh"].ToString();
-            nlh.DiaChiCuNgu = Page.Request.Form["ctl00$ContentPlaceHolder1$diachinlh"].ToString();
-            GiaDinh.Nguoilienhe = nlh;
-            VMungvien.GiaDinh = GiaDinh;
+                Nguoilienhe nlh = new Nguoilienhe();
+                nlh.HoTen = Page.Request.Form["ctl00$ContentPlaceHolder1$tennlh"].ToString();
+                nlh.Moiquanhe = Page.Request.Form["ctl00$ContentPlaceHolder1$moiqh"].ToString();
+                nlh.DienThoaiLienLac = Page.Request.Form["ctl00$ContentPlaceHolder1$dtnlh"].ToString();
+                nlh.DiaChiCuNgu = Page.Request.Form["ctl00$ContentPlaceHolder1$diachinlh"].ToString();
+                GiaDinh.Nguoilienhe = nlh;
+               
+            }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("GiaDinh_" + uv.Id + " " + ex.Message, -1);
+            }
+            finally
+            {
+                VMungvien.GiaDinh = GiaDinh;
+            }
+       
 
             //5. QUÁ TRÌNH ĐÀO TẠO
             Quatrinhdaotao qtdt = new Quatrinhdaotao();
-            qtdt.Vanbang = Page.Request.Form["ctl00$ContentPlaceHolder1$vanbang"].ToString();
-            qtdt.Namtonghiep = Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep"].ToString();
-            qtdt.Nganhhoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc"].ToString();
-            qtdt.Xeploai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai"].ToString();
-            qtdt.Tentruong = Page.Request.Form["ctl00$ContentPlaceHolder1$tentruong"].ToString();
-            NgoaiNgu nn = new NgoaiNgu();
-            if (NgheAnh.Value != "")
+            try
             {
-                nn.TenNgoaiNgu = "Anh";
-                nn.Nghe = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$NgheAnh"].ToString());
-                nn.Noi = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$NoiAnh"].ToString());
-                nn.Doc = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$DocAnh"].ToString());
-                nn.Viet = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$VietAnh"].ToString());
-                nn.GhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$GhiChuAnh"].ToString();
-                qtdt.lstNgoaiNgu.Add(nn);
+                qtdt.Vanbang = Page.Request.Form["ctl00$ContentPlaceHolder1$vanbang"].ToString();
+                qtdt.Namtonghiep = Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep"].ToString();
+                qtdt.Nganhhoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc"].ToString();
+                qtdt.Xeploai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai"].ToString();
+                qtdt.Tentruong = Page.Request.Form["ctl00$ContentPlaceHolder1$tentruong"].ToString();
             }
-            
-            // Vanbangkhac 1
-           
-            if (vpcc1.Value != "")
+            catch(Exception ex)
             {
-                Vanbangkhac Vanbangkhac = new Vanbangkhac();
-                Vanbangkhac.Ten = Page.Request.Form["ctl00$ContentPlaceHolder1$vpcc1"].ToString();
-                Vanbangkhac.NganhHoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc1"].ToString();
-                Vanbangkhac.Thoigiandaotao = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigiandaotao1"].ToString();
-                Vanbangkhac.Namtotnghiep = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep1"].ToString());
-                Vanbangkhac.XepLoai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai1"].ToString();
-                Vanbangkhac.NoiCap = Page.Request.Form["ctl00$ContentPlaceHolder1$noicap1"].ToString();
-                qtdt.lstVanbang.Add(Vanbangkhac);
+                blc_user.InsertLogg("Quatrinhdaotao_" + uv.Id + " " + ex.Message, -1);
             }
            
-            // Vanbangkhac2
-            if (vpcc2.Value != "")
+            try
             {
-                Vanbangkhac Vanbangkhac = new Vanbangkhac();
-                Vanbangkhac.Ten = Page.Request.Form["ctl00$ContentPlaceHolder1$vpcc2"].ToString();
-                Vanbangkhac.NganhHoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc2"].ToString();
-                Vanbangkhac.Thoigiandaotao = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigiandaotao2"].ToString();
-                Vanbangkhac.Namtotnghiep = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep2"].ToString());
-                Vanbangkhac.XepLoai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai2"].ToString();
-                Vanbangkhac.NoiCap = Page.Request.Form["ctl00$ContentPlaceHolder1$noicap2"].ToString();
-                qtdt.lstVanbang.Add(Vanbangkhac);
+               
+                NgoaiNgu nn = new NgoaiNgu();
+                if (NgheAnh.Value != "")
+                {
+                    nn.TenNgoaiNgu = "Anh";
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$NgheAnh"] != null)
+                    {
+                        nn.Nghe = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$NgheAnh"].ToString());
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$NoiAnh"] != null)
+                    {
+                        nn.Noi = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$NoiAnh"].ToString());
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$DocAnh"] != null)
+                    {
+                        nn.Doc = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$DocAnh"].ToString());
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$VietAnh"] != null)
+                    {
+                        nn.Viet = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$VietAnh"].ToString());
+                    }
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$GhiChuAnh"] != null)
+                    {
+                        nn.GhiChu = Page.Request.Form["ctl00$ContentPlaceHolder1$GhiChuAnh"].ToString();
+                    }
+                    qtdt.lstNgoaiNgu.Add(nn);
+                }
             }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("NgoaiNgu_" + uv.Id + " " + ex.Message, -1);
+            }
+            try
+            {
+                // Vanbangkhac 1
+
+                if (vpcc1.Value != "")
+                {
+                    Vanbangkhac Vanbangkhac = new Vanbangkhac();
+                    Vanbangkhac.Ten = Page.Request.Form["ctl00$ContentPlaceHolder1$vpcc1"].ToString();
+                    Vanbangkhac.NganhHoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc1"].ToString();
+                    Vanbangkhac.Thoigiandaotao = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigiandaotao1"].ToString();
+                    Vanbangkhac.Namtotnghiep = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep1"].ToString());
+                    Vanbangkhac.XepLoai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai1"].ToString();
+                    Vanbangkhac.NoiCap = Page.Request.Form["ctl00$ContentPlaceHolder1$noicap1"].ToString();
+                    qtdt.lstVanbang.Add(Vanbangkhac);
+                }
+
+                // Vanbangkhac2
+                if (vpcc2.Value != "")
+                {
+                    Vanbangkhac Vanbangkhac = new Vanbangkhac();
+                    Vanbangkhac.Ten = Page.Request.Form["ctl00$ContentPlaceHolder1$vpcc2"].ToString();
+                    Vanbangkhac.NganhHoc = Page.Request.Form["ctl00$ContentPlaceHolder1$nganhhoc2"].ToString();
+                    Vanbangkhac.Thoigiandaotao = Page.Request.Form["ctl00$ContentPlaceHolder1$thoigiandaotao2"].ToString();
+                    Vanbangkhac.Namtotnghiep = int.Parse(Page.Request.Form["ctl00$ContentPlaceHolder1$namtotnghiep2"].ToString());
+                    Vanbangkhac.XepLoai = Page.Request.Form["ctl00$ContentPlaceHolder1$xeploai2"].ToString();
+                    Vanbangkhac.NoiCap = Page.Request.Form["ctl00$ContentPlaceHolder1$noicap2"].ToString();
+                    qtdt.lstVanbang.Add(Vanbangkhac);
+                }
+            }
+            catch(Exception ex)
+            {
+                blc_user.InsertLogg("Vanbangkhac_" + uv.Id + " " + ex.Message, -1);
+            }
+
             VMungvien.Quatrinhdaotao = qtdt;
+
             //6. QUÁ TRÌNH LÀM VIỆC
-           
+
             if (tencongty1.Value != "")
             {
                 QuaTrinhLamViec qtlv = new QuaTrinhLamViec();
-                qtlv.TenCongTy = Page.Request.Form["ctl00$ContentPlaceHolder1$tencongty1"].ToString();
-                qtlv.DiaChi = Page.Request.Form["ctl00$ContentPlaceHolder1$diachicongty1"].ToString() ;
-                qtlv.NganhNgheHoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$linhvuchd1"].ToString();
-                qtlv.Fromdate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtytu1"].ToString();
-                qtlv.Todate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtyden1"].ToString();
-                qtlv.Chucvumoivao = Page.Request.Form["ctl00$ContentPlaceHolder1$chuvumoivao1"].ToString();
-                qtlv.Chucvusaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvusaucung1"].ToString();
-                qtlv.Trachnhiem = Page.Request.Form["ctl00$ContentPlaceHolder1$nvchinh1"].ToString();
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem1"]))
-                    qtlv.Luongkhoidiem = Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem1"].ToString();
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung1"]))
-                    qtlv.Luongsaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung1"].ToString();
-                qtlv.HotenNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlhoten1"].ToString();
-                qtlv.ChucvuNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlchucvu1"].ToString();
-                qtlv.DienthoaiNQl = Page.Request.Form["ctl00$ContentPlaceHolder1$nqldienthoai"].ToString();
-                qtlv.LyDoNghiViec = Page.Request.Form["ctl00$ContentPlaceHolder1$lydonghiviec1"].ToString();
-                VMungvien.lstQuaTrinhLamViec.Add(qtlv);
+                try
+                {
+                    qtlv.TenCongTy = Page.Request.Form["ctl00$ContentPlaceHolder1$tencongty1"].ToString();
+                    qtlv.DiaChi = Page.Request.Form["ctl00$ContentPlaceHolder1$diachicongty1"].ToString();
+                    qtlv.NganhNgheHoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$linhvuchd1"].ToString();
+                    qtlv.Fromdate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtytu1"].ToString();
+                    qtlv.Todate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtyden1"].ToString();
+                    qtlv.Chucvumoivao = Page.Request.Form["ctl00$ContentPlaceHolder1$chuvumoivao1"].ToString();
+                    qtlv.Chucvusaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvusaucung1"].ToString();
+                    qtlv.Trachnhiem = Page.Request.Form["ctl00$ContentPlaceHolder1$nvchinh1"].ToString();
+                    if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem1"]))
+                        qtlv.Luongkhoidiem = Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem1"].ToString();
+                    if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung1"]))
+                        qtlv.Luongsaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung1"].ToString();
+                    qtlv.HotenNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlhoten1"].ToString();
+                    qtlv.ChucvuNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlchucvu1"].ToString();
+                    qtlv.DienthoaiNQl = Page.Request.Form["ctl00$ContentPlaceHolder1$nqldienthoai"].ToString();
+                    qtlv.LyDoNghiViec = Page.Request.Form["ctl00$ContentPlaceHolder1$lydonghiviec1"].ToString();
+                }
+                catch(Exception ex)
+                {
+                    blc_user.InsertLogg("QuaTrinhLamViec1_" + uv.Id + " " + ex.Message, -1);
+                }
+                finally
+                {
+                    VMungvien.lstQuaTrinhLamViec.Add(qtlv);
+                } 
             }
             if (tencongty2.Value != "")
             {
                 QuaTrinhLamViec qtlv = new QuaTrinhLamViec();
-                qtlv.TenCongTy = Page.Request.Form["ctl00$ContentPlaceHolder1$tencongty2"].ToString();
-                qtlv.DiaChi = Page.Request.Form["ctl00$ContentPlaceHolder1$diachicongty21"].ToString();
-                qtlv.NganhNgheHoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$linhvuchoatdong2"].ToString();
-                qtlv.Fromdate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtytu2"].ToString();
-                qtlv.Todate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtyden2"].ToString();
-                qtlv.Chucvumoivao = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvumoivao2"].ToString();
-                qtlv.Chucvusaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvusaucung2"].ToString();
-                qtlv.Trachnhiem = Page.Request.Form["ctl00$ContentPlaceHolder1$nvchinh2"].ToString();
-                if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem2"]))
-                    qtlv.Luongkhoidiem = Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem2"].ToString();
-                if ( !string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung2"]))
-                    qtlv.Luongsaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung2"].ToString();
-                qtlv.HotenNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlhoten2"].ToString();
-                qtlv.ChucvuNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlchucvu2"].ToString();
-                qtlv.DienthoaiNQl = Page.Request.Form["ctl00$ContentPlaceHolder1$nqldienthoai2"].ToString();
-                qtlv.LyDoNghiViec = Page.Request.Form["ctl00$ContentPlaceHolder1$lydonghiviec2"].ToString();
-                VMungvien.lstQuaTrinhLamViec.Add(qtlv);
+                try
+                {
+                    qtlv.TenCongTy = Page.Request.Form["ctl00$ContentPlaceHolder1$tencongty2"].ToString();
+                    qtlv.DiaChi = Page.Request.Form["ctl00$ContentPlaceHolder1$diachicongty21"].ToString();
+                    qtlv.NganhNgheHoatDong = Page.Request.Form["ctl00$ContentPlaceHolder1$linhvuchoatdong2"].ToString();
+                    qtlv.Fromdate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtytu2"].ToString();
+                    qtlv.Todate = Page.Request.Form["ctl00$ContentPlaceHolder1$congtyden2"].ToString();
+                    qtlv.Chucvumoivao = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvumoivao2"].ToString();
+                    qtlv.Chucvusaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$chucvusaucung2"].ToString();
+                    qtlv.Trachnhiem = Page.Request.Form["ctl00$ContentPlaceHolder1$nvchinh2"].ToString();
+                    if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem2"]))
+                        qtlv.Luongkhoidiem = Page.Request.Form["ctl00$ContentPlaceHolder1$luongkhoidiem2"].ToString();
+                    if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung2"]))
+                        qtlv.Luongsaucung = Page.Request.Form["ctl00$ContentPlaceHolder1$luongsaucung2"].ToString();
+                    qtlv.HotenNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlhoten2"].ToString();
+                    qtlv.ChucvuNQL = Page.Request.Form["ctl00$ContentPlaceHolder1$nqlchucvu2"].ToString();
+                    qtlv.DienthoaiNQl = Page.Request.Form["ctl00$ContentPlaceHolder1$nqldienthoai2"].ToString();
+                    qtlv.LyDoNghiViec = Page.Request.Form["ctl00$ContentPlaceHolder1$lydonghiviec2"].ToString();
+                }
+                catch(Exception ex)
+                {
+                    blc_user.InsertLogg("QuaTrinhLamViec2_" + uv.Id + " " + ex.Message, -1);
+                }
+                finally
+                {
+                    VMungvien.lstQuaTrinhLamViec.Add(qtlv);
+                }
+                
+               
             }
             if (!string.IsNullOrEmpty(Page.Request.Form["ctl00$ContentPlaceHolder1$ksDinhhuongcongviec"].ToString()))
             {
                 BanKSPhongVan BanKSPhongVan = new BanKSPhongVan();
-                BanKSPhongVan.Dinhhuongcongviec = Page.Request.Form["ctl00$ContentPlaceHolder1$ksDinhhuongcongviec"].ToString();
-                BanKSPhongVan.Dinhhuongkhac = Page.Request.Form["ctl00$ContentPlaceHolder1$ksDinhhuongkhac"].ToString();
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSLuongcung"].ToString() == "radCSLuongcung1")
-                    BanKSPhongVan.CSLuongcung = "1";
-                else
-                    BanKSPhongVan.CSLuongcung = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSThuong"].ToString() == "radCSThuong1")
-                    BanKSPhongVan.CSThuong = "1";
-                else
-                    BanKSPhongVan.CSThuong = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSLuubanggoc"].ToString() == "radCSLuubanggoc1")
-                    BanKSPhongVan.Luubanggoc = "1";
-                else
-                    BanKSPhongVan.Luubanggoc = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongthamnien"].ToString() == "radThuongthamnien1")
-                    BanKSPhongVan.Thuongthamnien = "1";
-                else
-                    BanKSPhongVan.Thuongthamnien = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongXSCV"].ToString() == "radThuongXSCV1")
-                    BanKSPhongVan.ThuongXSCV = "1";
-                else
-                    BanKSPhongVan.ThuongXSCV = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongluong13"].ToString() == "radThuongluong131")
-                    BanKSPhongVan.Thuongluong13 = "1";
-                else
-                    BanKSPhongVan.Thuongluong13 = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSphucloihoicuoi"].ToString() == "radCSphucloihoicuoi1")
-                    BanKSPhongVan.CSphucloicuoihoi = "1";
-                else
-                    BanKSPhongVan.CSphucloicuoihoi = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSPhucloiquatet"].ToString() == "radCSPhucloiquatet1")
-                    BanKSPhongVan.CSphucloiquatet = "1";
-                else
-                    BanKSPhongVan.CSphucloiquatet = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSMungsinhnhat"].ToString() == "radCSMungsinhnhat1")
-                    BanKSPhongVan.Chucmungsinhnhat = "1";
-                else
-                    BanKSPhongVan.Chucmungsinhnhat = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSMuabaohiem"].ToString() == "radCSMuabaohiem1")
-                    BanKSPhongVan.CSmuabaohiem = "1";
-                else
-                    BanKSPhongVan.CSmuabaohiem = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSdaotaotaitro"].ToString() == "radCSdaotaotaitro1")
-                    BanKSPhongVan.CSDaotao = "1";
-                else
-                    BanKSPhongVan.CSDaotao = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSKhamsuckhoedinhky"].ToString() == "radCSKhamsuckhoedinhky1")
-                    BanKSPhongVan.CSKhamsuckhoe = "1";
-                else
-                    BanKSPhongVan.CSKhamsuckhoe = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSmuahangtragop"].ToString() == "radCSmuahangtragop1")
-                    BanKSPhongVan.CSMuahangtragop = "1";
-                else
-                    BanKSPhongVan.CSMuahangtragop = "2";
-                //
-                if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSdulichhangnam"].ToString() == "radCSdulichhangnam1")
-                    BanKSPhongVan.CSDulichhangnam = "1";
-                else
-                    BanKSPhongVan.CSDulichhangnam = "2";
-                BanKSPhongVan.CSKhach = Page.Request.Form["ctl00$ContentPlaceHolder1$chinhsachkhac"].ToString();
-                BanKSPhongVan.TCCongviec = Page.Request.Form["ctl00$ContentPlaceHolder1$tcCongviec"].ToString();
-                BanKSPhongVan.TCMoitruong = Page.Request.Form["ctl00$ContentPlaceHolder1$tcMoitruong"].ToString();
-                BanKSPhongVan.TCNoilamviec = Page.Request.Form["ctl00$ContentPlaceHolder1$tcNoilamviec"].ToString();
-                BanKSPhongVan.TCThunhap = Page.Request.Form["ctl00$ContentPlaceHolder1$tcThunhap"].ToString();
-                BanKSPhongVan.TCChinhsach = Page.Request.Form["ctl00$ContentPlaceHolder1$tcChinhsach"].ToString();
-                BanKSPhongVan.TCKhac = Page.Request.Form["ctl00$ContentPlaceHolder1$tcCanhankhac"].ToString();
-                BanKSPhongVan.Nguyenvongcanhan = Page.Request.Form["ctl00$ContentPlaceHolder1$nvcn"].ToString();
-                VMungvien.BanKSPhongVan = BanKSPhongVan;
+                try
+                {
+                    BanKSPhongVan.Dinhhuongcongviec = Page.Request.Form["ctl00$ContentPlaceHolder1$ksDinhhuongcongviec"].ToString();
+                    BanKSPhongVan.Dinhhuongkhac = Page.Request.Form["ctl00$ContentPlaceHolder1$ksDinhhuongkhac"].ToString();
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSLuongcung"].ToString() == "radCSLuongcung1")
+                        BanKSPhongVan.CSLuongcung = "1";
+                    else
+                        BanKSPhongVan.CSLuongcung = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSThuong"].ToString() == "radCSThuong1")
+                        BanKSPhongVan.CSThuong = "1";
+                    else
+                        BanKSPhongVan.CSThuong = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSLuubanggoc"].ToString() == "radCSLuubanggoc1")
+                        BanKSPhongVan.Luubanggoc = "1";
+                    else
+                        BanKSPhongVan.Luubanggoc = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongthamnien"].ToString() == "radThuongthamnien1")
+                        BanKSPhongVan.Thuongthamnien = "1";
+                    else
+                        BanKSPhongVan.Thuongthamnien = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongXSCV"].ToString() == "radThuongXSCV1")
+                        BanKSPhongVan.ThuongXSCV = "1";
+                    else
+                        BanKSPhongVan.ThuongXSCV = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radThuongluong13"].ToString() == "radThuongluong131")
+                        BanKSPhongVan.Thuongluong13 = "1";
+                    else
+                        BanKSPhongVan.Thuongluong13 = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSphucloihoicuoi"].ToString() == "radCSphucloihoicuoi1")
+                        BanKSPhongVan.CSphucloicuoihoi = "1";
+                    else
+                        BanKSPhongVan.CSphucloicuoihoi = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSPhucloiquatet"].ToString() == "radCSPhucloiquatet1")
+                        BanKSPhongVan.CSphucloiquatet = "1";
+                    else
+                        BanKSPhongVan.CSphucloiquatet = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSMungsinhnhat"].ToString() == "radCSMungsinhnhat1")
+                        BanKSPhongVan.Chucmungsinhnhat = "1";
+                    else
+                        BanKSPhongVan.Chucmungsinhnhat = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSMuabaohiem"].ToString() == "radCSMuabaohiem1")
+                        BanKSPhongVan.CSmuabaohiem = "1";
+                    else
+                        BanKSPhongVan.CSmuabaohiem = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSdaotaotaitro"].ToString() == "radCSdaotaotaitro1")
+                        BanKSPhongVan.CSDaotao = "1";
+                    else
+                        BanKSPhongVan.CSDaotao = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSKhamsuckhoedinhky"].ToString() == "radCSKhamsuckhoedinhky1")
+                        BanKSPhongVan.CSKhamsuckhoe = "1";
+                    else
+                        BanKSPhongVan.CSKhamsuckhoe = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSmuahangtragop"].ToString() == "radCSmuahangtragop1")
+                        BanKSPhongVan.CSMuahangtragop = "1";
+                    else
+                        BanKSPhongVan.CSMuahangtragop = "2";
+                    //
+                    if (Page.Request.Form["ctl00$ContentPlaceHolder1$radCSdulichhangnam"].ToString() == "radCSdulichhangnam1")
+                        BanKSPhongVan.CSDulichhangnam = "1";
+                    else
+                        BanKSPhongVan.CSDulichhangnam = "2";
+                    BanKSPhongVan.CSKhach = Page.Request.Form["ctl00$ContentPlaceHolder1$chinhsachkhac"].ToString();
+                    BanKSPhongVan.TCCongviec = Page.Request.Form["ctl00$ContentPlaceHolder1$tcCongviec"].ToString();
+                    BanKSPhongVan.TCMoitruong = Page.Request.Form["ctl00$ContentPlaceHolder1$tcMoitruong"].ToString();
+                    BanKSPhongVan.TCNoilamviec = Page.Request.Form["ctl00$ContentPlaceHolder1$tcNoilamviec"].ToString();
+                    BanKSPhongVan.TCThunhap = Page.Request.Form["ctl00$ContentPlaceHolder1$tcThunhap"].ToString();
+                    BanKSPhongVan.TCChinhsach = Page.Request.Form["ctl00$ContentPlaceHolder1$tcChinhsach"].ToString();
+                    BanKSPhongVan.TCKhac = Page.Request.Form["ctl00$ContentPlaceHolder1$tcCanhankhac"].ToString();
+                    BanKSPhongVan.Nguyenvongcanhan = Page.Request.Form["ctl00$ContentPlaceHolder1$nvcn"].ToString();
+                }
+                catch(Exception ex)
+                {
+                    blc_user.InsertLogg("BanKSPhongVan_" + uv.Id + " " + ex.Message, -1);
+                }
+                finally
+                {
+                    VMungvien.BanKSPhongVan = BanKSPhongVan;
+                }
+               
             }
             var result = blc_user.InsertUngVien(VMungvien);
             Alert.Show("Cập nhật thành công!");

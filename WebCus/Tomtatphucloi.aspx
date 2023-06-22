@@ -4,7 +4,7 @@
 
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
-   
+    <input id="userid" runat="server" style="display:none;"  />
     <div class="mydivtable">
          <div class="text-center">
              <h1>TÓM TẮT MỘT SỐ CHẾ ĐỘ PHÚC LỢI THÔNG TIN NHÂN VIÊN</h1>
@@ -70,10 +70,11 @@
   <script>
       function ipchedobaohiem(dis,status) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatphucloi.aspx/UDChedobaohiem",
-              data: "{name:'" + name + "',status:'" + status + "'}",
+              data: "{name:'" + name + "',status:'" + status + "',userid:'"+userid+"'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {

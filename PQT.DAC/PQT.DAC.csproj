@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nghieplt\Desktop\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PQT.API">
       <HintPath>..\API\PQT.API.dll</HintPath>
     </Reference>
@@ -119,6 +123,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\VM_DanhGiaThuViec.cs" />
     <Compile Include="ViewModel\VM_KhaoSat.cs" />
+    <Compile Include="ViewModel\VM_ThongKeKhaoSat.cs" />
     <Compile Include="ViewModel\VM_Thongketuyendung.cs" />
     <Compile Include="ViewModel\VM_UngVien.cs" />
     <Compile Include="ViewModel\VM_UngvienStatus.cs" />

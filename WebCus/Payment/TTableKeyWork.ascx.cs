@@ -135,10 +135,15 @@ namespace WebCus
 
                         //TUser tuser = blc_user.
                         TUser tuser = blc_user.GetUserByNhanvienId(item.IdNhanVien.Value);
+                        UngVien uv = blc_user.GetUngVienByIDNV(tuser.IdNhansu.Value);
+                        if (uv.TrangThaiPhongVan != 1 || uv.TrangThaiNhanViec != 5)
+                            break;
                         blc_user.Phanquyendanhgia(tuser);
                         string contentHtml = "";
+
                         contentHtml += "<div>";
                         contentHtml += "<table>";
+
                         contentHtml += "<tr style='padding:5px 0px;'>";
                         contentHtml += "<td>";
                         contentHtml += "<div>Chào bạn " + "<span style='color:blue'>" + item.NhanVien.HoTen.ToUpper() + "</span>,</div>";
@@ -146,23 +151,131 @@ namespace WebCus
                         contentHtml += "</tr>";
 
                         contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>Sau 7 ngày làm việc, bạn vui lòng đăng nhập vào hệ thống để đánh giá.</td>";
+                        contentHtml += "<td>Hôm nay đã đến thời hạn làm phiếu Khảo sát đánh giá sau 7 ngày hợp tác với Công ty.</td>";
                         contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Bạn vui lòng đăng nhập vào hệ thống (link: http://nhansu.nguyenkimvn.com.vn/) để đánh giá.</td>";
+                        contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Mọi thắc mắc vui lòng liên hệ Ms. Phương/ Ms. Nga P.HCNS)</td>";
+                        contentHtml += "</tr>";
+
                         contentHtml += "</table>";
                         contentHtml += "</div>";
+
                         //sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 07 ngày làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+
+                        //Insert Message
+                        blc_user.InsertMessage("Khảo sát đánh giá sau 07 ngày làm việc - " + item.NhanVien.HoTen.ToUpper());
+                        //Gửi thông tin portal
+                        contentHtml = "";
+                        contentHtml += "<div>";
+                        contentHtml += "<table>";
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Chào bạn " + "<span style='color:blue'>" + item.NhanVien.HoTen.ToUpper() + "</span>,</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Kỹ thuật đã tạo mã portal, tài khoản đào tạo. lấy dấu vân tay cho bạn. Hàng ngày, bạn cần scan vân tay trên cả 2 máy (máy cũ + máy mới) để chấm công nhé.</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Nếu gặp khó khăn trong quá trình đăng nhập, bạn có thể liên hệ trực tiếp:</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>1-Web portal: Luân  (0845.454.538) hoặc Chánh (0762.461.317).</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>2- Phần mềm Nhân sự, đào tạo: Nhân (0334.435.608).</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Có thắc mắc về các cách sử dụng, bạn có thể liên hệ trực tiếp Phòng Nhân sự để được hỗ trợ kịp thời nhé!</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;margin-top:30px'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>I/ HƯỚNG DẪN TẠO PHÉP ONLINE:!</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                     
+                        contentHtml += "<div>Bạn truy cập vào Phần mềm Nhân sự: http://nhansu.nguyenkimvn.com.vn/ hoặc đường link: http://192.168.117.250:800/login </div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Tên đăng nhập:"+ tuser.LoginID+"</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Pass: 1 (pass này mặc định giống nhau, bạn có thể thay đổi pass theo nhu cầu)</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //II/ TÀI KHOẢN ĐÀO TẠO QUI TRÌNH, QUI ĐỊNH CỦA CÔNG TY:
+                        contentHtml += "<tr style='padding:5px 0px;margin-top:30px'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>II/ TÀI KHOẢN ĐÀO TẠO QUI TRÌNH, QUI ĐỊNH CỦA CÔNG TY:</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Đăng nhập tài khoản đào tạo qui trình, qui định của công ty, đường link: daotao.nguyenkimvn.com.vn hoặc đường link: http://192.168.117.250:801</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Tên đăng nhập:" + tuser.LoginID + "</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>";
+                        contentHtml += "<div>Pass: 123456 (pass này mặc định giống nhau, bạn có thể thay đổi pass theo nhu cầu)</div>";
+                        contentHtml += "</td>";
+                        contentHtml += "</tr>";
+                        //
+                        contentHtml += "</table>";
+                        contentHtml += "</div>";
+                       // sendEmail7ngay(item.NhanVien.Email, "Hướng dẫn nhân viên sau 7 ngày - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                        blc_user.InsertMessage("Thông tin Portal - " + item.NhanVien.HoTen.ToUpper());
                     }
-                    if (thoigiansd.Days == 14)
+                    if (thoigiansd.Days == 13)
                     {
                         i = i + 1;
                         // uvdata += i + "/ " + item.NhanVien.HoTen + "-" + string.Format("{0:dd/MM/yyyy}", item.NgayVaoLam) + "<br/>";
 
                         //TUser tuser = blc_user.
                         TUser tuser = blc_user.GetUserByNhanvienId(item.IdNhanVien.Value);
+                        UngVien uv = blc_user.GetUngVienByIDNV(tuser.IdNhansu.Value);
+                        if (uv.TrangThaiPhongVan != 1 || uv.TrangThaiNhanViec != 5)
+                            break;
                         blc_user.Capnhatkhaosat14(tuser.IdNhansu.Value);
                         string contentHtml = "";
                         contentHtml += "<div>";
                         contentHtml += "<table>";
+
                         contentHtml += "<tr style='padding:5px 0px;'>";
                         contentHtml += "<td>";
                         contentHtml += "<div>Chào bạn " + "<span style='color:blue'>" + item.NhanVien.HoTen.ToUpper() + "</span>,</div>";
@@ -170,13 +283,24 @@ namespace WebCus
                         contentHtml += "</tr>";
 
                         contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>Sau 14 ngày làm việc, bạn vui lòng đăng nhập vào hệ thống để đánh giá.</td>";
+                        contentHtml += "<td>Hôm nay đã đến thời hạn làm phiếu Khảo sát đánh giá sau 14 ngày hợp tác với Công ty.</td>";
                         contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Bạn vui lòng đăng nhập vào hệ thống (link: http://nhansu.nguyenkimvn.com.vn/) để đánh giá.</td>";
+                        contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Mọi thắc mắc vui lòng liên hệ Ms. Phương/ Ms. Nga P.HCNS)</td>";
+                        contentHtml += "</tr>";
+
                         contentHtml += "</table>";
                         contentHtml += "</div>";
-                        sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 14 ngày làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                       // sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 14 ngày làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                        //Insert Message
+                        blc_user.InsertMessage("Khảo sát đánh giá sau 14 ngày làm việc - " + item.NhanVien.HoTen.ToUpper());
                     }
-                    if (thoigiansd.Days == 60)
+                    if (thoigiansd.Days == 59)
                     {
                         i = i + 1;
                         // uvdata += i + "/ " + item.NhanVien.HoTen + "-" + string.Format("{0:dd/MM/yyyy}", item.NgayVaoLam) + "<br/>";
@@ -184,9 +308,13 @@ namespace WebCus
                         //TUser tuser = blc_user.
                         TUser tuser = blc_user.GetUserByNhanvienId(item.IdNhanVien.Value);
                         blc_user.Capnhatkhaosat2thang(tuser.IdNhansu.Value);
+                        UngVien uv = blc_user.GetUngVienByIDNV(tuser.IdNhansu.Value);
+                        if (uv.TrangThaiPhongVan != 1 || uv.TrangThaiNhanViec != 5)
+                            break;
                         string contentHtml = "";
                         contentHtml += "<div>";
                         contentHtml += "<table>";
+
                         contentHtml += "<tr style='padding:5px 0px;'>";
                         contentHtml += "<td>";
                         contentHtml += "<div>Chào bạn " + "<span style='color:blue'>" + item.NhanVien.HoTen.ToUpper() + "</span>,</div>";
@@ -194,11 +322,22 @@ namespace WebCus
                         contentHtml += "</tr>";
 
                         contentHtml += "<tr style='padding:5px 0px;'>";
-                        contentHtml += "<td>Sau 2 tháng làm việc, bạn vui lòng đăng nhập vào hệ thống để đánh giá.</td>";
+                        contentHtml += "<td>Hôm nay đã đến thời hạn làm phiếu Khảo sát đánh giá sau 2 tháng hợp tác với Công ty.</td>";
                         contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Bạn vui lòng đăng nhập vào hệ thống (link: http://nhansu.nguyenkimvn.com.vn/) để đánh giá.</td>";
+                        contentHtml += "</tr>";
+
+                        contentHtml += "<tr style='padding:5px 0px;'>";
+                        contentHtml += "<td>Mọi thắc mắc vui lòng liên hệ Ms. Phương/ Ms. Nga P.HCNS)</td>";
+                        contentHtml += "</tr>";
+
                         contentHtml += "</table>";
                         contentHtml += "</div>";
-                        sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 2 tháng làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                     //  sendEmail7ngay(item.NhanVien.Email, "Khảo sát đánh giá sau 2 tháng làm việc - " + item.NhanVien.HoTen.ToUpper(), contentHtml);
+                        //Insert Message
+                        blc_user.InsertMessage("Khảo sát đánh giá sau 2 tháng  làm việc - " + item.NhanVien.HoTen.ToUpper());
                     }
                 }
                 
@@ -229,6 +368,8 @@ namespace WebCus
                 System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
                 mail.From = new MailAddress(AdminEmail, Request.Url.Host.ToString(), System.Text.Encoding.UTF8);
                 mail.To.Add(to);
+                //mail.CC.Add("phuonglt@nguyenkimvn.vn");
+                //mail.CC.Add("ngat@nguyenkimvn.vn");
                 mail.Subject = title;
                 mail.Body = sContent;
                 mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;

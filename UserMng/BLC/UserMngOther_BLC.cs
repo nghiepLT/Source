@@ -3951,6 +3951,33 @@ namespace UserMng.BLC
         {
             return da.UngViens.OrderBy(m => m.CreatedDate).ToList();
         }
+        public static string RemoveUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
+    "đ",
+    "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",
+    "í","ì","ỉ","ĩ","ị",
+    "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",
+    "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",
+    "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+    "d",
+    "e","e","e","e","e","e","e","e","e","e","e",
+    "i","i","i","i","i",
+    "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",
+    "u","u","u","u","u","u","u","u","u","u","u",
+    "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
+        }
+        public IList<UngVien> GetListUngVienByKeySearch(string Name)
+        {
+            return da.UngViens.ToList().OrderBy(m => m.CreatedDate).Where(m=>RemoveUnicode(m.HoTen.ToLower()).Contains(RemoveUnicode(Name.ToLower()))).ToList();
+        }
         public List<VM_UngvienStatus> Laydanhsachungvien(int idyeucautuyendung)
         {
             var model = (from uv in da.UngViens.ToList()
@@ -3993,7 +4020,8 @@ namespace UserMng.BLC
                              TMNVPath= ipss!=null? ipss.ImportFilePath:"",
                              TrangThaiUngVien=uv.TrangThaiUngVien.Value,
                              TrangThaiNhanViec= uv.TrangThaiNhanViec.HasValue?uv.TrangThaiNhanViec.Value:0,
-                             TrangThaiPhongVan= uv.TrangThaiPhongVan.HasValue?uv.TrangThaiPhongVan.Value:0
+                             TrangThaiPhongVan= uv.TrangThaiPhongVan.HasValue?uv.TrangThaiPhongVan.Value:0,
+                             IDPhongBan=pb.IDPhong
                          }
                        );
             return model.ToList();
@@ -4127,7 +4155,7 @@ namespace UserMng.BLC
             objEnt.Status = 0;
             objEnt.IdYeuCau = IdYeuCau;
             objEnt.TrangThaiUngVien = 1;
-            objEnt.TrangThaiPhongVan = 1;
+            objEnt.TrangThaiPhongVan =0;
             objEnt.TrangThaiNhanViec = 0;
             objEnt.CreatedDate = DateTime.Now;
             da.UngViens.InsertOnSubmit(objEnt);
@@ -4150,7 +4178,13 @@ namespace UserMng.BLC
 
         public bool CheckExistUngVien(string hoten)
         {
-            return da.UngViens.Any(m => m.HoTen.ToLower() == hoten.ToLower());
+            //Kiểm tra trong danh sách ứng viên trước
+            var checkUngVien= da.UngViens.Any(m => m.HoTen.ToLower() == hoten.ToLower());
+            if (checkUngVien)
+                return true;
+            //Kiểm tra trong danh sách nhân viên
+            var checkNhanVien = da.NhanViens.Any(m => m.HoTen.ToLower() == hoten.ToLower());
+            return checkNhanVien;
         }
         public bool UpdateIdNhanVienUngVien(UngVien uv, int IdNhanVien)
         {
@@ -4406,6 +4440,12 @@ namespace UserMng.BLC
 
             return true;
         }
+        public bool CheckPhanquyendanhgia(TUser tuser)
+        {
+            TMenuAdmin tmnad = da.TMenuAdmins.Where(m => m.MenuName == "Khảo sát hội nhập").FirstOrDefault();
+            TUserMapLink tusm = da.TUserMapLinks.Where(m => m.UserID == tuser.UserID && m.MenuID == tmnad.MenuID).FirstOrDefault();
+            return tusm != null ? true : false;
+        }
         public bool Capnhatkhaosat14(int IdNhanSu)
         {
             Ungvienkhaosat uvks = da.Ungvienkhaosats.Where(m => m.IdNhanSu == IdNhanSu).FirstOrDefault();
@@ -4645,6 +4685,8 @@ namespace UserMng.BLC
                 Danhgiathuviec danhgia = new Danhgiathuviec();
                 danhgia.IdNhanVien = dgtv.IdNhanVien;
                 danhgia.DanhGia = dgtv.DanhGia;
+                danhgia.NguoiDanhGia = dgtv.NguoiDanhGia;
+                danhgia.ChucVuDanhGia = dgtv.ChucVuDanhGia;
                 da.Danhgiathuviecs.InsertOnSubmit(danhgia);
                 //Cap nhat status
                 UngVien uv = da.UngViens.Where(m => m.Id == danhgia.IdNhanVien.Value).FirstOrDefault();
@@ -4765,10 +4807,17 @@ namespace UserMng.BLC
             }
             if (type == 3)
             {
+                dgtv.IdNguoiDanhGia = iduser;
+                dgtv.NgayNguoiDanhGia = DateTime.Now;
+                dgtv.IdTruongPhong = iduser;
+                dgtv.NgayTruongPhong = DateTime.Now;
+            }
+            if (type == 4)
+            {
                 dgtv.IdHCNS = iduser;
                 dgtv.NgayHCNS = DateTime.Now;
             }
-            if (type == 4)
+            if (type == 5)
             {
                 dgtv.IdBanGiamDoc = iduser;
                 dgtv.NgayBanGiamDoc = DateTime.Now;
@@ -4996,6 +5045,109 @@ namespace UserMng.BLC
         public ImportFile GetImportFile(Guid id)
         {
             return da.ImportFiles.Where(m => m.IdUV == id).FirstOrDefault();
+        }
+
+
+        public void InsertMessage(string MessageContents)
+        {
+            tbMessage tbMessage = new tbMessage();
+            tbMessage.DateCreate = DateTime.Now;
+            tbMessage.IsRead = 0;
+            tbMessage.MessageContents = MessageContents;
+            da.tbMessages.InsertOnSubmit(tbMessage);
+            da.SubmitChanges();
+        }
+
+        public int GetMessageCount()
+        {
+            return da.tbMessages.Where(m => m.IsRead == 0).Count();
+        }
+
+        public string GetMessageContent()
+        {
+            string result = "";
+            var model = da.tbMessages.Where(m=>m.IsRead==0).OrderByDescending(m=>m.tbMessageId).ToList();
+            foreach(var item in model)
+            {
+                result += "["+item.DateCreate.Value+"]"+" | "+ item.MessageContents +'_'+item.tbMessageId+ ",";
+            }
+            return result;
+        }
+        public bool HideMessage(int tbMessageId)
+        {
+            tbMessage _tbMessages = da.tbMessages.Where(m => m.tbMessageId == tbMessageId).FirstOrDefault();
+            if (_tbMessages != null)
+            {
+                _tbMessages.IsRead = 1;
+                da.SubmitChanges();
+            }
+            return true;
+        }
+
+        public void capnhat_uvyctd(Guid id, int IdYeuCau)
+        {
+            UngVien uv = da.UngViens.Where(m => m.Id == id).FirstOrDefault();
+            if (uv != null)
+            {
+                uv.IdYeuCau = IdYeuCau;
+                da.SubmitChanges();
+            }
+        }
+
+        public double GetSoNgayLam(double IdNhanvien)
+        {
+            double songaylam = 0;
+            ThongTinNhanSu ttns = da.ThongTinNhanSus.Where(m => m.IdNhanVien == IdNhanvien).FirstOrDefault();
+            if (ttns != null)
+            {
+                songaylam = double.Parse((DateTime.Now - ttns.NgayVaoLam.Value).Days.ToString()) +1;
+            }
+            return songaylam;
+        }
+        public IEnumerable<VM_ThongKeKhaoSat> GetTKKhaoSat()
+        {
+            var model = (from uv in da.UngViens.ToList()
+                         join uvks in da.Ungvienkhaosats.ToList()
+                         on uv.IdNhanVien equals uvks.IdNhanSu into uvs
+                         from uvs2 in uvs.DefaultIfEmpty()
+                         where uv.IdNhanVien!=null
+                         select new VM_ThongKeKhaoSat()
+                         {
+                             HoTenUngVien=uv.HoTen,
+                             Ks7Ngay=(uvs2 != null && uvs2.Ks7NgayDate!=null) ?uvs2.Ks7NgayDate.Value:DateTime.MinValue,
+                             Ks14Ngay=(uvs2 != null && uvs2.Ks14NgayDate!=null) ?uvs2.Ks14NgayDate.Value:DateTime.MinValue,
+                             Ks2Thang= (uvs2 != null && uvs2.KS2ThangDate!=null) ?uvs2.KS2ThangDate.Value:DateTime.MinValue,
+                             Step=uvs2!=null?uvs2.Step.Value:0,
+                             CreateDate=uv.CreatedDate.Value,
+                             SoNgayLam=GetSoNgayLam(uv.IdNhanVien.Value)
+                         }).OrderByDescending(m=>m.CreateDate).ToList();
+            return model;
+        }
+        public TUser CheckDangNhap(string username,string password)
+        {
+            var check = da.TUsers.ToList().Where(m => m.LoginID.ToLower() == username.ToLower() && m.Password == Utility.Encrypt(password)).FirstOrDefault();
+            if (check != null)
+                return check;
+            return check;
+        }
+        public int Getchucvu(int iduser)
+        {
+            int chucvu = 0;
+            TUser tuser = da.TUsers.Where(m => m.UserID == iduser).FirstOrDefault();
+            if (tuser != null)
+            {
+                ThongTinNhanSu ttns = da.ThongTinNhanSus.Where(m => m.IdNhanVien == tuser.IdNhansu).FirstOrDefault();
+                if (ttns != null)
+                {
+                    chucvu = ttns.ViTri.Value;
+                }
+            }
+            return chucvu;
+        }
+        public bool CheckExistDanhgiathuviec(Guid IdNhanVien)
+        {
+            var check = da.Danhgiathuviecs.Any(m => m.IdNhanVien == IdNhanVien);
+            return check;
         }
         #endregion
         #endregion

@@ -31,31 +31,22 @@ namespace WebCus {
         protected global::System.Web.UI.HtmlControls.HtmlInputText ipungvien;
         
         /// <summary>
-        /// tb_button control.
+        /// typePhanquyen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tb_button;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText typePhanquyen;
         
         /// <summary>
-        /// btnInsertBanner control.
+        /// hotenquery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsertBanner;
-        
-        /// <summary>
-        /// btnSaveBanner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveBanner;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText hotenquery;
         
         /// <summary>
         /// tb_input control.
@@ -103,13 +94,31 @@ namespace WebCus {
         protected global::System.Web.UI.WebControls.TextBox txthoTen;
         
         /// <summary>
-        /// txtTenUngVien control.
+        /// tb_button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTenUngVien;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tb_button;
+        
+        /// <summary>
+        /// btnInsertBanner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInsertBanner;
+        
+        /// <summary>
+        /// btnSaveBanner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveBanner;
         
         /// <summary>
         /// drop_tructhuoc control.
@@ -164,6 +173,24 @@ namespace WebCus {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
+        /// a0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor a0;
+        
+        /// <summary>
+        /// rs0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rs0;
         
         /// <summary>
         /// a1 control.
@@ -344,6 +371,15 @@ namespace WebCus {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvBanner2;
+        
+        /// <summary>
+        /// ip00 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ip00;
         
         /// <summary>
         /// ip1 control.

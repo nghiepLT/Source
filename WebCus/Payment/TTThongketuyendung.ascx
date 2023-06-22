@@ -23,10 +23,7 @@
     <tr class="trLabelFilter1">
         <td>Loại thống kê
         </td>
-        <td>Từ ngày
-        </td>
-        <td>Đến ngày
-        </td> 
+       
         <td colspan="2">&nbsp;
         </td>
     </tr>

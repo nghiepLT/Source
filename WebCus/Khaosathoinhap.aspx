@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" /> 
-    <input id="type" runat="server" style="display:none;" />
+    <input id="type" runat="server" style="display:none;"/>
        <input id="step" runat="server" style="display:none;" />
     <div class="khaosathoinhap_box">
          <div class="khaosathoinhap_tab">
@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <th>
-                    Họ tên: <input style="text-transform:uppercase" type="text" id="hoten" class="dotted" runat="server"/>
+                    Họ tên: <input style="text-transform:uppercase;width:76%" type="text" id="hoten" class="dotted" runat="server"/>
                 </th>
                 <th>
                      Vị trí:  <input type="text" id="vitri" class="dotted" runat="server"/>
@@ -1247,7 +1247,17 @@
                 $("#tab3").show(); 
             }
             $("#tab1").show();
-            tabclick(1);
+            if ($("#ctl00_MainContent_type").val() == 1)
+            {
+                tabclick(1);
+            }
+            if ($("#ctl00_MainContent_type").val() == 2)
+            {
+                tabclick(2);
+            }
+            if ($("#ctl00_MainContent_type").val() == 3) {
+                tabclick(3);
+            }
             //
             if ($("#ctl00_MainContent_type").val() == 1) {
                 if ($("#ctl00_MainContent_step").val() == 1) {

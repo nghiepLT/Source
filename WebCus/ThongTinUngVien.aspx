@@ -6,32 +6,15 @@
     <link href="../AdminCss/UngVienTuyenDung.css?v=1" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
     <input id="noidung" runat="server" style="display: none;" />
-    <input type="file" style="display: none;" class="btn-group btn btn-info btn-xs upload" id="uploadAvatar" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*" /><br />
-    <input type="file" style="display: none;" class="btn-group btn btn-info btn-xs upload" id="uploadTMNV" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*" /><br />
+    <input type="file" style="display: none;" class="btn-group btn btn-info btn-xs upload" id="uploadAvatar" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*" />
+    <input type="file" style="display: none;" class="btn-group btn btn-info btn-xs upload" id="uploadTMNV" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*" />
     <input id="ipungvien" runat="server" style="display: none" />
-    <div class="page-title">
-        <h2 class="icon-title">
-            <span>Quản lý thông tin ứng viên</span>
-        </h2>
-    </div>
+    <input id="typePhanquyen" runat="server" style="display: none"/>
+    <input id="hotenquery" runat="server"  style="display: none"/>
     <div class="blackdoor" onclick="blackdoorclick()">
     </div>
     <div class="TboardBox">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="tb_button" runat="server" visible="true">
-            <tbody>
-                <tr>
-                    <td class="C"></td>
-                    <td class="R">
-                        <asp:Button ID="btnInsertBanner" runat="server" Text="Tạo mới" CssClass="btn-1" OnClick="btnInsertBanner_Click" />
-                        &nbsp;
-                    <asp:Button ID="btnSaveBanner" runat="server" Text="Lưu" CssClass="btn-1" OnClick="btnSaveBanner_Click"
-                        OnClientClick="return CheckValidBanner();" />
-                        &nbsp;
-                   
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+      
         <table style="margin-bottom: 30px;" width="100%" border="0" cellspacing="0" cellpadding="0" id="tb_input" runat="server" visible="true">
             <tr>
                 <td colspan="4" height="5px"></td>
@@ -57,6 +40,24 @@
                 </td>
             </tr>
         </table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="tb_button" runat="server" visible="true" style="margin-top:20px;">
+                <tbody>
+                    <tr>
+                        <td class="C"></td>
+                        <td class="R">
+                            <asp:Button ID="btnInsertBanner" runat="server" Text="Tạo mới" CssClass="btn-1" OnClick="btnInsertBanner_Click" />
+                            &nbsp;
+                    <asp:Button ID="btnSaveBanner" runat="server" Text="Lưu" CssClass="btn-1" 
+                        OnClientClick="return CheckValidBanner();" />
+                            &nbsp;
+                   
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <div style="clear:both">
+
+        </div>
         <%-- <hr />--%>
         <table cellpadding="0" cellspacing="0">
 
@@ -73,7 +74,9 @@
             </tr>
             <tr class="trLabelFilter1">
                 <td class="RB_L">
-                    <asp:TextBox ID="txtTenUngVien" runat="server"></asp:TextBox>
+                    <input id="nameungvien" type="text" style="padding: 0px 5px;" onkeyup="searchtenkyup()" />
+                    <ul class="ulsearchungvien">
+                    </ul>
                 </td>
                 <td class="RB_L">
                     <asp:DropDownList ID="drop_tructhuoc" CssClass="select" Width="120px"
@@ -123,6 +126,9 @@
         </table>
         <hr />
         <ul class="tabul">
+             <li>
+                <a class="achung" runat="server" id="a0" onclick="tabactive(0)">Mời phỏng vấn <span>(</span><span id="rs0" runat="server"></span><span>) </span></a>
+            </li>
             <li>
                 <a class="achung" runat="server" id="a1" onclick="tabactive(1)">Đang thử việc <span>(</span><span id="rs1" runat="server"></span><span>) </span></a>
             </li>
@@ -183,16 +189,19 @@
                                         <asp:TemplateField HeaderText="Yêu cầu tuyển dụng">
                                             <ItemTemplate>
                                                 <span class="hotenuv"><%#Eval("TieuDe")%></span>
+                                                 <div class="">
+                                                    <%#SuaYCTD(Guid.Parse(Eval("Id").ToString()))%>
+                                                </div>
                                             </ItemTemplate>
                                             <HeaderStyle CssClass="RB_C" />
                                             <ItemStyle CssClass="RB_L " />
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Họ tên">
+                                        <asp:TemplateField HeaderText="Họ tên" >
                                             <ItemTemplate>
                                                 <span class="hotenuv hoten"><%#Eval("HoTen")%></span>
                                                 <div style="font-weight: bold; color: red; margin-top: 10px;">Trạng thái : <%#GetTrangThaiUngVien(Guid.Parse(Eval("Id").ToString()))%></div>
                                             </ItemTemplate>
-                                            <HeaderStyle CssClass="RB_C stickyheader" />
+                                            <HeaderStyle CssClass="RB_C stickyheader aa" />
                                             <ItemStyle CssClass="RB_L stickytd pd-15 mb-15" />
                                         </asp:TemplateField>
                                        <%--   <asp:TemplateField HeaderText="Trạng thái">
@@ -202,13 +211,13 @@
                                             <HeaderStyle CssClass="RB_C " />
                                             <ItemStyle CssClass="RB_L pd-15 mb-15" />
                                         </asp:TemplateField>--%>
-                                        <asp:TemplateField HeaderText="Ngày vào làm">
+                                        <asp:TemplateField HeaderText="Ngày vào làm" >
                                             <ItemTemplate>
                                                 <div class="">
                                                     <%#GetNgayVL(Guid.Parse(Eval("Id").ToString()))%>
                                                 </div>
                                             </ItemTemplate>
-                                            <HeaderStyle CssClass="RB_C" />
+                                            <HeaderStyle CssClass="RB_C"  />
                                             <ItemStyle CssClass="RB_L" />
                                         </asp:TemplateField>
                                         <%--   <asp:TemplateField HeaderText="Trạng thái">
@@ -528,6 +537,10 @@
                 1. Thông tin phỏng vấn
             </div>
             <ul>
+                 <li>
+                    <input id="ip00" type="radio" name="ttpv" runat="server" />
+                    <span onclick="clickip('ip00')">- Mời phỏng vấn</span>
+                </li>
                 <li>
                     <input id="ip1" type="radio" name="ttpv" runat="server" />
                     <span onclick="clickip('ip1')">- Đạt</span>
@@ -581,7 +594,29 @@
         </div>
 
     </div>
+    <div id="modalyctd">
+        <div class="mdyctd_box">
+            <div class="ttpv_title">
+                Cập nhật yêu cầu tuyển dụng  <a style="top: 16px;right: 18px;font-size: 15px;" onclick="closeMyModal2()"><i class="fa fa-close"></i></a>
+            </div>
+            <select id="slyctd">
+               
+            </select>
+
+            <div class="btn_capnhatyctd">
+                <a onclick="capnhat_uvyctd()" >
+                    Cập nhật
+                </a>
+            </div>
+        </div>
+    </div>
+
     <style>
+        .aa{
+                z-index: 999999999;
+    background-color: #ff0023!important;
+    color: white;
+        }
         #ctl00_MainContent_TTThongtinUngvien_gvBanner td {
             text-align: center !important;
         }
@@ -617,7 +652,7 @@
                     text-decoration: none !important;
                     font-weight: bold;
                     border-right: 1px solid #d3d3d3;
-                    font-size: 11.4px;
+                    font-size: 10.4px;
                 }
 
         .tabactive {
@@ -693,12 +728,49 @@
     <script src="js/jquery-1.8.2.js"></script>
     <script>
         $(document).ready(function () {
+            if ($("#ctl00_MainContent_hotenquery").val() != '') {
+                $("#nameungvien").val($("#ctl00_MainContent_hotenquery").val());
+            }
+            $(".ulsearchungvien").hide();
+            if ($("#ctl00_MainContent_typePhanquyen").val() == 2) {
+                $(".longdiv").css("width", "115%");
+                $("#ctl00_MainContent_btnInsertBanner").hide();
+                $(".btnCapnhat").hide();
+            }
             var lstRt = $("#ctl00_MainContent_gvBanner th");
             lstRt.each(function () {
                 $(this).addClass("headerfixed");
             });
             $("#mymodal").hide();
+            loadYCTD();
+            $("#modalyctd").hide();
         });
+        function loadYCTD() {
+            $.ajax({
+                type: "POST", //POST
+                url: "ThongTinUngVien.aspx/GetYCTD",
+                contentType:"application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    var data = msg.d;
+                    console.log(data);
+                    $("#slyctd").html(data);
+                    //if (msg.d == true) {
+                    //    alert("Import dữ liệu thành công!");
+                    //    location.reload();
+                    //}
+                    //else {
+                    //    alert("Tên ứng viên không hợp lệ");
+                    //}
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
         function ShowPopupMapLink(id) {
             WindowOpen('RenderPopupUngvien.aspx?id=' + id, 'POpi', 850, 550, 'no');
             return false;
@@ -752,6 +824,7 @@
         function blackdoorclick() {
             $("#mymodal").hide();
             $(".blackdoor").hide();
+            $("#modalyctd").hide();
         }
         function capnhattrangthai(id, hoten, st, st2) {
             $(".blackdoor").show();
@@ -771,6 +844,9 @@
             $("#ctl00_MainContent_ip9").removeAttr("checked");
 
             if (st != "") {
+                if (st == 0) {
+                    $("#ctl00_MainContent_ip00").prop("checked", true);
+                }
                 if (st == 1) {
                     $("#ctl00_MainContent_ip1").prop("checked", true);
                 }
@@ -797,6 +873,9 @@
                 }
                 if (st2 == 9) {
                     $("#ctl00_MainContent_ip9").prop("checked", true);
+                }
+                if (st2 == 10) {
+                    $("#ctl00_MainContent_ip0").prop("checked", true);
                 }
             }
             $("#ctl00_MainContent_ipungvien").val(id);
@@ -942,6 +1021,10 @@
             $("#mymodal").toggle();
             $(".blackdoor").hide();
         }
+        function closeMyModal2() {
+            $("#modalyctd").toggle();
+            $(".blackdoor").hide();
+        }
         function clickip(id) {
             var check = $("#ctl00_MainContent_" + id).attr("checked");
             if (check == "checked") {
@@ -976,13 +1059,88 @@
 
 
         function CheckValidBanner() {
-            if ($("#ctl00_MainContent_txthoTen").val() == '') {
+           
+            if ($("#ctl00_MainContent_txthoTen").val() == '')
+            {
                 alert("Vui lòng nhập họ tên ứng viên");
                 return false;
             }
-            //Kiem tra trung ten
 
-           
+            //Kiem tra trung ten 
+            $.ajax({
+                type: "POST", //POST
+                url: "ThongTinUngVien.aspx/Kiemtratrungten",
+                data: "{HoTen:'" + $("#ctl00_MainContent_txthoTen").val() + "',idyctd:'"+$("#ctl00_MainContent_dropYeuCauTuyenDung").val()+"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (msg) {
+                    if (msg == '{"d":1}') {
+                        alert("Tên ứng viên đã trùng trong hệ thống!");
+                    }
+                    else {
+                        alert("Lưu thành công;");
+                    }
+                    window.location.href = "/Thongtinungvien.aspx?type=0";
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+        var idGuidID = 0;
+        function modalCSYCTD(id) {
+            $(".blackdoor").show();
+            var split = id.split("_");
+            $("#modalyctd").show();
+            idGuidID = split[1];
+            $("#slyctd").val(split[0]);
+        }
+
+        function capnhat_uvyctd() {
+            $.ajax({
+                type: "POST", //POST
+                url: "ThongTinUngVien.aspx/capnhat_uvyctd",
+                data: "{id:'" + idGuidID + "',IdYeuCau:'"+$("#slyctd").val()+"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    window.location.reload();
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+
+        function searchtenkyup() {
+            $.ajax({
+                type: "POST", //POST
+                url: "ThongTinUngVien.aspx/Searchtenungvien",
+                data: "{Name:'" + $("#nameungvien").val() + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    if ($("#nameungvien").val() == '') {
+                        $(".ulsearchungvien").hide();
+                    }
+                    else {
+                        $(".ulsearchungvien").show();
+                    }
+                    $(".ulsearchungvien").html(msg.d.replace('"', "").replace('"', ""));
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
         }
     </script>
 

@@ -4,7 +4,7 @@
 
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
-   <input id="userid" runat="server" />
+   <input id="userid" runat="server" style="display:none" />
     <div class="mydivtable">
          <div class="text-center">
              <h1>MỘT SỐ QUY TRÌNH QUY ĐỊNH HƯỚNG DẪN NHÂN VIÊN MỚI</h1>
@@ -110,10 +110,11 @@
   <script>
       function ipGiolamviec(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDGiolamviec",
-              data: "{name:'"+name+"'}",
+              data: "{name:'" + name + "',userid:'"+userid+"'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -128,10 +129,11 @@
       }
       function ipChamcong(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDChamCong",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -146,10 +148,11 @@
       }
       function ipLamphep(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDLamphep",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -164,10 +167,11 @@
       }
       function ipDirangoai(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDDirangoai",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -183,10 +187,11 @@
       //ipTrangphuc
       function ipTrangphuc(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDTrangphuc",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -202,10 +207,11 @@
       //ipSinhhoat
       function ipSinhhoat(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDSinhhoat",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -221,10 +227,11 @@
       //ipTraodoi
       function ipTraodoi(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDTraodoi",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {
@@ -240,10 +247,11 @@
       //ipThoigian
       function ipThoigian(dis) {
           var name = $(dis).prop("checked");
+          var userid = $("#ctl00_MainContent_userid").val();
           $.ajax({
               type: "POST", //POST
               url: "Tomtatquytrinh.aspx/UDThoigian",
-              data: "{name:'" + name + "'}",
+              data: "{name:'" + name + "',userid:'" + userid + "'}",
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function (msg) {

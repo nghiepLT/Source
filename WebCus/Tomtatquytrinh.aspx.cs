@@ -46,10 +46,11 @@ namespace WebCus
         {
             if (!IsPostBack)
             {
+                this.userid.Value = UserMemberID.ToString();
                 if (Request.QueryString["id"] != null)
                 {
                     this.IDNTD = Guid.Parse(Request.QueryString["id"]);
-                    this.userid.Value = UserMemberID.ToString();
+                    
                 }
                 BindingData();
                 //Insert nếu chua có 
@@ -204,121 +205,121 @@ namespace WebCus
            
         } 
         [WebMethod]
-        public static string UDGiolamviec(string name)
+        public static string UDGiolamviec(string name,int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name== "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,1, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid, 1, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,1, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid, 1, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDChamCong(string name)
+        public static string UDChamCong(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,2, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,2, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,2, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,2, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDLamphep(string name)
+        public static string UDLamphep(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,3, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,3, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,3, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,3, 0);
             }
             return "Hello " + name;
         }
 
         [WebMethod]
-        public static string UDDirangoai(string name)
+        public static string UDDirangoai(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,4, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,4, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,4, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,4, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDTrangphuc(string name)
+        public static string UDTrangphuc(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,5, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,5, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,5, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,5, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDSinhhoat(string name)
+        public static string UDSinhhoat(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,6, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,6, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,6, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,6, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDTraodoi(string name)
+        public static string UDTraodoi(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
-            Alert.Show(UserMemberIDStatic.ToString());
+            Alert.Show(userid.ToString());
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,7, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid,7, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,7, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,7, 0);
             }
             return "Hello " + name;
         }
         [WebMethod]
-        public static string UDThoigian(string name)
+        public static string UDThoigian(string name, int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name == "true")
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,8, 1);
+                blc_user2.CapnhatStatusQuytrinh(userid, 8, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusQuytrinh(UserMemberIDStatic,8, 0);
+                blc_user2.CapnhatStatusQuytrinh(userid,8, 0);
             }
             return "Hello " + name;
         }

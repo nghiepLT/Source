@@ -1503,7 +1503,7 @@ a.btn-1, a.btn-2, a.btn-4
      background: url("images/common/bkg-header-highlight.png") no-repeat scroll 50% 0 transparent;
    
     margin-top: -20px;
-   
+   background-size: contain;
 }
 .eyebrow
 {

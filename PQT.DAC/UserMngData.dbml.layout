@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 32.375, 36.625" name="UserMngData">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 33.125, 36.625" name="UserMngData">
   <DataContextMoniker Name="/UserMngDataDataContext" />
   <nestedChildShapes>
     <classShape Id="089d0a8f-660f-4b46-96b3-3d7b588ddfb9" absoluteBounds="2.625, 0.5, 2, 1.3862939453125">
@@ -260,7 +260,7 @@
         <classShapeMoniker Id="ffc0e74b-e347-4243-bf35-058bcec5632b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.125002 : 24.2707340494792); (2.125002 : 27.625); (2.51041666666667 : 27.625 : JumpStart); (2.67708333333333 : 27.625 : JumpEnd); (2.75 : 27.625); (2.75 : 30.875); (8.625 : 30.875); (8.625 : 31.4431062825521); (9 : 31.4431062825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.125002 : 24.2707340494792); (2.125002 : 27.625); (2.51041666666667 : 27.625 : JumpStart); (2.67708333333333 : 27.625 : JumpEnd); (2.75 : 27.625); (2.75 : 30.875); (2.91666666666667 : 30.875 : JumpStart); (3.08333333333333 : 30.875 : JumpEnd); (8.625 : 30.875); (8.625 : 31.4431062825521); (9 : 31.4431062825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/UserMngDataDataContext/NhanVien/NhanVien_ThongTinNguoiThan" />
       <nodes>
         <classShapeMoniker Id="04aca372-5b22-4844-8311-4598224135c0" />
@@ -342,12 +342,6 @@
         <elementListCompartment Id="d55a046d-4142-4f01-a3ac-e3790ed6999f" absoluteBounds="12.265, 5.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="40f75291-25d4-4977-a3db-c7c864fca6bb" absoluteBounds="26.375, 2.625, 2, 3.8862125651041666">
-      <DataClassMoniker Name="/UserMngDataDataContext/Danhgiathuviec" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6faacc09-208e-4bfd-8110-b1adf7cfb9ec" absoluteBounds="26.39, 3.085, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="8e91e7d7-2ac0-4045-9ab4-8e58f02d4508" absoluteBounds="22.75, 0.75, 2, 7.7322412109375005">
       <DataClassMoniker Name="/UserMngDataDataContext/Ungvien_Trangthai" />
       <nestedChildShapes>
@@ -388,6 +382,18 @@
       <DataClassMoniker Name="/UserMngDataDataContext/YeuCauTuyenDung" />
       <nestedChildShapes>
         <elementListCompartment Id="86fdca79-0196-493c-b206-427a87ef9c3e" absoluteBounds="20.14, 4.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8dcf0b91-6f64-4bb9-8df4-c8791714a612" absoluteBounds="30.875, 3.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/UserMngDataDataContext/tbMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94651ee3-4ee1-4e92-a592-9b003f17632d" absoluteBounds="30.89, 3.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e71ae170-d9d6-4427-a769-bc59e7229f25" absoluteBounds="26.75, 3.625, 2, 4.2708154296875">
+      <DataClassMoniker Name="/UserMngDataDataContext/Danhgiathuviec" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f04d9466-7c59-482e-9031-cb5275e79f67" absoluteBounds="26.765, 4.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

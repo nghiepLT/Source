@@ -10,6 +10,19 @@ namespace WebCus
 {
     public partial class MasterAdmin : System.Web.UI.MasterPage
     {
+        public int UserMemberID
+        {
+            get
+            {
+                if (HttpContext.Current.Session["g_UserMemberID"] != null)
+                    return Convert.ToInt32(HttpContext.Current.Session["g_UserMemberID"]);
+                return 0;
+            }
+            set
+            {
+                HttpContext.Current.Session["g_UserMemberID"] = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //DateTime ngayoff= DateTime.Parse("2021-12-30");
@@ -21,7 +34,8 @@ namespace WebCus
                 Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
                 Response.Cache.SetCacheability(HttpCacheability.NoCache);
                 Response.Cache.SetNoStore();
-                GetUserName();//login x
+            this.userid.Value = UserMemberID.ToString();
+            GetUserName();//login x
             //}
             //else MessageBox.Show("Error 79 !",false,"/login.aspx");
         }

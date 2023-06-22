@@ -31,6 +31,24 @@ namespace WebCus {
         protected global::System.Web.UI.HtmlControls.HtmlInputText type;
         
         /// <summary>
+        /// idungvien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText idungvien;
+        
+        /// <summary>
+        /// logomain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage logomain;
+        
+        /// <summary>
         /// HoTenUngVien control.
         /// </summary>
         /// <remarks>
@@ -145,7 +163,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkienthuc1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkienthuc1;
         
         /// <summary>
         /// diemkienthuc2 control.
@@ -163,7 +181,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkienthuc2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkienthuc2;
         
         /// <summary>
         /// diemkienthuc3 control.
@@ -181,7 +199,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkienthuc3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkienthuc3;
         
         /// <summary>
         /// diemchuyenmon1 control.
@@ -199,7 +217,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetchuyenmon1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetchuyenmon1;
         
         /// <summary>
         /// diemchuyenmon2 control.
@@ -217,7 +235,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetchuyenmon2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetchuyenmon2;
         
         /// <summary>
         /// diemchuyenmon3 control.
@@ -235,7 +253,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetchuyenmon3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetchuyenmon3;
         
         /// <summary>
         /// diemkinhnghiem1 control.
@@ -253,7 +271,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkinhnghiem1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkinhnghiem1;
         
         /// <summary>
         /// diemkinhnghiem2 control.
@@ -271,7 +289,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkinhnghiem2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkinhnghiem2;
         
         /// <summary>
         /// diemkinhnghiem3 control.
@@ -289,7 +307,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetkinhnghiem3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetkinhnghiem3;
         
         /// <summary>
         /// diemthanhtich1 control.
@@ -307,7 +325,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetthanhtich1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetthanhtich1;
         
         /// <summary>
         /// diemthanhtich2 control.
@@ -325,7 +343,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetthanhtich2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetthanhtich2;
         
         /// <summary>
         /// diemthanhtich3 control.
@@ -343,7 +361,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetthanhtich3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetthanhtich3;
         
         /// <summary>
         /// diemdinhhuong1 control.
@@ -361,7 +379,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetdinhhuong1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetdinhhuong1;
         
         /// <summary>
         /// diemdinhhuong2 control.
@@ -379,7 +397,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetdinhhuong2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetdinhhuong2;
         
         /// <summary>
         /// diemdinhhuong3 control.
@@ -397,7 +415,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxetdinhhuong3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxetdinhhuong3;
         
         /// <summary>
         /// diemtieuchi1 control.
@@ -415,7 +433,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettieuchi1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettieuchi1;
         
         /// <summary>
         /// diemtieuchi2 control.
@@ -433,7 +451,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettieuchi2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettieuchi2;
         
         /// <summary>
         /// diemtieuchi3 control.
@@ -451,7 +469,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettieuchi3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettieuchi3;
         
         /// <summary>
         /// diemtinhcach1 control.
@@ -469,7 +487,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettinhcach1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettinhcach1;
         
         /// <summary>
         /// diemtinhcach2 control.
@@ -487,7 +505,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettinhcach2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettinhcach2;
         
         /// <summary>
         /// diemtinhcach3 control.
@@ -505,7 +523,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nhanxettinhcach3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea nhanxettinhcach3;
         
         /// <summary>
         /// diemkhanang1 control.
@@ -523,7 +541,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noidungkhanang1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea noidungkhanang1;
         
         /// <summary>
         /// diemkhanang2 control.
@@ -541,7 +559,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noidungkhanang2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea noidungkhanang2;
         
         /// <summary>
         /// diemkhanang3 control.
@@ -559,7 +577,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText noidungkhanang3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea noidungkhanang3;
         
         /// <summary>
         /// tongdiem1 control.

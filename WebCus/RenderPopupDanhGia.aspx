@@ -12,13 +12,14 @@
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
     <link href="AdminCss/admin.css" rel="stylesheet" />
+     <input id="idungvien" runat="server" style="display:none;"/>
     <div class="mycontainer">
         <div class="row"> 
             <div class="col-sm-12">
                 <div class="full_box">
                     <div class="headertitle_box">
                         <div class="headertitle_box_left">
-                            <img src="Images/logo_form.png" class="img-responsive" />
+                            <img src="Images/logo_form.png" class="img-responsive" id="logomain" runat="server" />
                         </div>
                         <div class="headertitle_box_right">
                             <div class="headertitle_box_right_title">
@@ -154,19 +155,22 @@
                                             <input class="ip dotted w100" id="diemkienthuc1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkienthuc1" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetkienthuc1" runat="server" />--%>
+                                            <textarea rows="5" class="ip dotted w100" id="nhanxetkienthuc1" runat="server" style="pointer-events:all"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemkienthuc2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkienthuc2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetkienthuc2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetkienthuc2" runat="server" style="pointer-events:all"></textarea>
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="diemkienthuc3" runat="server" />
+                                            <input  class="ip dotted w100" id="diemkienthuc3" runat="server"  />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkienthuc3" runat="server" />
+                                          <%--  <input class="ip dotted w100" id="nhanxetkienthuc3" runat="server" />--%>
+                                            <textarea style="pointer-events:all" rows="5" class="ip dotted w100" id="nhanxetkienthuc3" runat="server"  ></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -185,19 +189,22 @@
                                             <input class="ip dotted w100" id="diemchuyenmon1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetchuyenmon1" runat="server" />
+                                           <%-- <input class="ip dotted w100" id="nhanxetchuyenmon1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetchuyenmon1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemchuyenmon2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetchuyenmon2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetchuyenmon2" runat="server" />--%>
+                                            <textarea style="pointer-events:all" rows="5" class="ip dotted w100" id="nhanxetchuyenmon2" runat="server" ></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemchuyenmon3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetchuyenmon3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetchuyenmon3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetchuyenmon3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,19 +223,22 @@
                                             <input class="ip dotted w100" id="diemkinhnghiem1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkinhnghiem1" runat="server" />
+                                           <%-- <input class="ip dotted w100" id="nhanxetkinhnghiem1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetkinhnghiem1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemkinhnghiem2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkinhnghiem2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetkinhnghiem2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetkinhnghiem2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemkinhnghiem3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetkinhnghiem3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetkinhnghiem3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetkinhnghiem3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -247,19 +257,22 @@
                                             <input class="ip dotted w100" id="diemthanhtich1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetthanhtich1" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetthanhtich1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetthanhtich1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemthanhtich2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetthanhtich2" runat="server" />
+                                           <%-- <input class="ip dotted w100" id="nhanxetthanhtich2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetthanhtich2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemthanhtich3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetthanhtich3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetthanhtich3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetthanhtich3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -281,19 +294,22 @@
                                             <input class="ip dotted w100" id="diemdinhhuong1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetdinhhuong1" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetdinhhuong1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetdinhhuong1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemdinhhuong2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetdinhhuong2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxetdinhhuong2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetdinhhuong2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemdinhhuong3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxetdinhhuong3" runat="server" />
+                                           <%-- <input class="ip dotted w100" id="nhanxetdinhhuong3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxetdinhhuong3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -321,19 +337,22 @@
                                             <input class="ip dotted w100" id="diemtieuchi1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettieuchi1" runat="server" />
+                                           <%-- <input class="ip dotted w100" id="nhanxettieuchi1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettieuchi1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemtieuchi2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettieuchi2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxettieuchi2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettieuchi2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemtieuchi3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettieuchi3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxettieuchi3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettieuchi3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -346,19 +365,22 @@
                                             <input class="ip dotted w100" id="diemtinhcach1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettinhcach1" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxettinhcach1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettinhcach1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemtinhcach2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettinhcach2" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxettinhcach2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettinhcach2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemtinhcach3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="nhanxettinhcach3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="nhanxettinhcach3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="nhanxettinhcach3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -371,19 +393,22 @@
                                             <input class="ip dotted w100" id="diemkhanang1" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="noidungkhanang1" runat="server" />
+                                            <%--<input class="ip dotted w100" id="noidungkhanang1" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="noidungkhanang1" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemkhanang2" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="noidungkhanang2" runat="server" />
+                                          <%--  <input class="ip dotted w100" id="noidungkhanang2" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="noidungkhanang2" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                         <td>
                                             <input class="ip dotted w100" id="diemkhanang3" runat="server" />
                                         </td>
                                         <td>
-                                            <input class="ip dotted w100" id="noidungkhanang3" runat="server" />
+                                            <%--<input class="ip dotted w100" id="noidungkhanang3" runat="server" />--%>
+                                            <textarea class="ip dotted w100" id="noidungkhanang3" runat="server" style="pointer-events:all" rows="5"></textarea>
                                         </td>
                                     </tr>
                                     <tr>
@@ -554,6 +579,20 @@
         </div>
     </div>
     <input id="dottuyendung" runat="server" style="display:none;"  />
+      <div style="" class="danhgia_dangnhap_background">
+        <div class="danhgia_dangnhap_box">
+            <div class="danhgia_dangnhap_input">
+                <input type="text" placeholder="User name" id="username" />
+            </div>
+            <div class="danhgia_dangnhap_input">
+                <input type="password" placeholder="Password" id="password" />
+            </div>
+            <div class="danhgia_dangnhap">
+                <a onclick="dangnhap()">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+   
     <style>
         body {
             background-image: none !important;
@@ -937,5 +976,43 @@
         $(document).ready(function(){
             //$("#ctl00_ContentPlaceHolder1_NgayPV_dateInput_TextBox").addClass("classDate");
         })
-    </script>
+
+        $(document).ready(function () {
+          
+            //Phan quyen
+            if ($("#ctl00_ContentPlaceHolder1_userid").val() == 0) {
+                $(".mycontainer").hide();
+            }
+            else {
+                $(".danhgia_dangnhap_background").hide();
+            }
+          
+        });
+        function dangnhap() {
+           
+            $.ajax({
+                type: "POST", //POST
+                url: "RenderPopupDanhGiatuyenDung.aspx/Login",
+                data: "{username:'" + $("#username").val() + "',password:'" + $("#password").val() + "',idungvien:'"+$("#ctl00_ContentPlaceHolder1_idungvien").val()+"'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async:false,
+                success: function (msg) {
+                    if (msg.d != "-1") {
+                        $(".mycontainer").show();
+                        $(".danhgia_dangnhap_background").hide();
+                    }
+                    else {
+                        alert("Đăng nhập thất bại!");
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+    </script>   
 </asp:Content>

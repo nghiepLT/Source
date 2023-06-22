@@ -36,7 +36,7 @@ namespace WebCus
                 {
                     this.IDNTD = Guid.Parse(Request.QueryString["id"]);
                     btnSaveBanner.Visible = false;
-                    this.type.Value = "1";
+                   
                     UngVien uv = blc_user.GetUngVienByID(this.IDNTD);
                     Ungvienkhaosat uvks = blc_user.GetUngvienkhaosat(uv.IdNhanVien.Value);
                     if(uvks!=null)
@@ -44,7 +44,6 @@ namespace WebCus
                 }
                 else
                 {
-                    this.type.Value = "2";
                     TUser tuser = blc_user.GetUser_ByIDAll(UserMemberID);
                     if (tuser != null)
                     {
@@ -64,6 +63,8 @@ namespace WebCus
                             this.atab2.Visible = false;
                             this.atab3.Visible = false;
                             this.songay.InnerText = "7 Ngày";
+
+                            this.type.Value = "1";
                         }
                         else
                         {
@@ -72,18 +73,21 @@ namespace WebCus
                                 this.atab2.Visible = false;
                                 this.atab3.Visible = false;
                                 this.songay.InnerText = "7 Ngày";
+                                this.type.Value = "1";
                             }
                             if (uvks.Step == 2)
                             {
                                 this.atab1.Visible = false;
                                 this.atab3.Visible = false;
                                 this.songay.InnerText = "14 Ngày";
+                                this.type.Value = "2";
                             }
                             if (uvks.Step == 3)
                             {
                                 this.atab1.Visible = false;
                                 this.atab2.Visible = false;
                                 this.songay.InnerText = "2 tháng";
+                                this.type.Value = "3";
                             }
                         }
                     }
@@ -119,6 +123,18 @@ namespace WebCus
                         Ungvienkhaosat Ungvienkhaosat = blc_user.GetUngvienkhaosat(ungvien.IdNhanVien.Value);
                         if (Ungvienkhaosat != null)
                         {
+                            if (Ungvienkhaosat.Step == 1)
+                            {
+                                this.type.Value = "1";
+                            }
+                            if (Ungvienkhaosat.Step == 2)
+                            {
+                                this.type.Value = "2";
+                            }
+                            if (Ungvienkhaosat.Step == 3)
+                            {
+                                this.type.Value = "3";
+                            }
                             VM_KhaoSat7Ngay ks7ngay = JsonConvert.DeserializeObject<VM_KhaoSat7Ngay>(Ungvienkhaosat.Ks7Ngay);
                             if (ks7ngay != null)
                             {
@@ -297,21 +313,21 @@ namespace WebCus
                         }
                         else
                         {
-                            this.radHuongdanngaydau3.Checked = true;
-                            this.radTomtatnoiquylamviec3.Checked = true;
-                            this.radTomtatchinhsachphutloi3.Checked = true;
-                            this.radBiennhanbanggoc3.Checked = true;
-                            this.radCamket3.Checked = true;
-                            this.radHuongdan3.Checked = true;
-                            this.radNhungthongtinngaydau3.Checked = true;
-                            this.radNoidunghuongdan3.Checked = true;
-                            this.radFilehuongdanhoinhap3.Checked = true;
-                            this.radFilenoiquycongty3.Checked = true;
-                            this.radFilehosonhansu3.Checked = true;
-                            this.radNgaydaunhanviec3.Checked = true;
-                            this.radTraodoivoiphongnhansu3.Checked = true;
-                            this.radTiepxucvoinhansucuabophan3.Checked = true;
-                            this.radTiepxucvoicongviectaibophan3.Checked = true;
+                            //this.radHuongdanngaydau3.Checked = true;
+                            //this.radTomtatnoiquylamviec3.Checked = true;
+                            //this.radTomtatchinhsachphutloi3.Checked = true;
+                            //this.radBiennhanbanggoc3.Checked = true;
+                            //this.radCamket3.Checked = true;
+                            //this.radHuongdan3.Checked = true;
+                            //this.radNhungthongtinngaydau3.Checked = true;
+                            //this.radNoidunghuongdan3.Checked = true;
+                            //this.radFilehuongdanhoinhap3.Checked = true;
+                            //this.radFilenoiquycongty3.Checked = true;
+                            //this.radFilehosonhansu3.Checked = true;
+                            //this.radNgaydaunhanviec3.Checked = true;
+                            //this.radTraodoivoiphongnhansu3.Checked = true;
+                            //this.radTiepxucvoinhansucuabophan3.Checked = true;
+                            //this.radTiepxucvoicongviectaibophan3.Checked = true;
                         }
                         //14 ngày
                         if (Ungvienkhaosat != null)
@@ -828,7 +844,8 @@ namespace WebCus
 
               
                 blc_user.CapnhatKhaosat7Ngay(ungvien.IdNhanVien.Value, VM_KhaoSat7Ngay);
-
+                //Ghi log Message
+                blc_user.InsertMessage(user.UserName.ToUpper()+ " Đã đánh giá khảo sát 07 ngày làm việc");
             }
             else
             {

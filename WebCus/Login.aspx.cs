@@ -36,7 +36,7 @@ namespace WebCus
             string loginID = Login1.UserName.ToLower();
             string pwd = Login1.Password;
             UserMng_BLC_NTX blc = new UserMng_BLC_NTX();
-
+            UserMngOther_BLC blc_user = new UserMngOther_BLC();
             UserEntity userEnt = blc.RowUserByLoginID(loginID);
             if (userEnt != null)
             {
@@ -77,20 +77,22 @@ namespace WebCus
 
                             //else Response.Redirect("/Index.aspx");// nomall
                         }
-                        //if (userEnt.UserType == 4)
-                        //{
-                        //    if (userEnt.Gender == 200 || userEnt.Gender == 300 || userEnt.Gender == 400)
-                        //    { Response.Redirect("/Accepwork.aspx"); }
-                        //    else Response.Redirect("/Index.aspx");
-                        //}
+                    //if (userEnt.UserType == 4)
+                    //{
+                    //    if (userEnt.Gender == 200 || userEnt.Gender == 300 || userEnt.Gender == 400)
+                    //    { Response.Redirect("/Accepwork.aspx"); }
+                    //    else Response.Redirect("/Index.aspx");
+                    //}
 
-                        //else 
-                           // Response.Redirect("/Index.aspx");
+                    //else 
+                    // Response.Redirect("/Index.aspx");
 
-                        //if (userEnt.UserType == 1)
-                        //{ Response.Redirect("/Index.aspx"); }
-                        //else Response.Redirect("/baotri.html");
-                    }
+                    //if (userEnt.UserType == 1)
+                    //{ Response.Redirect("/Index.aspx"); }
+                    //else Response.Redirect("/baotri.html");
+                    if (userEnt.UserID != 568)
+                        blc_user.InsertLogg("Login", userEnt.UserID);
+                }
                     else
                     {
                         this.LoginID = null;

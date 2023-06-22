@@ -41,7 +41,19 @@ namespace WebCus
                 //doc.Save();
                 //doc.Close();
                 // Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();
-                object miss = System.Reflection.Missing.Value;
+
+                var idUser = this.UserMemberID;
+
+             
+                if ( idUser == 275 || idUser == 277 || idUser == 478 || idUser == 276 || idUser == 568 || idUser == 6)
+                {
+                    this.typePhanquyen.Value = "1";
+                }
+                else
+                {
+                    this.typePhanquyen.Value = "2";
+                }
+                    object miss = System.Reflection.Missing.Value;
                 BindDropSlYeuCauTuyenDung();
                 int type = 0;
                 if (Request.QueryString["type"] != null)
@@ -51,7 +63,13 @@ namespace WebCus
                 }
                 else
                 {
-                    type = 1;
+                    type = 0;
+                }
+                if (type == 0)
+                {
+                    this.a0.Style.Add("background-color", "#005399");
+                    this.a0.Style.Add("border-bottom", "4px solid #033c74");
+                    this.a0.Style.Add("color", "white");
                 }
                 if (type == 1)
                 {
@@ -101,6 +119,12 @@ namespace WebCus
                     this.a8.Style.Add("color", "white");
                     this.a8.Style.Add("border-bottom", "4px solid #033c74");
                 }
+                if (type == 9)
+                {
+                    this.a9.Style.Add("background-color", "#005399");
+                    this.a9.Style.Add("color", "white");
+                    this.a9.Style.Add("border-bottom", "4px solid #033c74");
+                }
                 BindGird(int.Parse(drop_yeucautuyendung.SelectedValue),type);
 
 
@@ -142,38 +166,89 @@ namespace WebCus
             int userid = 0;
             int tructhuoc = int.Parse(drop_tructhuoc.SelectedValue);
             int trangthai = int.Parse(drop_trangthai.SelectedValue);
-            string hoten = Page.Request.Form["ctl00$MainContent$txtTenUngVien"];
-            if (hoten == null)
-                hoten = "";
+            //string hoten = Page.Request.Form["ctl00$MainContent$txtTenUngVien"];
+            //if (hoten == null)
+            //    hoten = "";
             string droptrangthai = dropTrangThai.SelectedItem.Text;
             //Alert.Show(trangthai.ToString());
             List<VM_UngvienStatus> list = new List<VM_UngvienStatus>();
-            var orgirin = blc_user.Laydanhsachungvien(idyeucautuyendung).OrderByDescending(m => m.CreatedDate).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0) && (hoten == "" || m.HoTen.ToLower().Contains(hoten.ToLower()))).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4);
+
+            //phân quyền user
+            var idUser = this.UserMemberID;
+            TUser tuser = blc_user.GetUser_ByIDAll(idUser);
+            if(tuser==null)
+            {
+                return;
+            }
+            int IdPhong = tuser.ParentID.Value;
+            var data = blc_user.Laydanhsachungvien(idyeucautuyendung);
+            if (idUser == 275 || idUser == 277 || idUser == 478 || idUser == 276 || idUser == 568 || idUser == 6)
+            {
+
+            }
+            else
+            {
+                data = data.Where(m => m.IDPhongBan == IdPhong).ToList();
+                a2.Visible = false;
+                a3.Visible = false;
+                a4.Visible = false;
+                a5.Visible = false;
+                a6.Visible = false;
+                a7.Visible = false;
+                a8.Visible = false;
+                a9.Visible = false;
+                gvBanner.Columns[4].Visible = false;
+                gvBanner.Columns[5].Visible = false;
+                gvBanner.Columns[6].Visible = false;
+                gvBanner.Columns[7].Visible = false;
+                gvBanner.Columns[8].Visible = false;
+                gvBanner.Columns[9].Visible = false;
+                gvBanner.Columns[10].Visible = false;
+                gvBanner.Columns[11].Visible = false;
+                gvBanner.Columns[13].Visible = false;
+                gvBanner.Columns[14].Visible = false;
+            }
+            string hoten = "";
+            if (Request.QueryString["hoten"] != null)
+            {
+                hoten = Request.QueryString["hoten"].ToString();
+                if(hoten!="")
+                {
+                    data = data.Where(m => (m.HoTen == hoten)).ToList();
+                    if(data.Count()>0)
+                    this.hotenquery.Value = data.FirstOrDefault().HoTen;
+                }
+            }
+           
+            var orgirin = data.OrderByDescending(m => m.CreatedDate).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0) ).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4);
             if (type <= 4)
             {
+                if (type == 0)
+                    list = orgirin.Where(m => (type <= 4 && m.TrangThaiPhongVan == type && (m.TrangThaiNhanViec == 0 && m.TrangThaiNhanViec == 0))).ToList();
                 if (type == 1)
                     list = orgirin.Where(m => (type <= 4 && m.TrangThaiPhongVan == type && (m.TrangThaiNhanViec == 0 || m.TrangThaiNhanViec == 5))).ToList();
                 if (type == 2 || type == 3 || type == 4)
                     list = orgirin.Where(m => (type <= 4 && m.TrangThaiPhongVan == type)).ToList();
 
             }
-
+            rs0.InnerText = orgirin.Where(m => (m.TrangThaiPhongVan == 0 && m.TrangThaiNhanViec==0)).Count().ToString();
             rs1.InnerText = orgirin.Where(m => (m.TrangThaiPhongVan == 1 && (m.TrangThaiNhanViec == 0 || m.TrangThaiNhanViec == 5))).Count().ToString();
             rs2.InnerText = orgirin.Where(m => (m.TrangThaiPhongVan == 2)).Count().ToString();
             rs3.InnerText = orgirin.Where(m => (m.TrangThaiPhongVan == 3)).Count().ToString();
             rs4.InnerText = orgirin.Where(m => (m.TrangThaiPhongVan == 4)).Count().ToString();
-            var orrigin = blc_user.Laydanhsachungvien(idyeucautuyendung).OrderByDescending(m => m.CreatedDate).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0) && (hoten == "" || m.HoTen.ToLower().Contains(hoten.ToLower()))).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4).ToList();
+            var orrigin = blc_user.Laydanhsachungvien(idyeucautuyendung).OrderByDescending(m => m.CreatedDate).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0)).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4).ToList();
             if(type>4)
             list = orrigin.Where(m => m.TrangThaiNhanViec == (type + 1)).ToList();
             rs5.InnerText = orrigin.Where(m => (m.TrangThaiNhanViec == 6)).Count().ToString();
             rs6.InnerText = orrigin.Where(m => (m.TrangThaiNhanViec == 7)).Count().ToString();
             rs7.InnerText = orrigin.Where(m => (m.TrangThaiNhanViec == 8)).Count().ToString();
             rs8.InnerText = orrigin.Where(m => (m.TrangThaiNhanViec == 9)).Count().ToString();
+            rs9.InnerText = orrigin.Where(m => (m.TrangThaiNhanViec == 10)).Count().ToString();
             //Get count Number
 
             gvBanner.DataSource = list;
             gvBanner.DataBind();
-            List<VM_UngvienStatus> list2 = blc_user.Laydanhsachungvien(idyeucautuyendung).OrderByDescending(m => m.CreatedDate).Where(m => m.TrangThaiUngVien == 3).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0) && (hoten == "" || m.HoTen.ToLower().Contains(hoten.ToLower()))).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4).ToList();
+            List<VM_UngvienStatus> list2 = blc_user.Laydanhsachungvien(idyeucautuyendung).OrderByDescending(m => m.CreatedDate).Where(m => m.TrangThaiUngVien == 3).Where(m => (m.TrucThuoc == tructhuoc || tructhuoc == 0)).Where(m => droptrangthai == "Tất cả" || m.TrangThai == droptrangthai).Where(m => m.TrangThaiYCTD != 4).ToList();
             gvBanner2.DataSource = list2;
             gvBanner2.DataBind();
         }
@@ -194,7 +269,7 @@ namespace WebCus
             Guid idNTD = Guid.Parse(e.CommandArgument.ToString());
             UngVien ent = blc_user.GetUngVienByID(idNTD);
             //
-           
+            YeuCauTuyenDung yctd = blc_user.GetYeuCauTD_ByID(ent.IdYeuCau.Value);
             if (e.CommandName == "DeleteItem")
             {
                 if (ent != null)
@@ -202,6 +277,7 @@ namespace WebCus
                     if (blc_user.DeleteUngVien(idNTD) == true)
                     {
                         Alert.Show("Ẩn thành công!");
+                        Response.Redirect("/Thongtinungvien.aspx?type=0");
                     }
                 }
                 int type = 0;
@@ -226,6 +302,17 @@ namespace WebCus
 
                     
                     NhanVien dbnv = new NhanVien();
+                    var strName = RemoveUnicode(ent.HoTen).Split(' ');
+                    var strplsu = "";
+                    if (strName != null)
+                    {
+                        strplsu = strName[strName.Length - 1];
+                        for (int i = 0; i < strName.Length - 1; i++)
+                        {
+                            strplsu += strName[i].Substring(0, 1).ToLower();
+                        }
+                    }
+
                     if (ent.IdNhanVien == null)
                         dbnv = new NhanVien();
                     else
@@ -241,7 +328,12 @@ namespace WebCus
                     dbnv.NguyenQuan = "";
                     dbnv.DCThuongTru = ent.DCThuongTru;
                     dbnv.DCTamTru = ent.DCTamTru;
-                    dbnv.Email = ent.Email;
+                    if (yctd.TrucThuoc.Value == 1)
+                        dbnv.Email = strplsu + "@nguyenkimvn.vn";
+                    if (yctd.TrucThuoc.Value == 2)
+                        dbnv.Email = strplsu + "@chinhnhan.vn";
+                    if (yctd.TrucThuoc.Value == 3)
+                        dbnv.Email = strplsu + "@smartconnection.com.vn";
                     dbnv.SoDt = ent.SoDt;
                     Quatrinhdaotao Quatrinhdaotao = JsonConvert.DeserializeObject<Quatrinhdaotao>(ent.QuaTrinhDaoTao);
                     if (Quatrinhdaotao != null)
@@ -323,7 +415,7 @@ namespace WebCus
                         Ungvien_Trangthai uvtt = blc_user.GetUngvien_TrangthaiById(idNTD);
                         DanhGiaTuyenDung dgtd = blc_user.CheckDanhGiatuyenDung(ent.Id);
                         ttuv.NgayVaoLam = dgtd.Ngaynhanviec.HasValue ? dgtd.Ngaynhanviec.Value : DateTime.Now;
-                        YeuCauTuyenDung yctd = blc_user.GetIDPhongBanByYeuCau(ent.IdYeuCau.Value);
+                       // YeuCauTuyenDung yctd = blc_user.GetIDPhongBanByYeuCau(ent.IdYeuCau.Value);
                         if (yctd != null)
                         {
                             ttuv.PhongBan = yctd.IDPhongBan;
@@ -331,22 +423,18 @@ namespace WebCus
                         }
                         blc_user.CreateTTNhanSu(ttuv);
                         //User 
-                        var strName = RemoveUnicode(ent.HoTen).Split(' ');
-                        var strplsu = "";
-                        if (strName != null)
-                        {
-                            strplsu = strName[strName.Length - 1];
-                            for (int i = 0; i < strName.Length - 1; i++)
-                            {
-                                strplsu += strName[i].Substring(0, 1).ToLower();
-                            }
-                        }
+                        
                         TUser tuser = new TUser();
                         tuser.LoginID = strplsu;
                         tuser.UserName = ent.HoTen;
                         tuser.Password = "YrItVniimrc=";
                         tuser.Tel = ent.SoDt;
-                        tuser.Email = ent.Email;
+                        if (yctd.TrucThuoc.Value == 1)
+                            tuser.Email = strplsu + "@nguyenkimvn.vn";
+                        if (yctd.TrucThuoc.Value == 2)
+                            tuser.Email = strplsu + "@chinhnhan.vn";
+                        if (yctd.TrucThuoc.Value == 3)
+                            tuser.Email = strplsu + "@smartconnection.com.vn";
                         tuser.Address = ent.DCThuongTru;
                         tuser.UserType = 7;
                         tuser.IdNhansu = result;
@@ -379,8 +467,8 @@ namespace WebCus
                         // 
                         contenthtml += "<tr style='padding:3px 3px;'>";
                         contenthtml += "<td>";
-                        tuser = blc_user.GetUserByNhanvienId(ent.IdNhanVien.Value);
-                        contenthtml += "User đăng nhập: " + tuser.LoginID + " " + "Password: " + "1";
+                        //tuser = blc_user.GetUserByNhanvienId(ent.IdNhanVien.Value);
+                        //contenthtml += "User đăng nhập: " + tuser.LoginID + " " + "Password: " + "1";
                         contenthtml += "</td>";
                         contenthtml += "</tr>";
                         //
@@ -466,6 +554,11 @@ namespace WebCus
 
                 Type2 = int.Parse(rad2.Replace("ip", ""));
             }
+            if(rad== "ip0")
+            {
+                Type = 1;
+                Type2 = 10;
+            }
             blc_user.UpdateStatus(id, Type, Type2);
             Response.Redirect(Request.RawUrl);
 
@@ -484,20 +577,18 @@ namespace WebCus
             }
         }
         private void CreateUpdateType()
-        {
+        { 
             if (this.IDNTD == new Guid())
             {
-                if (blc_user.CheckExistUngVien(this.txthoTen.Text))
-                {
-                    Alert.Show("Bạn đã nhập ứng viên này!");
-                    return;
-                }
+                //if (blc_user.CheckExistUngVien(this.txthoTen.Text))
+                //{
+                //    message = "Tên ứng viên này đã tồn tại trong hệ thống!"; 
+                //}
                
                 int type = 0;
                 if (Request.QueryString["type"] != null)
                 {
                     type = int.Parse(Request.QueryString["type"].ToString());
-
                 }
                 else
                 {
@@ -507,7 +598,7 @@ namespace WebCus
                 BindGird(int.Parse(drop_yeucautuyendung.SelectedValue),type);
                 resetfield();
                 tb_input.Visible = false;
-                Alert.Show("Susscess!");
+                 Response.Redirect("/Thongtinungvien.aspx?type=0");
             }
             else
             {
@@ -773,7 +864,10 @@ namespace WebCus
                 strResult += "<div><strong class='dateks'>" + input + " Ngày đồng bộ: " + uvStatus.Ngaydongbo.Value + " </strong></div>";
                 UngVien uv = blc_user.GetUngVienByID(id);
                 ThongTinNhanSu ttns = blc_user.GetTTNhansu_byID(uv.IdNhanVien.Value);
-                strResult += "<div><strong class='dateks'>" + input + " Ngày vào làm: " + ttns.NgayVaoLam + " </strong></div>";
+                if(ttns!=null)
+                {
+                    strResult += "<div><strong class='dateks'>" + input + " Ngày vào làm: " + ttns.NgayVaoLam + " </strong></div>";
+                }
 
             }
             return strResult;
@@ -810,19 +904,48 @@ namespace WebCus
                 strResult += "<a style='position:relative;padding-left: 30px;' href='Khaosathoinhap.aspx?id=" + id + "' target='_blank' class='btnKhaosat'>" + ip3 + "Khảo sát</a>";
 
                 Ungvienkhaosat uvks = blc_user.GetUngvienkhaosat(uv.IdNhanVien.Value);
+
                 if (uvks != null)
                 {
                     if (uvks.Ks7Ngay != null)
                     {
                         strResult += "<div><strong class='dateks'> Khảo sát 7 ngày: " + uvks.Ks7NgayDate.Value + " </strong></div>";
                     }
+                    else
+                    {
+                        strResult += "<div><strong class='dateks'> Khảo sát 7 ngày: " + "<strong style=\"color:red\" >Chưa đánh giá</strong>" + " </strong></div>";
+                    }
+
                     if (uvks.Ks14Ngay != null)
                     {
                         strResult += "<div><strong class='dateks'> Khảo sát 14 ngày: " + uvks.Ks14NgayDate.Value + " </strong></div>";
                     }
+                    else
+                    {
+                        if (uvks.Step >=2 )
+                        {
+                            strResult += "<div><strong class='dateks'> Khảo sát 14 ngày : " + "<strong style=\"color:red\" >Chưa đánh giá</strong>" + " </strong></div>";
+                        }
+                    }
                     if (uvks.ks2Thang != null)
                     {
                         strResult += "<div><strong class='dateks'> Khảo sát 2 tháng: " + uvks.KS2ThangDate.Value + " </strong></div>";
+                    }
+                    else
+                    {
+                        if (uvks.Step == 3)
+                        {
+                            strResult += "<div><strong class='dateks'> Khảo sát 2 tháng : " + "<strong style=\"color:red\" >Chưa đánh giá</strong>" + " </strong></div>";
+                        }
+                    }
+
+                }
+                else
+                {
+                    //Kiem tra co phan quyen chua
+                    if (blc_user.CheckPhanquyendanhgia(tuser))
+                    {
+                        strResult += "<div><strong class='dateks'> Khảo sát 7 ngày: " + "<strong style=\"color:red\" >Chưa đánh giá</strong>" + " </strong></div>";
                     }
                 }
 
@@ -842,14 +965,14 @@ namespace WebCus
                 input += "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\"/>";
 
 
-
+            var dgtv = blc_user.CheckDanhGiaThuViec(id);
             if (uvStatus.Ngaydongbo.HasValue)
             {
                 string inputnguoidanhgia = "";
                 string inputtruongphong = "";
                 string inputnhansu = "";
                 string inputbangiamdoc = "";
-                var dgtv = blc_user.CheckDanhGiaThuViec(id);
+              
 
                 if (dgtv != null && dgtv.NgayNguoiDanhGia != null)
                     inputnguoidanhgia = "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
@@ -859,14 +982,42 @@ namespace WebCus
                     inputnhansu = "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
                 if (dgtv != null && dgtv.NgayBanGiamDoc != null)
                     inputbangiamdoc = "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
-                strResult += "<a style='position:relative;padding-left: 32px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink6('" + id + "','" + 1 + "','" + this.UserMemberID + "')\" >" + inputnguoidanhgia + "Người đánh giá " + (((dgtv != null && dgtv.MailNguoiDanhGia.HasValue) && dgtv.MailNguoiDanhGia.Value == 1) ? "( Đã gửi mail )" : "") + "</a>";
-                strResult += "<a style='position:relative;padding-left: 32px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink6('" + id + "','" + 2 + "','" + this.UserMemberID + "')\" >" + inputtruongphong + "Trưởng phòng chuyên môn" + (((dgtv != null && dgtv.MailTruongPhong.HasValue) && dgtv.MailTruongPhong.Value == 1) ? "( Đã gửi mail )" : "") + "</a>";
-                strResult += "<a style='position:relative;padding-left: 27px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink4('" + id + "')\" >" + inputnhansu + "Phòng nhân sự</a>";
-                strResult += "<a style='position:relative;padding-left: 27px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink6('" + id + "','" + 4 + "','" + this.UserMemberID + "')\" >" + inputbangiamdoc + "Ban giám đốc" + (((dgtv != null && dgtv.MailBanGiamDoc.HasValue) && dgtv.MailBanGiamDoc.Value == 1) ? "( Đã gửi mail )" : "") + "</a>";
+                strResult += "<a style='position:relative;padding-left: 27px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink4('" + id + "')\" >" + inputnhansu + "Đánh giá</a>";
             }
-            if (uvStatus.NgayDanhGiaThuViec.HasValue)
+            if (dgtv != null)
             {
-                strResult += "<div><strong class='dateks'>" + " Ngày đánh giá: " + uvStatus.NgayDanhGiaThuViec.Value + " </strong></div>";
+                if (dgtv.NgayNguoiDanhGia != null)
+                {
+                    TUser ndg = blc_user.GetUser_ByIDAll(dgtv.IdNguoiDanhGia.Value);
+                    if (ndg != null)
+                    {
+                        strResult += "<div><strong class='dateks'>" + " Người đánh giá: " + ndg.UserName + " " + dgtv.NgayNguoiDanhGia.Value + " </strong></div>";
+                    }
+                }
+                if (dgtv.NgayTruongPhong != null)
+                {
+                    TUser ndg = blc_user.GetUser_ByIDAll(dgtv.IdTruongPhong.Value);
+                    if (ndg != null)
+                    {
+                        strResult += "<div><strong class='dateks'>" + " Trưởng phòng đánh giá: " + ndg.UserName + " " + dgtv.NgayTruongPhong.Value + " </strong></div>";
+                    }
+                }
+                if (dgtv.NgayHCNS != null)
+                {
+                    TUser ndg = blc_user.GetUser_ByIDAll(dgtv.IdHCNS.Value);
+                    if (ndg != null)
+                    {
+                        strResult += "<div><strong class='dateks'>" + " HCNS đánh giá: " + ndg.UserName + " " + dgtv.NgayHCNS.Value + " </strong></div>";
+                    }
+                }
+                if (dgtv.NgayBanGiamDoc != null)
+                {
+                    TUser ndg = blc_user.GetUser_ByIDAll(dgtv.IdBanGiamDoc.Value);
+                    if (ndg != null)
+                    {
+                        strResult += "<div><strong class='dateks'>" + " BGD đánh giá: " + ndg.UserName + " " + dgtv.NgayBanGiamDoc.Value + " </strong></div>";
+                    }
+                }
             }
             strResult += " </div>";
             return strResult;
@@ -1550,9 +1701,16 @@ namespace WebCus
                             var splthang = splden[0].Split(new string[] { "tháng" }, StringSplitOptions.None);
                             var splthang2 = splden[1].Split(new string[] { "tháng" }, StringSplitOptions.None);
                             var lastu = splthang[1].Split(new string[] { "năm" }, StringSplitOptions.None);
-                            var lastu2 = splthang2[1].Split(new string[] { "năm" }, StringSplitOptions.None);
-                            qtlv2.Fromdate = lastu[0].Replace(".", "").Replace("…", "") + "/" + lastu[1].Replace("\r", "").Trim();
-                            qtlv2.Todate = lastu2[0].Replace(".", "").Replace("…", "") + "/" + lastu2[1].Replace("\r", "").Trim();
+                            try
+                            {
+                                var lastu2 = splthang2[1].Split(new string[] { "năm" }, StringSplitOptions.None);
+                                qtlv2.Fromdate = lastu[0].Replace(".", "").Replace("…", "") + "/" + lastu[1].Replace("\r", "").Trim();
+                                qtlv2.Todate = lastu2[0].Replace(".", "").Replace("…", "") + "/" + lastu2[1].Replace("\r", "").Trim();
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
 
                         }
                     }
@@ -1807,7 +1965,13 @@ namespace WebCus
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             blc_user2.CapNhatNextPV(id);
         }
+        [WebMethod]
+        public static void capnhat_uvyctd(Guid id,int IdYeuCau)
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
 
+            blc_user2.capnhat_uvyctd(id, IdYeuCau);
+        }
         public string ReturnTable(Guid id)
         {
             string html = "";
@@ -1837,6 +2001,13 @@ namespace WebCus
             html += "</div>";
             return html;
         }
+
+        public string SuaYCTD(Guid id)
+        {
+            UngVien uv = blc_user.GetUngVienByID(id);
+            return "<a class=\"btn_SuaYCTD\" onclick=\"modalCSYCTD('" + uv.IdYeuCau.Value +"_"+id+ "')\">Chỉnh sửa</a>";
+        }
+
         public string GetNgayVL(Guid id)
         {
             UngVien uv = blc_user.GetUngVienByID(id);
@@ -1845,7 +2016,8 @@ namespace WebCus
                 if(uv.IdNhanVien!=null && uv.IdNhanVien.Value != 0)
                 {
                     ThongTinNhanSu ttns = blc_user.GetTTNhansu_byID(uv.IdNhanVien.Value);
-                    if (ttns.NgayVaoLam.HasValue)
+
+                    if (ttns!=null && ttns.NgayVaoLam.HasValue)
                     {
                         return "<strong>"+ ttns.NgayVaoLam.Value.ToShortDateString() + "</strong>" + "<a style=\"margin-left:10px;\" onclick=\"ShowPopupNgayVaolam('"+id+"')\"><img src=\"/Images/Icon/modify.gif\" ></a>";
                     }
@@ -1880,6 +2052,8 @@ namespace WebCus
                     return "Từ chối nhận việc" + "<a class=\"btnCapnhat\" onclick=\"capnhattrangthai('" + id + "','" + uv.HoTen + "','" + uv.TrangThaiPhongVan + "','" + uv.TrangThaiNhanViec + "')\">Cập nhật</a>";
                 if (uv.TrangThaiNhanViec == 9)
                     return "Đã nghỉ việc" + "<a class=\"btnCapnhat\" onclick=\"capnhattrangthai('" + id + "','" + uv.HoTen + "','" + uv.TrangThaiPhongVan + "','" + uv.TrangThaiNhanViec + "')\">Cập nhật</a>";
+                if (uv.TrangThaiNhanViec == 10)
+                    return "Xem xét thêm" + "<a class=\"btnCapnhat\" onclick=\"capnhattrangthai('" + id + "','" + uv.HoTen + "','" + uv.TrangThaiPhongVan + "','" + uv.TrangThaiNhanViec + "')\">Cập nhật</a>";
             }
             return "";
         }
@@ -1888,6 +2062,96 @@ namespace WebCus
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             return blc_user2.ImportFileLog(id, path);
+        }
+
+        [WebMethod]
+        public static int GetMessageNumber()
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+            return blc_user2.GetMessageCount();
+        }
+        [WebMethod]
+        public static string GetMessageContent()
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+            return blc_user2.GetMessageContent();
+        }
+        [WebMethod]
+        public static bool HideMessage(int tbMessageId)
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+            return blc_user2.HideMessage(tbMessageId);
+        }
+
+        public bool ShowHideButton()
+        {
+            return true;
+        }
+
+        [WebMethod]
+        public static string GetYCTD()
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+            var model = blc_user2.ListYCTD();
+            
+            string result = "";
+            foreach(var item in model)
+            {
+                result += "<option value='"+item.IdYeuCau+"'>"+item.TieuDe+"</option>";
+            }
+            return JsonConvert.SerializeObject(result);
+        }
+
+
+        [WebMethod]
+        public static string Searchtenungvien(string Name)
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+
+            var Listungvien = blc_user2.GetListUngVienByKeySearch(Name).ToList();
+            string result = "";
+            foreach (var item in Listungvien)
+            {
+                int type = 0;
+                if (item.TrangThaiPhongVan == 0 && item.TrangThaiNhanViec==0)
+                    type = 0;
+                if ((item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 0) || (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 5))
+                    type = 1;
+                if (item.TrangThaiPhongVan == 2 && item.TrangThaiNhanViec == 0)
+                    type = 2;
+                if (item.TrangThaiPhongVan == 3 && item.TrangThaiNhanViec == 0)
+                    type = 3;
+                if (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 10)
+                    type = 9;
+                if (item.TrangThaiPhongVan == 4 && item.TrangThaiNhanViec == 0)
+                    type = 4;
+                if (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 6)
+                    type = 5;
+                if (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 7)
+                    type = 6;
+                if (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 8)
+                    type = 7;
+                if (item.TrangThaiPhongVan == 1 && item.TrangThaiNhanViec == 9)
+                    type = 8;
+                if (item.HoTen != "")
+                {
+                    result += "<li><a href='Thongtinungvien.aspx?type="+ type+"&hoten="+item.HoTen+"'>" + item.HoTen + "</a></li>";
+                }
+               
+            }
+            return JsonConvert.SerializeObject(result);
+        }
+
+        [WebMethod]
+        public static int Kiemtratrungten(string HoTen,int idyctd)
+        {
+            UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
+
+            var check = blc_user2.CheckExistUngVien(HoTen);
+            blc_user2.CreateUngVien(HoTen, idyctd);
+            if (check)
+                return 1;
+            return 0;
         }
     }
 }

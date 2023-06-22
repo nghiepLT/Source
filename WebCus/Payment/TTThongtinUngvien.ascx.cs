@@ -623,18 +623,16 @@ namespace WebCus
                 input += "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
             else
                 input += "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\"/>";
-
-           
-                
+            Danhgiathuviec dgtv = blc_user.GetDanhgiathuviec(id);
             if (uvStatus.NgayKhaosatHoiNhap.HasValue)
             {
                 string inputnguoidanhgia = "";
                 string inputtruongphong = "";
                 string inputnhansu = "";
-                string inputbangiamdoc = "";    
-                var dgtv = blc_user.CheckDanhGiaThuViec(id);
-                
-                if(dgtv!=null && dgtv.NgayNguoiDanhGia!=null)
+                string inputbangiamdoc = "";
+               
+
+                if (dgtv!=null && dgtv.NgayNguoiDanhGia!=null)
                     inputnguoidanhgia= "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
                 if (dgtv != null && dgtv.NgayTruongPhong != null)
                     inputtruongphong = "<input class='inputStatus' style='pointer-events:none;' type=\"checkbox\" checked />";
@@ -647,9 +645,18 @@ namespace WebCus
                 strResult += "<a style='position:relative;padding-left: 27px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink4('" + id + "')\" >" + inputnhansu + "Phòng nhân sự</a></div>";
                 strResult += "<div style='text-align: left;'><a style='position:relative;padding-left: 27px;width: auto;' class='btnTomtatphucloi' onclick =\"ShowPopupMapLink6('" + id + "','" + 4 + "','" + this.UserMemberID + "')\" >" + inputbangiamdoc + "Ban giám đốc" + (((dgtv != null && dgtv.MailBanGiamDoc.HasValue) && dgtv.MailBanGiamDoc.Value == 1) ? "( Đã gửi mail )" : "") + "</a></div>";
             }
-            if (uvStatus.NgayDanhGiaThuViec.HasValue)
+           
+            if (dgtv!=null)
             {
-                strResult += "<div><strong class='dateks'>" + " Ngày đánh giá: " + uvStatus.NgayDanhGiaThuViec.Value + " </strong></div>";
+                if (dgtv.NgayNguoiDanhGia != null)
+                {
+                    TUser ndg = blc_user.GetUser_ByIDAll(dgtv.IdNguoiDanhGia.Value);
+                    if (ndg != null)
+                    {
+                        strResult += "<div><strong class='dateks'>" + " Người đánh giá: " + ndg.UserName+" "+ dgtv.NgayNguoiDanhGia.Value + " </strong></div>";
+                    }
+                    
+                }
             }
             strResult += " </div>"; 
             return strResult;

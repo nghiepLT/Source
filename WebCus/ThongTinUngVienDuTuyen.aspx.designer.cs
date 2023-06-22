@@ -13,6 +13,15 @@ namespace WebCus {
     public partial class ThongTinUngVienDuTuyen {
         
         /// <summary>
+        /// logomain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage logomain;
+        
+        /// <summary>
         /// vitriungtuyen control.
         /// </summary>
         /// <remarks>
@@ -1036,7 +1045,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText linhvuchd1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea linhvuchd1;
         
         /// <summary>
         /// congtytu1 control.
@@ -1162,7 +1171,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText linhvuchoatdong2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea linhvuchoatdong2;
         
         /// <summary>
         /// congtytu2 control.
@@ -1460,6 +1469,15 @@ namespace WebCus {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea ViSaoBanMuon;
+        
+        /// <summary>
+        /// logomain2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage logomain2;
         
         /// <summary>
         /// ksDinhhuongcongviec control.

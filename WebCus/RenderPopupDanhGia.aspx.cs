@@ -46,7 +46,29 @@ namespace WebCus
             if (Request.QueryString["id"] != null)
             {
                 Guid GuiId = Guid.Parse(Request.QueryString["id"].ToString());
+                this.idungvien.Value = (Guid.Parse(Request.QueryString["id"].ToString())).ToString();
+                //Logo
+                var idUser = this.UserMemberID;
+                this.userid.Value = idUser.ToString();
                 UngVien uv = blc_user.GetUngVienByID(GuiId);
+                YeuCauTuyenDung getyctd = blc_user.GetYeuCauTD_ByID(uv.IdYeuCau.Value);
+                if (getyctd != null)
+                {
+                    if (getyctd.TrucThuoc == 1)
+                    {
+                        this.logomain.Src = "/Images/logo_form.png";
+                    }
+                    if (getyctd.TrucThuoc == 2)
+                    {
+                        this.logomain.Src = "/Images/Logo/chinhnhan_logo.png";
+                    }
+                    if (getyctd.TrucThuoc == 3)
+                    {
+                        this.logomain.Src = "/Images/Logo/smc_logo.jpg";
+                    }
+                }
+                //
+           
                 if (Request.QueryString["type"] != null)
                 {
                     var key = Utility.Decrypt(Request.QueryString["type"]);
@@ -116,7 +138,7 @@ namespace WebCus
                         if (!string.IsNullOrEmpty(dgtd.KienThucChuyenNganh))
                         {
                             this.diemkienthuc1.Value = dgtd.KienThucChuyenNganh.Split(',')[0];
-                            this.nhanxetkienthuc1.Value = dgtd.KienThucChuyenNganh.Split(',')[1];
+                           this.nhanxetkienthuc1.Value = dgtd.KienThucChuyenNganh.Split(',')[1];
                         }
                         //Chuyên môn
                         if (!string.IsNullOrEmpty(dgtd.ChuyenMon))

@@ -253,6 +253,19 @@
     <Content Include="bin\WebCus.pdb" />
     <Content Include="Accepwork.aspx" />
     <Content Include="DanhGiaThuViec.aspx" />
+    <Content Include="FORM TUYEN DUNGbk\causql.txt" />
+    <Content Include="FORM TUYEN DUNGbk\chucvu.txt" />
+    <Content Include="FORM TUYEN DUNGbk\danhgiaungvien.png" />
+    <Content Include="FORM TUYEN DUNGbk\deleteungvien.txt" />
+    <Content Include="FORM TUYEN DUNGbk\Huongdankhaosathoinhap.png" />
+    <Content Include="FORM TUYEN DUNGbk\LOGO CHINH NHAN-1.png" />
+    <Content Include="FORM TUYEN DUNGbk\LOGO SMART CONNECTION.jpg" />
+    <Content Include="FORM TUYEN DUNGbk\Maudanhgia7ngay.jpg" />
+    <Content Include="FORM TUYEN DUNGbk\Maukhaosat7ngay.txt" />
+    <Content Include="FORM TUYEN DUNGbk\mk.txt" />
+    <Content Include="FORM TUYEN DUNGbk\thumoinhanviec.png" />
+    <Content Include="FORM TUYEN DUNGbk\z4140932353321_6b81b67df367964998050b3a91f4e1b6.jpg" />
+    <Content Include="FORM TUYEN DUNGbk\z4140935439200_cb853daa52b8678655c97a0dd02bbe23.jpg" />
     <Content Include="js\accounting.js" />
     <Content Include="js\moment.min.js" />
     <Content Include="Khaosathoinhap.aspx" />
@@ -265,6 +278,7 @@
     <Content Include="RenderPopupThuChucMung.aspx" />
     <Content Include="TestCapcha.aspx" />
     <Content Include="ThietLapGuiMail.aspx" />
+    <Content Include="ThongKeKhaoSat.aspx" />
     <Content Include="Thongketuyendung.aspx" />
     <Content Include="Tomtatphucloi.aspx" />
     <Content Include="Danhgiaungvien.aspx" />
@@ -2873,6 +2887,13 @@
     <Compile Include="ThietLapGuiMail.aspx.designer.cs">
       <DependentUpon>ThietLapGuiMail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeKhaoSat.aspx.cs">
+      <DependentUpon>ThongKeKhaoSat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThongKeKhaoSat.aspx.designer.cs">
+      <DependentUpon>ThongKeKhaoSat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Thongketuyendung.aspx.cs">
       <DependentUpon>Thongketuyendung.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3508,7 +3529,6 @@
     <Content Include="Images\Icon\btn_move.gif" />
     <Content Include="Images\Icon\btn_search.gif" />
     <Content Include="Images\Icon\UpLoad.gif" />
-    <Content Include="Images\Logo\logo.jpg" />
     <Content Include="Images\News\Main\2009_08_08_10_29_38_93.jpg" />
     <Content Include="Include\JS\ShowImage.js" />
     <Content Include="js\boxover.js" />
@@ -3527,6 +3547,24 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="bin\WebCus.dll.config" />
+    <Content Include="FORM TUYEN DUNGbk\1. Phiếu đề nghị Tuyển dụng.doc" />
+    <Content Include="FORM TUYEN DUNGbk\10.Khảo sát NV 7-14-30-90.xlsx" />
+    <Content Include="FORM TUYEN DUNGbk\11.Phiếu đánh giá thử việc.doc" />
+    <Content Include="FORM TUYEN DUNGbk\12.Mail chúc mừng NV chính thức %28sau tg thử việc%29.docx" />
+    <Content Include="FORM TUYEN DUNGbk\13102022-THƯ MỜI NHẬN VIỆC KIM MAO - NHÂN VIÊN KINH DOANH.doc" />
+    <Content Include="FORM TUYEN DUNGbk\13102022-THƯ MỜI NHẬN VIỆC LÊ THÀNH NGHIỆP - PHÁT TRIỂN PHẦN MỀM.doc" />
+    <Content Include="FORM TUYEN DUNGbk\2. Đăng tin tuyển dụng %28theo thời điểm%29.docx" />
+    <Content Include="FORM TUYEN DUNGbk\3. Thông tin UV dự tuyển.doc" />
+    <Content Include="FORM TUYEN DUNGbk\4. Thư mời phỏng vấn.docx" />
+    <Content Include="FORM TUYEN DUNGbk\5. Phiếu đánh giá sau PV.doc" />
+    <Content Include="FORM TUYEN DUNGbk\6. Thư mời nhận việc.docx" />
+    <Content Include="FORM TUYEN DUNGbk\6.1Form thư mời nhận việc.doc" />
+    <Content Include="FORM TUYEN DUNGbk\7. Tóm tắt qui trình hướng dẫn NV mới.docx" />
+    <Content Include="FORM TUYEN DUNGbk\8. Tóm tắt phúc lợi hướng dẫn NV mới.docx" />
+    <Content Include="FORM TUYEN DUNGbk\9.Đánh giá NV mới sau 7 ngày theo ISO.xlsx" />
+    <Content Include="FORM TUYEN DUNGbk\FileHuongDanQuanLyTuyenDung.docx" />
+    <Content Include="FORM TUYEN DUNGbk\TuyedungImport.doc" />
+    <Content Include="FORM TUYEN DUNGbk\TuyedungImport2.doc" />
     <None Include="Images\graphics\outlines\Outlines.psd" />
     <None Include="Images\graphics\outlines\Thumbs.db" />
     <None Include="Images\graphics\Thumbs.db" />
@@ -3897,6 +3935,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Database\" />
+    <Folder Include="Images\Logo\" />
     <Folder Include="Images\News\Category\" />
     <Folder Include="Images\Web\Flag\" />
     <Folder Include="img_take_camera\" />

@@ -27,6 +27,7 @@ namespace PQT.DAC.ViewModel
         public int Khaosathoinhap { get; set; }
         public string NgayKhaosatHoiNhap { get; set; }
         public string Phongban { get; set; }
+        public int IDPhongBan { get; set; }
         public int TrucThuoc { get; set; }
         public string TrangThai { get; set; }
         public int TrangThaiYCTD { get; set; }

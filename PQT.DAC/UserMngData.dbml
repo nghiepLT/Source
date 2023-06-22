@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EmployeeData" Class="UserMngDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.117.111;Initial Catalog=EmployeeData;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="EmployeeDataConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.117.250;Initial Catalog=EmployeeData;User ID=sa" SettingsObjectName="PQT.DAC.Properties.Settings" SettingsPropertyName="EmployeeDataConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TMapType" Member="TMapTypes">
     <Type Name="TMapType">
       <Column Name="MapTypeID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -606,26 +606,6 @@
       <Column Name="KS2ThangDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Danhgiathuviec" Member="Danhgiathuviecs">
-    <Type Name="Danhgiathuviec">
-      <Column Name="DanhGiaThuViecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="DanhGia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Files" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="IdNguoiTao" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdNguoiDanhGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayNguoiDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdTruongPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayTruongPhong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdHCNS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayHCNS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdBanGiamDoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayBanGiamDoc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MailNguoiDanhGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MailTruongPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MailBanGiamDoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Ungvien_Trangthai" Member="Ungvien_Trangthais">
     <Type Name="Ungvien_Trangthai">
       <Column Name="UngVien_StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -793,6 +773,36 @@
       <Column Name="Reason" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="IsShow" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IsDone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbMessages" Member="tbMessages">
+    <Type Name="tbMessage">
+      <Column Name="tbMessageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MessageContents" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DateCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsRead" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Danhgiathuviec" Member="Danhgiathuviecs">
+    <Type Name="Danhgiathuviec">
+      <Column Name="DanhGiaThuViecId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DanhGia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Files" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IdNguoiTao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdNguoiDanhGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayNguoiDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdTruongPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTruongPhong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdHCNS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayHCNS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdBanGiamDoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayBanGiamDoc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MailNguoiDanhGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MailTruongPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MailBanGiamDoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NguoiDanhGia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ChucVuDanhGia" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CountCase_by_IDUser" Method="CountCase_by_IDUser">

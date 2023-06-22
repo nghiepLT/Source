@@ -47,6 +47,7 @@ namespace WebCus
         {
             if (!IsPostBack)
             {
+                this.userid.Value = UserMemberID.ToString();
                 if (Request.QueryString["id"] != null)
                 {
                     this.IDNTD = Guid.Parse(Request.QueryString["id"]);
@@ -158,16 +159,16 @@ namespace WebCus
             this.phucloi.Value = HtmlToPlainText(data.Where(m => m.ChedoId == 4).FirstOrDefault().Description);
         }
         [WebMethod]
-        public static string UDChedobaohiem(string name,int status)
+        public static string UDChedobaohiem(string name,int status,int userid)
         {
             UserMngOther_BLC blc_user2 = new UserMngOther_BLC();
             if (name == "true")
             {
-                blc_user2.CapnhatStatusPhucloi(UserMemberIDStatic,status, 1);
+                blc_user2.CapnhatStatusPhucloi(userid, status, 1);
             }
             else
             {
-                blc_user2.CapnhatStatusPhucloi(UserMemberIDStatic, status, 0);
+                blc_user2.CapnhatStatusPhucloi(userid, status, 0);
             }
             return "Hello " + name;
         }

@@ -31,6 +31,33 @@ namespace WebCus {
         protected global::System.Web.UI.HtmlControls.HtmlInputText iduser;
         
         /// <summary>
+        /// typePhanquyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText typePhanquyen;
+        
+        /// <summary>
+        /// typeChucvu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText typeChucvu;
+        
+        /// <summary>
+        /// idungvien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText idungvien;
+        
+        /// <summary>
         /// hotennhanvien control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace WebCus {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nguoidanhgia;
         
         /// <summary>
+        /// ipNguoiDanhGia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ipNguoiDanhGia;
+        
+        /// <summary>
         /// bophanphong control.
         /// </summary>
         /// <remarks>
@@ -110,6 +146,15 @@ namespace WebCus {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chucvu;
+        
+        /// <summary>
+        /// ipChucVuDanhGia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ipChucVuDanhGia;
         
         /// <summary>
         /// TinhThanTrachNhiemPercent control.
@@ -1072,7 +1117,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Nhanxetnguoidanhgia;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Nhanxetnguoidanhgia;
         
         /// <summary>
         /// radKhongtiepnhan control.
@@ -1180,7 +1225,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText truongphongnhanxet;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea truongphongnhanxet;
         
         /// <summary>
         /// TruongPhongHoTen control.
@@ -1216,7 +1261,7 @@ namespace WebCus {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Hanhchanhnhanxet;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Hanhchanhnhanxet;
         
         /// <summary>
         /// Hanhchanhngay control.

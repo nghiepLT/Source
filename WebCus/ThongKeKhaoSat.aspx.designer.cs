@@ -10,69 +10,51 @@
 namespace WebCus {
     
     
-    public partial class MasterAdmin {
+    public partial class ThongKeKhaoSat {
         
         /// <summary>
-        /// Head1 control.
+        /// tbl_ctcontrol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tbl_ctcontrol;
         
         /// <summary>
-        /// userid control.
+        /// dropTructhuoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userid;
+        protected global::System.Web.UI.WebControls.DropDownList dropTructhuoc;
         
         /// <summary>
-        /// form1 control.
+        /// drop_yeucautuyendung control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList drop_yeucautuyendung;
         
         /// <summary>
-        /// caution control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebCus.ASCX.Content caution;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// MenuAdmin1 control.
+        /// gvBanner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebCus.ASCX.MenuAdmin MenuAdmin1;
-        
-        /// <summary>
-        /// ToolkitScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
-        
-        /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.GridView gvBanner;
     }
 }

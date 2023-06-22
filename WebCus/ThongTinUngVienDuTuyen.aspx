@@ -6,7 +6,7 @@
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
     <div class="container">
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-1">
                 <%-- <div class="menuleft">
                 <ul>
                 <li>
@@ -44,11 +44,11 @@
             </ul>
           </div>--%>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="full_box">
                     <div class="headertitle_box">
                         <div class="headertitle_box_left">
-                            <img src="Images/logo_form.png" class="img-responsive" />
+                            <img src="Images/logo_form.png" class="img-responsive" id="logomain" runat="server" />
                         </div>
                         <div class="headertitle_box_right">
                             <div class="headertitle_box_right_title">
@@ -384,7 +384,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                         </table>
                     </div>
 
-                    <div class="ttcn_title">
+                    <div class="ttcn_title" style="margin-top:47px;">
                         5. QUÁ TRÌNH ĐÀO TẠO (Chỉ ghi văn bằng cao nhất)  
                     </div>
                     <div class="table_1">
@@ -533,15 +533,15 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 <td>Anh
                                 </td>
                                 <td>
-                                    <input class="ips" id="NgheAnh" runat="server" /></td>
+                                    <input onchange="checkvalue(this)" class="ips" id="NgheAnh" runat="server" /></td>
                                 <td>
-                                    <input class="ips" id="NoiAnh" runat="server" /></td>
+                                    <input onchange="checkvalue(this)" class="ips" id="NoiAnh" runat="server" /></td>
                                 <td>
-                                    <input class="ips" id="DocAnh" runat="server" /></td>
+                                    <input onchange="checkvalue(this)" class="ips" id="DocAnh" runat="server" /></td>
                                 <td>
-                                    <input class="ips" id="VietAnh" runat="server" /></td>
+                                    <input onchange="checkvalue(this)" class="ips" id="VietAnh" runat="server" /></td>
                                 <td>
-                                    <input class="ips" id="GhiChuAnh" runat="server" /></td>
+                                    <input  class="ips" id="GhiChuAnh" runat="server" /></td>
                             </tr>
                             <tr>
                                 <td>Pháp
@@ -691,7 +691,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 <td class="tdgray" colspan="2">Điểm mạnh
                                 </td>
                                 <td colspan="2" rowspan="3"> 
-                                    <textarea rows="3" class="ips" id="nangnlucvuottroi" runat="server" style="pointer-events:all" ></textarea>
+                                    <textarea rows="5" class="ips" id="nangnlucvuottroi" runat="server" style="pointer-events:all" ></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -705,7 +705,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                         </table>
                     </div>
 
-                    <div class="ttcn_title">
+                    <div class="ttcn_title" style="margin-top:40px;">
                         6. QUÁ TRÌNH LÀM VIỆC (Nêu 2 nơi làm sau cùng - theo trình tự gần nhất)
                     </div>
                     <div class="table_1">
@@ -725,7 +725,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td colspan="2">Ngành nghề/ lĩnh vực Cty hoạt động :
                              <div>
-                                 <input class="ips" id="linhvuchd1" runat="server" />
+                                 <textarea class="ips" id="linhvuchd1" runat="server" rows="2" style="pointer-events:all" />
                              </div>
                                 </td>
                                 <td style="width: 30%">Thời gian làm việc:
@@ -749,7 +749,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td rowspan="4">Nhiệm vụ và trách nhiệm chính:
                             <div>
-                                <textarea rows="4" style="pointer-events: all;" class="ips" id="nvchinh1" runat="server"></textarea>
+                                <textarea rows="20" style="pointer-events: all;" class="ips" id="nvchinh1" runat="server"></textarea>
                             </div>
                                 </td>
                             </tr>
@@ -808,7 +808,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td colspan="2">Ngành nghề/ lĩnh vực Cty hoạt động :
                              <div>
-                                 <input class="ips" id="linhvuchoatdong2" runat="server" />
+                                 <textarea class="ips" id="linhvuchoatdong2" runat="server" rows="2" style="pointer-events:all"/>
                              </div>
                                 </td>
                                 <td style="width: 30%">Thời gian làm việc:
@@ -832,7 +832,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                                 </td>
                                 <td rowspan="4">Nhiệm vụ và trách nhiệm chính:
                             <div>
-                                <textarea rows="4" style="pointer-events: all;" class="ips" id="nvchinh2" runat="server"></textarea>
+                                <textarea rows="20" style="pointer-events: all;" class="ips" id="nvchinh2" runat="server"></textarea>
                             </div>
                                 </td>
                             </tr>
@@ -990,20 +990,20 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                 </div>
 
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-1">
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top:60px;">
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-1">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div class="full_box table_1">
                     <div class="headertitle_box">
                         <div class="headertitle_box_left">
-                            <img src="Images/logo_form.png" class="img-responsive" />
+                            <img src="Images/logo_form.png" class="img-responsive"  id="logomain2" runat="server" />
                         </div>
                         <div class="headertitle_box_right">
                             <div class="headertitle_box_right_title" style="font-size: 20px;">
@@ -1022,11 +1022,11 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                         </div>
                         <div>
                             <span style="margin-left:20px;margin-right:15px;">-</span><span>	Định hướng công việc: </span>
-                            <input class="ips w70" id="ksDinhhuongcongviec" runat="server" />
+                            <input class="ips w70" id="ksDinhhuongcongviec" runat="server" style="margin-bottom:0px" />
                         </div>
                         <div>
                             <span style="margin-left:20px;margin-right:15px;">-</span><span>Định hướng khác: </span>
-                            <input class="ips w70" id="ksDinhhuongkhac" runat="server" />
+                            <input class="ips w70" id="ksDinhhuongkhac" runat="server" style="margin-bottom:4px" />
                         </div>
                         <div class="ks_title">
                             <strong style="margin-right:15px;">II.</strong><strong style="text-decoration:underline">CHÍNH SÁCH, PHÚC LỢI:</strong>
@@ -1256,7 +1256,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                         </div>
                           <div class="ks_csphucloi">
                             <ul>
-                                <li class="w100"><textarea id="nvcn" runat="server" style="pointer-events:all" class="ips"></textarea></li> 
+                                <li class="w100"><textarea id="nvcn" runat="server" style="pointer-events:all;margin-bottom:0px;" class="ips"></textarea></li> 
                             </ul>
                         </div>
                     </div>
@@ -1266,7 +1266,7 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-1">
             </div>
         </div>
     </div>
@@ -1543,6 +1543,19 @@ thông tin ứng viên cung cấp sẽ được bảo mật)
                 alert("Vui lòng nhập đúng định dạng!");
                 $("#ctl00_ContentPlaceHolder1_namtotnghiep1").focus();
                 return false;
+            }
+        }
+        function checkvalue(dis){
+            if(isNaN($(dis).val()))
+            {
+                $(dis).val('');
+                $(dis).focus();
+                alert("Vui lòng nhập số")
+            }
+            if($(dis).val()>4){
+                $(dis).val('');
+                $(dis).focus();
+                alert("Vui lòng nhập số từ 1 đến 4");
             }
         }
     </script>
