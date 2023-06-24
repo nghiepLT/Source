@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using UserMng.BLC;
 using UserMng.DAC;
 using PQT.DAC.ViewModel;
+using System.Web.Services;
+
 namespace WebCus
 {
     public partial class RenderPopupDanhGia : System.Web.UI.Page
@@ -682,6 +684,51 @@ namespace WebCus
                                 window.close();
                                 </script>";
             base.Response.Write(close);
+        }
+
+        [WebMethod]
+        public static string Login(string username, string password, Guid idungvien)
+        {
+            UserMngOther_BLC blc_user = new UserMngOther_BLC();
+            var checkLogin = blc_user.CheckDangNhap(username, password);
+            if (checkLogin == null)
+                return "-1";
+            ThongTinNhanSu ttns = blc_user.GetTTNhansu_byID(checkLogin.IdNhansu.Value);
+            int vitri = ttns.ViTri.Value;
+            string strVitri = "";
+            if (vitri == 1)
+                strVitri = "Trưởng Phòng";
+            if (vitri == 2)
+                strVitri = "Phó Phòng";
+            if (vitri == 3)
+                strVitri = "Trưởng Nhóm";
+            if (vitri == 4)
+                strVitri = "Nhân Viên";
+            if (vitri == 9)
+                strVitri = "Trưởng Bộ Phận";
+            if (vitri == 10)
+                strVitri = "Phó Bộ Phận";
+            if (vitri == 11)
+                strVitri = "Phó Nhóm";
+            //Kiểm tra lần đâu 
+            var checkExist = blc_user.CheckExistDanhGiaTuyenDung(idungvien);
+            int hasdata = 0;
+            if (checkExist)
+            {
+                hasdata = 1;
+            }
+
+            string result = "0," + checkLogin.UserName + "," + strVitri + ',' + hasdata + "," + checkLogin.UserID;
+            var getChucvu = blc_user.Getchucvu(checkLogin.UserID);
+            if (getChucvu == 1 || getChucvu == 2 || getChucvu == 3 || getChucvu == 9 || getChucvu == 10 || getChucvu == 11)
+            {
+                result = "1," + checkLogin.UserName + "," + strVitri + ',' + hasdata + "," + checkLogin.UserID;
+            }
+            if (getChucvu == 5 || getChucvu == 6 || getChucvu == 8)
+            {
+                result = "2," + checkLogin.UserName + "," + strVitri + ',' + hasdata + "," + checkLogin.UserID;
+            }
+            return result;
         }
     }
 }

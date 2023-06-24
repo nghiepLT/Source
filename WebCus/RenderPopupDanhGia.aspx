@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <input id="userid" runat="server" style="display:none;" />
+    <input id="userid" runat="server" />
     <input id="type" runat="server" style="display:none" />
     <link href="AdminCss/bootstrap.css" rel="stylesheet" />
     <link href="AdminCss/UngVienTuyenDung.css" rel="stylesheet" />
@@ -992,13 +992,21 @@
            
             $.ajax({
                 type: "POST", //POST
-                url: "RenderPopupDanhGiatuyenDung.aspx/Login",
+                url: "RenderPopupDanhGia.aspx/Login",
                 data: "{username:'" + $("#username").val() + "',password:'" + $("#password").val() + "',idungvien:'"+$("#ctl00_ContentPlaceHolder1_idungvien").val()+"'}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 async:false,
                 success: function (msg) {
                     if (msg.d != "-1") {
+                        var type = msg.d;
+                        var splitType = type.split(',');
+                        $("#ctl00_ContentPlaceHolder1_userid").val(splitType[4]).change();
+                        if($("#ctl00_ContentPlaceHolder1_NguoiPV").val()!="")
+                        {
+                            $("#ctl00_ContentPlaceHolder1_Text9").val(splitType[1]).change();
+                        }
+                       // $("#ctl00_ContentPlaceHolder1_NguoiPV").val(splitType[1]).change();
                         $(".mycontainer").show();
                         $(".danhgia_dangnhap_background").hide();
                     }

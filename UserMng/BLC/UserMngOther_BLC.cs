@@ -5149,6 +5149,11 @@ namespace UserMng.BLC
             var check = da.Danhgiathuviecs.Any(m => m.IdNhanVien == IdNhanVien);
             return check;
         }
+        public bool CheckExistDanhGiaTuyenDung(Guid IdNhanVien)
+        {
+            var check = da.DanhGiaTuyenDungs.Any(m => m.IdUngVien == IdNhanVien);
+            return check;
+        }
         #endregion
         #endregion
         #endregion
